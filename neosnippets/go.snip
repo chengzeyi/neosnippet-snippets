@@ -17,7 +17,7 @@ snippet     func
 abbr        func ...() { ... }
 alias fn
 options     head
-  func ${1:fname}(${2}) ${3:int }{
+  func ${1:fname}(${2}) ${3:int} {
     ${0:TARGET:return }
   }
 
@@ -82,9 +82,8 @@ snippet     iferr
 alias       ife
 options     head
     if err != nil {
-      return `g:NeosnippetSnippets_Goiferr()`
+      ${0:TARGET}
     }
-    ${2}
 
 snippet     switch
 abbr        switch {}

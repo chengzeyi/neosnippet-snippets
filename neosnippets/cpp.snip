@@ -1,19 +1,21 @@
 include c.snip
 
 # #include <...>
-snippet inc
+snippet     inc
 options     head
-alias   #inc, #include
+alias       #inc, #include
+abbr        #include <...>
     #include <${1:iostream}>${0}
 # #include "..."
-snippet inc2
+snippet     inc2
 options     head
-alias   #inc2, #include2
+alias       #inc2, #include2
+abbr        #include "..."
     #include "${1}"${0}
 
 snippet     template
 abbr        template <T>
-    template<typename ${1:T}> ${0}
+    template<typename ${1:T}>${0}
 
 snippet     class
 options     head
@@ -65,7 +67,7 @@ abbr        enum struct {};
 # static assert ( C++11 feature )
 snippet     static_assert
 abbr        static_assert(,"")
-    static_assert( ${1}, "${2}" );${0}
+    static_assert(${1}, "${2}");
 
 delete      namespace
 options     head
@@ -95,12 +97,12 @@ snippet     helloworld
 abbr        #include<iostream> int main...
     #include <iostream>
 
-    int main(int argc, char const* argv[])
-    {
+    int main(int argc, char *argv[]) {
         std::cout << "hello, world!" << std::endl;
         return 0;
     }
 
-snippet     p
+snippet     cout
 options     head
-  std::cout << ${0:TARGET} << std::endl;
+abbr        std::cout << ... << std::endl;
+    std::cout << ${0:TARGET} << std::endl;
