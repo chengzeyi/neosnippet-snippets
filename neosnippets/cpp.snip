@@ -29,7 +29,7 @@ abbr        class {}
         ${0:TARGET}
     }
 
-snippet     class-without-constructor
+snippet     class_without_constructor
 options     head
 abbr        class {}
     class ${1:#:name} {
@@ -38,7 +38,7 @@ abbr        class {}
 
 snippet     try
 options     head
-abbr        try catch
+abbr        try {} catch () {}
     try {
         ${1:#:TARGET}
     } catch (${2:...}) {
@@ -66,7 +66,7 @@ abbr        enum struct {};
 
 # static assert ( C++11 feature )
 snippet     static_assert
-abbr        static_assert(,"")
+abbr        static_assert(,"");
     static_assert(${1}, "${2}");
 
 delete      namespace

@@ -14,7 +14,7 @@ abbr        else {}
     }
 
 snippet     elseif
-abbr        else () {}
+abbr        else if () {}
     else if (${1:#:condition}) {
         ${0:TARGET}
     }
@@ -72,8 +72,9 @@ abbr        while () {}
         ${0:TARGET}
     }
 
-snippet     do_while
+snippet     dowhile
 options     head
+abbr        do {} while ();
 alias       do
     do {
         ${0:TARGET:code}
@@ -90,13 +91,14 @@ abbr        switch () {}
 
 snippet     case
 options     head
-abbr        case: break;
+abbr        case ...: ... break;
     case ${1}:
         ${0}
         break;
 
 # Ternary conditional operator
-snippet conditional
+snippet     conditional
+abbr        () ? ... : ...
     (${1:#:condition}) ? ${2:#:a} : ${3:#:b}
 
 # }}}
@@ -112,7 +114,7 @@ abbr        func() {}
 
 snippet     struct
 options     head
-abbr        struct {}
+abbr        struct {};
     struct ${1:#:name} {
         ${0:TARGET:data}
     };
@@ -120,25 +122,28 @@ abbr        struct {}
 # Typedef struct
 snippet     struct_typedef
 options     head
+abbr        typedef struct {};
     typedef struct ${1:#:name} {
         ${0:TARGET:data}
     };
 
 snippet     enum
 options     head
-abbr        enum {}
+abbr        enum {};
     enum ${1:#:name} {
         ${0:TARGET}
     };
 
 snippet     main
 options     head
+abbr        int main(...) {}
     int main(int argc, char *argv[]) {
         ${0:TARGET}
         return 0;
     }
 
 snippet     helloworld
+abbr        #include<stdio.h> int main...
 options     head
     #include <stdio.h>
 
@@ -166,6 +171,7 @@ abbr        #include "..."
 
 snippet     #if
 options     head
+abbr        #if ... #endif
     #if ${1}
     ${0}
     #endif
@@ -190,6 +196,7 @@ abbr        #ifndef ... #endif
 snippet     def
 options     head
 alias       #def, #define
+abbr        #define ...
     #define ${1}
 
 # Include-Guard
