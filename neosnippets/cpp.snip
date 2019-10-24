@@ -64,18 +64,24 @@ abbr        for (:) {}
 # lambda expression ( C++11 feature )
 snippet     lambda
 abbr        [](){}
-    [${1}](${2})${3:#:->} { ${4:TARGET} }${0}
+    [${1}](${2})${3:#: -> auto} { ${4:TARGET} }${0}
+
+snippet     lambda_multi
+abbr        [](){}
+    [${1}](${2})${3:#: -> auto} {
+        ${4:TARGET}
+    }${0}
 
 # scoped enumeration ( C++11 feature )
 snippet     enum_scoped
 options     head
 abbr        enum struct {};
-    enum struct ${1:#:name} { ${2:TARGET} };${0}
+    enum struct ${1:#:name} { ${2:TARGET} };
 
 # static assert ( C++11 feature )
 snippet     static_assert
 abbr        static_assert(,"");
-    static_assert(${1}, "${2}");
+    static_assert(${1:TARGET}, "${2}");
 
 snippet     namespace
 options     head
@@ -113,8 +119,8 @@ abbr        #include<iostream> int main...
 
 snippet     cin
 abbr        std::cin >> ...;
-    std::cin >> ${1:var};${0}
+    std::cin >> ${0:var};
 
 snippet     cout
 abbr        std::cout << ... << std::endl;
-    std::cout << ${1:var} << std::endl;${0}
+    std::cout << ${0:var} << std::endl;
