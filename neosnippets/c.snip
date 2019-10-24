@@ -98,8 +98,9 @@ abbr        case ...: ... break;
 
 # Ternary conditional operator
 snippet     conditional
-abbr        () ? ... : ...
-    (${1:#:condition}) ? ${2:#:a} : ${3:#:b}
+alias       cond
+abbr        () ? () : ()
+    (${1:#:condition}) ? (${2:#:a}) : (${3:#:b})
 
 # }}}
 
