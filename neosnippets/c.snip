@@ -162,14 +162,14 @@ options     head
 # #include <...>
 snippet     inc
 options     head
-alias       #inc, #include
+alias       include, #inc, #include
 abbr        #include <...>
     #include <${1:stdio}.h>${0}
 
 # #include "..."
 snippet     inc2
 options     head
-alias       #inc2, #include2
+alias       include2, #inc2, #include2
 abbr        #include "..."
     #include "${1}.h"${0}
 
@@ -199,13 +199,13 @@ abbr        #ifndef ... #endif
 # This snippet used the placeholder instead of a trailing space
 snippet     def
 options     head
-alias       #def, #define
+alias       define, #def, #define
 abbr        #define ...
     #define ${1}
 
 snippet     und
 options     head
-alias       #und, #undef
+alias       undef, #und, #undef
 abbr        #undef ...
     #undef ${1}
 
