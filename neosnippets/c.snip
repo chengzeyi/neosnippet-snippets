@@ -233,7 +233,7 @@ abbr    scanf("...", ...);
     scanf("${1}", ${2});
 
 snippet fprintf
-abbr    fprintf(..., "...\n", ...);
+abbr    fprintf(file, "...\n", ...);
     fprintf(${1:stderr}, "${2}\n"${3});
 
 snippet fopen
@@ -251,11 +251,11 @@ abbr    fscanf(file, "...", ...);
     fscanf(${1:stdin}, "${2}", ${3});
 
 snippet fwrite
-abbr    fwrite(......, file);
+abbr    fwrite(array, size, count, file);
     fwrite(${1:#:ARRAY}, sizeof(${2:#:TYPE}), ${3:#:N_MEMBERS}, ${4:#:FILE});
 
 snippet fread
-abbr    fread(......, file);
+abbr    fread(array, size, count, file);
     fread(${1:#:ARRAY}, sizeof(${2:#:TYPE}), ${3:#:N_MEMBERS}, ${4:#:FILE});
 
 snippet memcpy
