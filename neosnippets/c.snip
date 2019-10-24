@@ -116,6 +116,22 @@ abbr        type func() {}
         ${0:TARGET}
     }
 
+snippet     function_declare
+options     head
+alias       funcd, fd
+abbr        type func();
+    ${1:void} ${2:#:func_name}(${3:void});
+
+snippet     function_full
+options     head
+alias       funcf, ff
+abbr        type func();
+    ${1:void} ${2:#:func_name}(${3:void});
+
+    $1 $2($3) {
+        ${0:TARGET}
+    }
+
 snippet     struct
 options     head
 abbr        struct {};
