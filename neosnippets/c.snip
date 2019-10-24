@@ -26,7 +26,7 @@ abbr        if () {} else {}
     if (${1:#:condition}) {
         ${2:TARGET}
     } else {
-        ${3}
+        ${0}
     }
 
 snippet     for
@@ -102,8 +102,8 @@ abbr        case ...: ... break;
 # Ternary conditional operator
 snippet     conditional
 alias       cond
-abbr        () ? () : ()
-    (${1:#:condition}) ? (${2:#:a}) : (${3:#:b})
+abbr        ... ? ... : ...
+    ${1:#:condition} ? ${2:#:a} : ${3:#:b}
 
 # }}}
 
@@ -208,13 +208,13 @@ snippet     def
 options     head
 alias       define, #def, #define
 abbr        #define ...
-    #define ${1}
+    #define ${0}
 
 snippet     und
 options     head
 alias       undef, #und, #undef
 abbr        #undef ...
-    #undef ${1}
+    #undef ${0}
 
 # Include-Guard
 snippet     once
@@ -294,12 +294,12 @@ abbr    typedef ... ...;
 snippet sizeof
 alias   size
 abbr    sizeof(...)
-    sizeof(${1:TARGET})
+    sizeof(${1:TARGET})${0}
 
 snippet sizeof_array
 alias   array_size
 abbr    (sizeof(...) / sizeof(*(...)))
-    (sizeof(${1:TARGET}) / sizeof(*($1)))
+    (sizeof(${1:TARGET}) / sizeof(*($1)))${0}
 
 snippet static_assert
 abbr    static_assert(..., ...);
@@ -325,8 +325,7 @@ alias       va
 snippet     comment
 abbr        /* ... */
 alias       /*
-    /* ${1:TARGET} */
-    ${0}
+    /* ${0:TARGET} */
 
 snippet     doxy
 abbr        /** @brief ...
