@@ -1,6 +1,5 @@
 # Control structures {{{
 snippet     if
-options     head
 abbr        if () {}
     if (${1:#:condition}) {
         ${0:TARGET}
@@ -8,19 +7,21 @@ abbr        if () {}
 
 # No head option in else/elseif so it can be expanded after "}"
 snippet     else
+alias       el
 abbr        else {}
     else {
         ${0:TARGET}
     }
 
 snippet     elseif
+alias       elif
 abbr        else if () {}
     else if (${1:#:condition}) {
         ${0:TARGET}
     }
 
 snippet     ifelse
-options     head
+alias       ifel
 abbr        if () {} else {}
     if (${1:#:condition}) {
         ${2:TARGET}
@@ -32,7 +33,7 @@ snippet     for
 options     head
 abbr        for () {}
     for (${1:int} ${2:i} = ${3:0}; $2 < ${4}; ++$2) {
-        ${0:#:TARGET}
+        ${0:TARGET}
     }
 
 # Counter based for's (don't ask for the type or count start)
@@ -40,7 +41,7 @@ snippet     fori
 options     head
 abbr        for (int x; ...; ++x) {}
     for (int ${1:i} = 0; $1 < ${2}; ++$1) {
-        ${0:#:TARGET}
+        ${0:TARGET}
     }
 
 # For reverse counter
@@ -48,27 +49,27 @@ snippet     forri
 options     head
 abbr        for (int x; ...; --x) {}
     for (int ${1:i} = ${2}; $1 >= 0; --$1) {
-        ${0:#:TARGET}
+        ${0:TARGET}
     }
 
 snippet     fors
 options     head
 abbr        for (size_t x; ...; ++x) {}
     for (size_t ${1:i} = 0; $1 < ${2}; ++$1) {
-        ${0:#:TARGET}
+        ${0:TARGET}
     }
 
 snippet     forrs
 options     head
 abbr        for (size_t x; ...; --x) {}
     for (size_t ${1:i} = ${2}; $1 >= 0; --$1) {
-        ${0:#:TARGET}
+        ${0:TARGET}
     }
 
 snippet     while
 options     head
 abbr        while () {}
-    while (${1:#:condition}) {
+    while (${1:true}) {
         ${0:TARGET}
     }
 
@@ -77,8 +78,8 @@ options     head
 abbr        do {} while ();
 alias       do
     do {
-        ${0:TARGET:code}
-    } while (${1:#:condition});
+        ${0:TARGET}
+    } while (${1:true});
 
 snippet     switch
 options     head
@@ -93,7 +94,7 @@ snippet     case
 options     head
 abbr        case ...: ... break;
     case ${1}:
-        ${0}
+        ${0:TARGET}
         break;
 
 # Ternary conditional operator
@@ -117,7 +118,7 @@ snippet     struct
 options     head
 abbr        struct {};
     struct ${1:#:name} {
-        ${0:TARGET:data}
+        ${0:TARGET}
     };
 
 # Typedef struct
@@ -125,7 +126,7 @@ snippet     struct_typedef
 options     head
 abbr        typedef struct {};
     typedef struct ${1:#:name} {
-        ${0:TARGET:data}
+        ${0:TARGET}
     };
 
 snippet     enum
@@ -174,7 +175,7 @@ snippet     #if
 options     head
 abbr        #if ... #endif
     #if ${1}
-    ${0}
+    ${0:TARGET}
     #endif
 
 snippet     ifdef
@@ -182,7 +183,7 @@ options     head
 alias       #ifdef
 abbr        #ifdef ... #endif
     #ifdef ${1:#:SYMBOL}
-    ${0}
+    ${0:TARGET}
     #endif
 
 snippet     ifndef
@@ -190,7 +191,7 @@ options     head
 alias       #ifndef
 abbr        #ifndef ... #endif
     #ifndef ${1:#:SYMBOL}
-    ${0}
+    ${0:TARGET}
     #endif
 
 # This snippet used the placeholder instead of a trailing space
@@ -203,7 +204,7 @@ abbr        #define ...
 # Include-Guard
 snippet     once
 options     head
-alias       include-guard
+alias       include_guard
 abbr #ifndef ... #define ... #endif
     #ifndef ${1:#:SYMBOL}
     #define $1
@@ -230,7 +231,7 @@ abbr    fprintf(..., "...\n", ...);
 snippet fopen
 abbr fopen("...", "...");
     fopen("${1:#:PATH}", "${2:#:MODE}");
-    ${0:#:TARGET}
+    ${0:TARGET}
     fclose(${3:#:FD});
 
 snippet fgets
@@ -278,22 +279,22 @@ abbr    typedef ... ...;
 snippet sizeof
 alias   size
 abbr    sizeof(...)
-    sizeof(${0:#:TARGET})
+    sizeof(${1:TARGET})
 
 snippet sizeof_array
 alias   array_size
 abbr    (sizeof(...) / sizeof(*(...)))
-    (sizeof(${1:#:array}) / sizeof(*($1)))
+    (sizeof(${1:TARGET}) / sizeof(*($1)))
 
 snippet static_assert
 abbr    static_assert(..., ...);
 options head
-    static_assert(${1:#:condition}, ${2:#:message});
+    static_assert(${1:TARGET}, ${2:#:message});
 
 snippet assert
 abbr    assert(...);
 options head
-    assert(${1:#:condition});
+    assert(${1:TARGET});
 
 snippet     va_list
 options     head
@@ -301,7 +302,7 @@ abbr        va_start(va_list, last_arg); ... ; va_end()
 alias       va
     va_list ${1:ap};
     va_start($1, ${2:#:LAST_ARG});
-    ${0}
+    ${0:TARGET}
     va_end($1);
 # }}}
 
@@ -309,7 +310,7 @@ alias       va
 snippet     comment
 abbr        /* ... */
 alias       /*
-    /* ${1:#:comment} */
+    /* ${1:TARGET} */
     ${0}
 
 snippet     doxy

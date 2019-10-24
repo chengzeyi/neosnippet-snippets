@@ -17,7 +17,7 @@ snippet     func
 abbr        func ...() { ... }
 alias       fn
 options     head
-  func ${1:fname}(${2}) ${3:error} {
+  func ${1:#:fname}(${2}) ${3:error} {
     ${0:TARGET:return nil}
   }
 
@@ -25,7 +25,7 @@ snippet     funcm
 abbr        func () ...() { ... }
 alias       fm
 options     head
-  func (${1:p} *${2:#:sname}) ${3:fname}(${4}) ${5:error} {
+  func (${1:p} *${2:#:sname}) ${3:#:fname}(${4}) ${5:error} {
     ${0:TARGET:return nil}
   }
 
@@ -89,18 +89,39 @@ options     head
 
 snippet     if
 abbr        if ... {}
-options     head
-    if ${1:#:condition} {
-      ${0:TARGET}
-    }
+  if ${1:#:condition} {
+    ${0:TARGET}
+  }
 
 snippet     iferr
 abbr        if err != nil {}
 alias       ife
-options     head
-    if err != nil {
-      ${0:TARGET}
-    }
+  if err != nil {
+    ${0:TARGET}
+  }
+
+snippet     ifelse
+abbr        if ... {} else {}
+alias       ifel
+  if ${1:#:condition} {
+    ${2:TARGET}
+  } else {
+    ${3}
+  }
+
+snippet     else
+abbr        else {}
+alias       el
+  else {
+    ${0:TARGET}
+  }
+
+snippet     elseif
+abbr        else if ... {}
+alias       elif
+  else if ${1:#:condition} {
+    ${0:TARGET}
+  }
 
 snippet     switch
 abbr        switch {}
