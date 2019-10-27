@@ -38,7 +38,7 @@ abbr        class {}
 
 snippet     function_member
 options     head
-alias       funcm, fm
+alias       funcm
 abbr        type class::func() {}
     ${1:void} ${2:#:class_name}::${3:#:func_name}(${4:void}) {
         ${0:TARGET}
@@ -67,6 +67,7 @@ abbr        [](){}
     [${1}](${2})${3: -> auto} { ${4:TARGET} }${0}
 
 snippet     lambda_multi
+alias       lambdam
 abbr        [](){}
     [${1}](${2})${3: -> auto} {
         ${4:TARGET}
@@ -75,6 +76,7 @@ abbr        [](){}
 # scoped enumeration ( C++11 feature )
 snippet     enum_scoped
 options     head
+alias       enums
 abbr        enum struct {};
     enum struct ${1:#:name} { ${2:TARGET} };
 
@@ -85,7 +87,6 @@ abbr        static_assert(,"");
 
 snippet     namespace
 options     head
-alias       ns
 abbr        namespace {}
     namespace ${1:#:name} {
         ${0:TARGET}

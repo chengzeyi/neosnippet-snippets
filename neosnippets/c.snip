@@ -110,7 +110,7 @@ abbr        ... ? ... : ...
 # Definition bodies {{{
 snippet     function
 options     head
-alias       func, fn
+alias       func
 abbr        type func() {}
     ${1:void} ${2:#:func_name}(${3:void}) {
         ${0:TARGET}
@@ -118,13 +118,13 @@ abbr        type func() {}
 
 snippet     function_declare
 options     head
-alias       funcd, fd
+alias       funcd
 abbr        type func();
     ${1:void} ${2:#:func_name}(${3:void});
 
 snippet     function_full
 options     head
-alias       funcf, ff
+alias       funcf
 abbr        type func();
     ${1:void} ${2:#:func_name}(${3:void});
 
@@ -233,10 +233,10 @@ abbr        #undef ...
     #undef ${0}
 
 # Include-Guard
-snippet     once
+snippet     include_guard
 options     head
-alias       include_guard
-abbr #ifndef ... #define ... #endif
+alias       guard, once
+abbr        #ifndef ... #define ... #endif
     #ifndef ${1:#:SYMBOL}
     #define $1
 
@@ -260,7 +260,7 @@ abbr    fprintf(file, "...\n", ...);
     fprintf(${1:stderr}, "${2}\n"${3});
 
 snippet fopen
-abbr fopen("...", "...");
+abbr    fopen("...", "...");
     fopen("${1:#:PATH}", "${2:#:MODE}");
     ${0:TARGET}
     fclose(${3:#:FD});
@@ -297,7 +297,7 @@ snippet realloc
 abbr    realloc(old, size);
     ($3 *)realloc(${1:#:OLD}, ${2:#:N_MEMBERS} * sizeof(${3:char}));
 
-snippet seed_rand
+snippet srand
 abbr    srand(time(NULL));
     srand(time(NULL));
 # }}}
@@ -313,7 +313,7 @@ abbr    sizeof(...)
     sizeof(${1:TARGET})${0}
 
 snippet sizeof_array
-alias   array_size
+alias   sizeofa
 abbr    (sizeof(...) / sizeof(*(...)))
     (sizeof(${1:TARGET}) / sizeof(*($1)))${0}
 

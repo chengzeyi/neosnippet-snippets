@@ -15,7 +15,6 @@ options     head
 
 snippet     func
 abbr        func ...() { ... }
-alias       fn
 options     head
   func ${1:#:fname}(${2}) ${3:error} {
     ${0:TARGET:return nil}
@@ -23,7 +22,6 @@ options     head
 
 snippet     funcm
 abbr        func () ...() { ... }
-alias       fm
 options     head
   func (${1:p} *${2:#:sname}) ${3:#:fname}(${4}) ${5:error} {
     ${0:TARGET:return nil}
@@ -31,7 +29,6 @@ options     head
 
 snippet     import
 abbr        import (...)
-alias       im
 options     head
   import (
     "${1:fmt}"
@@ -40,26 +37,25 @@ options     head
 
 snippet     package
 abbr        package ...
-alias       pk
+alias       pack
 options     head
   package ${1:main}
   ${0:TARGET}
 
 snippet     printf
 abbr        fmt.Printf("...\n")
-alias       pf
+alias       Pringf
 options     head
   fmt.Printf("${1}\n"${2:})
 
 snippet     println
 abbr        fmt.Println(...)
-alias       pl
+snippet     Println
 options     head
   fmt.Println(${0:TARGET})
 
 snippet     struct
 abbr        type ... struct {}
-alias       ts
 options     head
   type ${1} struct {
     ${0:TARGET}
@@ -67,7 +63,6 @@ options     head
 
 snippet     interface
 abbr        type ... interface {}
-alias       ti
 options     head
   type ${1} interface {
     ${0:TARGET}
@@ -80,7 +75,7 @@ options     head
     ${0:TARGET}
   }
 
-snippet     range
+snippet     forr
 abbr        for ...:= range ... {}
 options     head
   for ${1:v} := range ${2:#:iterator} {
@@ -147,7 +142,6 @@ options     head
 
 snippet     funct
 abbr        func Test... (t *testing.T) { ... }
-alias       ft
 options     head
   func Test${1} (${2:t *testing.T}) {
     for i := 0; i < ${3:t.N}; i++ {
@@ -157,7 +151,6 @@ options     head
 
 snippet     funcb
 abbr        func Benchmark... (b *testing.B) { ... }
-alias       fb
 options     head
   func Benchmark${1} (${2:b *testing.B}) {
     for i := 0; i < ${3:b.N}; i++ {
