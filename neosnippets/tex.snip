@@ -1,112 +1,135 @@
+snippet helloworld
+	\documentclass[]{article}
+	\begin{document}
+	Hello, world!
+	\end{document}
+
 snippet \documentclass
 alias   documentclass
-	\documentclass[${1}]{${2:article}}${0}
+abbr    \documentclass[]{}
+	\documentclass[${1:#:options}]{${2:article}}${0}
 
 snippet mathexpression
 alias   $
-abbr	$ expression $
+abbr	$expression$
 	$${1:#:expression}$${2}
 
 snippet mathenva
 alias   $$
-abbr    $$ expression $$
+abbr    $$expression$$
         $$${1:#:expression}$$${2}
 
 snippet mathenvb
 alias   \[
-abbr    \[ expression \]
+abbr    \[expression\]
         \[${1:#:expression}\]${2}
 
 # ========== ENVIRONMENT ==========
 
 snippet begin
 alias   \begin
+abbr    \begin{} ... \end{}
 	\begin{${1:#:type}}
 		${2:TARGET}
 	\end{$1}
 
 snippet list
 alias   \begin{list} \list
+abbr    \begin{list} ... \end{list}
 	\begin{list}
 		${1:TARGET}
 	\end{list}
 
 snippet quotation
 alias   \begin{quotation} \quotation
+abbr    \begin{quotation} ... \end{quotation}
 	\begin{quotation}
 		${1:TARGET}
 	\end{quotation}
 
 snippet description
 alias   \begin{description} \description desc
+abbr    \begin{description} ... \end{description}
 	\begin{description}
 		\item[${1}] ${0}
 	\end{description}
 
 snippet itd
 alias   item[ \item[
+abbr    \item[]
 	\item[${1}] ${0}
 
 snippet it
 alias   item \item
+abbr    \item
 	\item ${0}
 
 snippet sloppypar
 alias   \begin{sloppypar} \sloppypar
+abbr    \begin{sloppypar} ... \end{sloppypar}
 	\begin{sloppypar}
 		${1:TARGET}
 	\end{sloppypar}
 
 snippet enumerate
 alias   \begin{enumerate} \enumerate enum
+abbr    \begin{enumerate} ... \end{enumerate}
 	\begin{enumerate}
 		\item ${1:TARGET}
 	\end{enumerate}
 
 snippet theindex
 alias   \begin{theindex} \theindex
+abbr    \begin{theindex} ... \end{theindex}
 	\begin{theindex}
 		${1:TARGET}
 	\end{theindex}
 
 snippet itemize
 alias   \begin{itemize} \itemize
+abbr    \begin{itemize} ... \end{itemize}
 	\begin{itemize}
 		\item ${1:TARGET}
 	\end{itemize}
 
 snippet titlepage
 alias   \begin{titlepage} \titlepage
+abbr    \begin{titlepage} ... \end{titlepage}
 	\begin{titlepage}
 		${1:TARGET}
 	\end{titlepage}
 
 snippet verbatim
 alias   \begin{verbatim} verb \verbatim
+abbr    \begin{verbatim} ... \end{verbatim}
 	\begin{verbatim}
 		${1:TARGET}
 	\end{verbatim}
 
 snippet verbatimtab
 alias   \begin{verbatimtab} \verbatimtab
+abbr    \begin{verbatimtab}[] ... \end{verbatimtab}
 	\begin{verbatimtab}[${1:8}]
 		${2:TARGET}
 	\end{verbatim}
 
 snippet trivlist
 alias   \begin{trivlist} \trivlist
+abbr    \begin{trivlist} ... \end{trivlist}
 	\begin{trivlist}
 		${1:TARGET}
 	\end{trivlist}
 
 snippet verse
 alias   \begin{verse} \verse
+abbr    \begin{verse} ... \end{verse}
 	\begin{verse}
 		${1:TARGET}
 	\end{verse}
 
 snippet table
 alias   \begin{table} \table
+abbr    \begin{table}[] ... \end{table}
 	\begin{table}[${1}]
 		\centering
 		\caption{${2}}
@@ -118,114 +141,133 @@ alias   \begin{table} \table
 
 snippet thebibliography
 alias   \begin{thebibliography} \thebibliography
+abbr    \begin{thebibliography} ... \end{thebibliography}
 	\begin{thebibliography}
 		${1:TARGET}
 	\end{thebibliography}
 
 snippet tabbing
 alias   \begin{tabbing} \tabbing
+abbr    \begin{tabbing} ... \end{tabbing}
 	\begin{tabbing}
 		${1:TARGET}
 	\end{tabbing}
 
 snippet note
 alias   \begin{note} \note
+abbr    \begin{note} ... \end{note}
 	\begin{note}
 		${1:TARGET}
 	\end{note}
 
 snippet tabular
 alias   \begin{tabular} \tabular
+abbr    \begin{tabular}{} ... \end{tabular}
 	\begin{tabular}{${1}}
 		${2:TARGET}
 	\end{tabular}
 
 snippet overlay
 alias   \begin{overlay} \overlay
+abbr    \begin{overlay} ... \end{overlay}
 	\begin{overlay}
 		${1:TARGET}
 	\end{overlay}
 
 snippet array
 alias   \begin{array} \array
+abbr    \begin{array}{} ... \end{array}
 	\begin{array}{${1}}
 		${2:TARGET}
 	\end{array}
 
 snippet cases
 alias   \begin{cases} \cases
+abbr    \begin{cases}{} ... \end{cases}
 	\begin{cases}{${1}}
 		${2:TARGET}
 	\end{cases}
 
 snippet slide
 alias   \begin{slide} \slide
+abbr    \begin{slide} ... \end{slide}
 	\begin{slide}
 		${1:TARGET}
 	\end{slide}
 
 snippet displaymath
 alias   \begin{displaymath} \displaymath
+abbr    \begin{displaymath} ... \end{displaymath}
 	\begin{displaymath}
 		${1:TARGET}
 	\end{displaymath}
 
 snippet abstract
 alias   \begin{abstract} \abstract
+abbr    \begin{abstract} ... \end{abstract}
 	\begin{abstract}
 		${1:TARGET}
 	\end{abstract}
 
 snippet align
 alias   \begin{align} \align
+abbr    \begin{align} ... \end{align}
 	\begin{align}
 		${1:TARGET}
 	\end{align}
 
 snippet align*
 alias   \begin{align*} \align*
+abbr    \begin{align*} ... \end{align*}
 	\begin{align*}
 		${1:TARGET}
 	\end{align*}
 
 snippet eqnarray
 alias   \begin{eqnarray} \eqnarray
+abbr    \begin{eqnarray} ... \end{eqnarray}
 	\begin{eqnarray}
 		${1:TARGET}
 	\end{eqnarray}
 
 snippet eqnarray*
 alias   \begin{eqnarray*} \eqnarray*
+abbr    \begin{fqnarray*} ... \end{eqnarray*}
 	\begin{eqnarray*}
 		${1:TARGET}
 	\end{eqnarray*}
 
 snippet equation
 alias   \begin{equation} \equation
+abbr    \begin{equation} ... \end{equation}
 	\begin{equation}
 		${1:TARGET}
 	\end{equation}
 
 snippet equation*
 alias   \begin{equation*} \equation*
+abbr    \begin{equation*} ... \end{equation*}
 	\begin{equation*}
 		${1:TARGET}
 	\end{equation*}
 
 snippet center
 alias   \begin{center} \center
+abbr    \begin{center} ... \end{center}
 	\begin{center}
 		${1:TARGET}
 	\end{center}
 
 snippet document
 alias   \begin{document} \document
+abbr    \begin{document} ... \end{document}
 	\begin{document}
 		${1:TARGET}
 	\end{document}
 
 snippet figure
 alias   \begin{figure} \figure
+abbr    \begin{figure}[] ... \end{figure}
 	\begin{figure}[${1}]
 		\centering
 		\includegraphics[${2:width=${3\}}]{${4}}
@@ -235,84 +277,98 @@ alias   \begin{figure} \figure
 
 snippet filecontents
 alias   \begin{filecontents} \filecontents
+abbr    \begin{filecontents} ... \end{filecontents}
 	\begin{filecontents}
 		${1:TARGET}
 	\end{filecontents}
 
 snippet lrbox
 alias   \begin{lrbox} \lrbox
+abbr    \begin{lrbox} ... \end{lrbox}
 	\begin{lrbox}
 		${1:TARGET}
 	\end{lrbox}
 
 snippet flushleft
 alias   \begin{flushleft} \flushleft
+abbr    \begin{flushleft} ... \end{flushleft}
 	\begin{flushleft}
 		${1:TARGET}
 	\end{flushleft}
 
 snippet flushright
 alias   \begin{flushright} \flushright
+abbr    \begin{flushright} ... \end{flushright}
 	\begin{flushright}
 		${1:TARGET}
 	\end{flushright}
 
 snippet minipage
 alias   \begin{minipage} \minipage
+abbr    \begin{minipage} ... \end{minipage}
 	\begin{minipage}
 		${1:TARGET}
 	\end{minipage}
 
 snippet picture
 alias   \begin{picture} \picture
+abbr    \begin{picture} ... \end{picture}
 	\begin{picture}
 		${1:TARGET}
 	\end{picture}
 
 snippet math
 alias   \begin{math} \math
+abbr    \begin{math} ... \end{math}
 	\begin{math}
 		${1:TARGET}
 	\end{math}
 
 snippet quote
 alias   \begin{quote} \quote
+abbr    \begin{quote} ... \end{quote}
 	\begin{quote}
 		${1:TARGET}
 	\end{quote}
 
 snippet matrix
 alias   \begin{matrix} \matrix
+abbr    \begin{matrix} ... \end{matrix}
 	\begin{matrix}
 		${1:TARGET}
 	\end{matrix}
 
 snippet bmatrix
 alias   \begin{bmatrix} \bmatrix
+abbr    \begin{bmatrix} ... \end{bmatrix}
 	\begin{bmatrix}
 		${1:TARGET}
 	\end{bmatrix}
 
 snippet pmatrix
-alias   \pegin{bmatrix} \pmatrix
+alias   \begin{pmatrix} \pmatrix
+abbr    \begin{pmatrix} ... \end{pmatrix}
 	\begin{pmatrix}
 		${1:TARGET}
 	\end{pmatrix}
 
 snippet vmatrix
 alias   \begin{vmatrix} \vmatrix
+abbr    \begin{vmatrix} ... \end{vmatrix}
 	\begin{vmatrix}
 		${1:TARGET}
 	\end{vmatrix}
 
 snippet Bmatrix
 alias   \begin{Bmatrix} \Bmatrix
+abbr    \begin{Bmatrix} ... \end{Bmatrix}
 	\begin{Bmatrix}
 		${1:TARGET}
 	\end{Bmatrix}
 
 snippet Vmatrix
 alias   \begin{Vmatrix} \Vmatrix
+abbr    \begin{Vmatrix} ... \end{Vmatrix}
 	\begin{Vmatrix}
 		${1:TARGET}
 	\end{Vmatrix}
@@ -321,36 +377,43 @@ alias   \begin{Vmatrix} \Vmatrix
 
 snippet \part
 alias   part \part{
+abbr    \part{}
 	\part{${1}}
 	${0:TARGET}
 
 snippet \chapter
 alias   chapter \chapter{
+abbr    \chapter{}
 	\chapter{${1}}
 	${0:TARGET}
 
 snippet \section
 alias   section \section{
+abbr    \section{}
 	\section{${1}}
 	${0:TARGET}
 
 snippet \subsection
 alias   subsection \subsection{
+abbr    \subsection{}
 	\subsection{${1}}
 	${0:TARGET}
 
 snippet \subsubsection
 alias   subsubsection \subsubsection{
+abbr    \subsubsection{}
 	\subsubsection{${1}}
 	${0:TARGET}
 
 snippet \paragraph
 alias   paragraph \paragraph{
+abbr    \paragraph{}
 	\paragraph{${1}}
 	${0:TARGET}
 
 snippet \subparagraph
 alias   subparagraph \subparagraph{
+abbr    \subparagraph{}
 	\subparagraph{${1}}
 	${0:TARGET}
 
@@ -358,132 +421,156 @@ alias   subparagraph \subparagraph{
 
 snippet \frac
 alias   frac \frac{
+abbr    \frac{}{}
 	\frac{${1}}{${2}}${0}
 
 snippet \left
 alias   left
-abbr	\left \right
+abbr	\left ... \right
 	\left${1:(} ${3:#:body} \right${2:)}${0}
 
 # ========== FONT ==========
 
 snippet bfseries
 alias   \begin{bfseries} \bfseries
+abbr    \begin{bfseries} ... \end{bfseries}
 	\begin{bfseries}
 		${1:TARGET}
 	\end{bfseries}
 
 snippet mdseries
 alias   \begin{mdseries} \mdseries
+abbr    \begin{mdseries} ... \end{mdseries}
 	\begin{mdseries}
 		${1:TARGET}
 	\end{mdseries}
 
 snippet ttfamily
 alias   \begin{ttfamily} \ttfamily
+abbr    \begin{ttfamily} ... \end{ttfamily}
 	\begin{ttfamily}
 		${1:TARGET}
 	\end{ttfamily}
 
 snippet sffamily
 alias   \begin{sffamily} \sffamily
+abbr    \begin{sffamily} ... \end{ttfamily}
 	\begin{sffamily}
 		${1:TARGET}
 	\end{sffamily}
 
 snippet rmfamily
 alias   \begin{rmfamily} \rmfamily
+abbr    \begin{rmfamily} ... \end{rmfamily}
 	\begin{rmfamily}
 		${1:TARGET}
 	\end{rmfamily}
 
 snippet upshape
 alias   \begin{upshape} \upshape
+abbr    \begin{upshape} ... \end{upshape}
 	\begin{upshape}
 		${1:TARGET}
 	\end{upshape}
 
 snippet slshape
 alias   \begin{slshape} \slshape
+abbr    \begin{slshape} ... \end{slshape}
 	\begin{slshape}
 		${1:TARGET}
 	\end{slshape}
 
 snippet scshape
 alias   \begin{scshape} \scshape
+abbr    \begin{scshape} ... \end{scshape}
 	\begin{scshape}
 		${1:TARGET}
 	\end{scshape}
 
 snippet itshape
 alias   \begin{itshape} \itshape
+abbr    \begin{itshape} ... \end{itshape}
 	\begin{itshape}
 		${1:TARGET}
 	\end{itshape}
 
 snippet \textbf
 alias   textbf \textbf{
+abbr    \textbf{}
 	\textbf{${1:TARGET}}${0}
 
 snippet \textmd
 alias   textmd \textmd{
+abbr    \textmd{}
 	\textmd{${1:TARGET}}${0}
 
 snippet \texttt
 alias   texttt \texttt{
+abbr    \textmd{}
 	\texttt{${1:TARGET}}${0}
 
 snippet \textsf
 alias   textsf \textsf{
+abbr    \textsf{}
 	\textsf{${1:TARGET}}${0}
 
 snippet \textrm
 alias   textrm \textrm{
+abbr    \textrm{}
 	\textrm{${1:TARGET}}${0}
 
 snippet \textup
 alias   textup \textup{
+abbr    \textup{}
 	\textup{${1:TARGET}}${0}
 
 snippet \textsl
 alias   textsl \textsl{
+abbr    \textsl{}
 	\textsl{${1:TARGET}}${0}
 
 snippet \textsc
 alias   textsc \textsc{
+abbr    \textsc{}
 	\textsc{${1:TARGET}}${0}
 
 snippet \textit
 alias   textit \textit{
+abbr    \textit{}
 	\textit{${1:TARGET}}${0}
 
 # ==== BEAMER ====
 snippet frame
 alias   \begin{frame} \frame
+abbr    \begin{frame}{} ... \end{frame}
 	\begin{frame}{${1:#:frametitle}}
 		${2:TARGET}
 	\end{frame}
 
 snippet block
 alias   \begin{block}
+abbr    \begin{block}{} ... \end{block}
 	\begin{block}{${1:#:title}}
 		${2:TARGET}
 	\end{block}
 
 snippet exampleblock
 alias   \begin{exampleblock}
+abbr    \begin{exampleblock}{} ... \end{exampleblock}
 	\begin{exampleblock}{${1:#:title}}
 		${2:TARGET}
 	\end{exampleblock}
 
 snippet alertblock
 alias   \begin{alertblock}
+abbr    \begin{alertblock}{} ... \end{alertblock}
 	\begin{alertblock}{${1:#:title}}
 		${2:TARGET}
 	\end{alertblock}
 
 snippet columns
 alias   \begin{columns} \columns
+abbr    \begin{columns} ... \end{columns}
 	\begin{columns}
 		\begin{column}{${1:#:width}${2:\\\textwidth}}
 			${0:#:body}
@@ -492,6 +579,7 @@ alias   \begin{columns} \columns
 
 snippet column
 alias   \begin{column} \column
+abbr    \begin{column} ... \end{column}
 	\begin{column}{${1:#:width}${2:\\\textwidth}}
 		${0:#:body}
 	\end{column}
@@ -499,72 +587,89 @@ alias   \begin{column} \column
 # ========== TikZ ==========
 snippet tikzpicture
 alias   \begin{tikzpicture}
+abbr    \begin{tikzpicture}[] ... \end{tikzpicture}
 	\begin{tikzpicture}[${1}]
 		${2:TARGET}
 	\end{tikzpicture}
 
 snippet path
 alias   \path
+abbr    \path[] ...;
 	\path[${1}] ${2};${0}
 
 snippet draw
 alias   \draw
+abbr    \draw[] ...;
 	\draw[${1}] ${2};${0}
 
 snippet fill
 alias   \fill
+abbr    \fill[] ...;
 	\fill[${1}] ${2};${0}
 
 snippet filldraw
 alias   \filldraw
+abbr    \filldraw[] ...;
 	\filldraw[${1}] ${2};${0}
 
 snippet shade
 alias   \shade
+abbr    \shade[] ...;
 	\shade[${1}] ${2};${0}
 
 snippet coordinate
 alias   \coordinate
+abbr    \coordinate[]() ...;
 	\coordinate[${1}](${2:name}) ${3};${0}
 
 snippet node
 alias   \node
+abbr    \node[]() ...;
 	\node[${1}](${2:name}) ${3};${0}
 
 # ========== BibLaTeX ==========
 snippet addbibresource
 alias   \addbibresource
+abbr    \addbibresource{}
 	\addbibresource{${1:resource}}${0}
 
 snippet cite
 alias   \cite
+abbr    \cite{}
 	\cite{${1}}${0}
 
 snippet nocite
 alias   \nocite
+abbr    \nocite{}
 	\nocite{${1}}${0}
 
 snippet supercite
 alias   \supercite
+abbr    \supercite{}
 	\supercite{${1}}${0}
 
 snippet autocite
 alias   \autocite
+abbr    \autocite{}
 	\autocite{${1}}${0}
 
 snippet fullcite
 alias   \fullcite
+abbr    \fullcite{}
 	\fullcite{${1}}${0}
 
 # ========== OTHERS ==========
 snippet usepackage
 alias   \usepackage
+abbr    \usepackage[]{}
 	\usepackage${1:[${2\}]}{${3}}
 
 snippet ref
 alias   \ref
+abbr    \ref{}
 	\ref{${1}}${0}
 
 snippet label
 alias   \label
+abbr    \label{}
 	\label{${1}}${0}

@@ -64,13 +64,13 @@ abbr        for (:) {}
 # lambda expression ( C++11 feature )
 snippet     lambda
 abbr        [](){}
-    [${1}](${2})${3: -> auto} { ${4:TARGET} }${0}
+    [${1}](${2})${3: -> ${4:auto\}} { ${5:TARGET} }${0}
 
 snippet     lambda_multi
 alias       lambdam
 abbr        [](){}
-    [${1}](${2})${3: -> auto} {
-        ${4:TARGET}
+    [${1}](${2})${3: -> ${4:auto\}} {
+        ${5:TARGET}
     }${0}
 
 # scoped enumeration ( C++11 feature )
@@ -114,7 +114,7 @@ abbr        #include<iostream> int main...
     #include <iostream>
 
     int main(int argc, char *argv[]) {
-        std::cout << "hello, world!" << std::endl;
+        std::cout << "Hello, world!" << std::endl;
         return 0;
     }
 
