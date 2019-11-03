@@ -1,8 +1,19 @@
 snippet helloworld
+abbr    \documentclass[]{article} ...
 	\documentclass[]{article}
 	\begin{document}
 	Hello, world!
 	\end{document}
+
+snippet \newcommand
+alias   newcommand
+abbr    \newcommand{}[]{}
+	\newcommand{${1:#:cmd}}[${2:#:args}]{${3:#:def}}${0}
+
+snippet \renewcommand
+alias   renewcommand
+abbr    \renewcommand{}[]{}
+	\renewcommand{${1:#:cmd}}[${2:#:args}]{${3:#:def}}${0}
 
 snippet \documentclass
 alias   documentclass
