@@ -125,7 +125,7 @@ abbr        type func();
 snippet     function_full
 options     head
 alias       funcf
-abbr        type func();
+abbr        type func(); type func() {}
     ${1:void} ${2:#:func_name}(${3:void});
 
     $1 $2($3) {
@@ -135,22 +135,23 @@ abbr        type func();
 snippet     struct
 options     head
 abbr        struct {};
-    struct ${1:#:name} {
+    struct ${1:#:struct_name} {
         ${0:TARGET}
     };
 
 # Typedef struct
 snippet     struct_typedef
 options     head
+alias       structt
 abbr        typedef struct {};
-    typedef struct ${1:#:name} {
+    typedef struct ${1:#:struct_name} {
         ${0:TARGET}
-    };
+    } $1;
 
 snippet     enum
 options     head
 abbr        enum {};
-    enum ${1:#:name} {
+    enum ${1:#:enum_name} {
         ${0:TARGET}
     };
 
