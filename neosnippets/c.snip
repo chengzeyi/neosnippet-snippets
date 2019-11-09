@@ -198,10 +198,15 @@ abbr        #if ... #endif
 
 snippet     #else
 options     head
-abbr        #else ... #endif
+abbr        #else ...
     #else
     ${0:TARGET}
-    #endif
+
+snippet     #elif
+options     head
+abbr        #elif ...
+    #elif ${1}
+    ${0:TARGET}
 
 snippet     ifdef
 options     head
