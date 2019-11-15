@@ -94,23 +94,23 @@ abbr        namespace {}
 
 snippet     static_cast
 abbr        static_cast<>()
-    static_cast<${1}>(${2})${0}
+    static_cast<${1}>(${2:TARGET})${0}
 
 snippet     reinterpret_cast
 abbr        reinterpret_cast<>()
-    reinterpret_cast<${1}>(${2})${0}
+    reinterpret_cast<${1}>(${2:TARGET})${0}
 
 snippet     const_cast
 abbr        const_cast<>()
-    const_cast<${1}>(${2})${0}
+    const_cast<${1}>(${2:TARGET})${0}
 
 snippet     dynamic_cast
 abbr        dynamic_cast<>()
-    dynamic_cast<${1}>(${2})${0}
+    dynamic_cast<${1}>(${2:TARGET})${0}
 
 snippet     decltype
 abbr        decltype()
-    decltype(${1})${0}
+    decltype(${1:TARGET})${0}
 
 snippet     helloworld
 options     head
@@ -124,8 +124,8 @@ abbr        #include<iostream> int main...
 
 snippet     cin
 abbr        std::cin >> ...;
-    std::cin >> ${0:var};
+    std::cin >> ${0:TARGET};
 
 snippet     cout
 abbr        std::cout << ... << std::endl;
-    std::cout << ${0:var} << std::endl;
+    std::cout << ${0:TARGET} << std::endl;

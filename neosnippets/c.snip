@@ -1,7 +1,7 @@
 # Control structures {{{
 snippet     if
 abbr        if () {}
-    if (${1:#:condition}) {
+    if (${1}) {
         ${0:TARGET}
     }
 
@@ -16,14 +16,14 @@ abbr        else {}
 snippet     elseif
 alias       elif
 abbr        else if () {}
-    else if (${1:#:condition}) {
+    else if (${1}) {
         ${0:TARGET}
     }
 
 snippet     ifelse
 alias       ifel
 abbr        if () {} else {}
-    if (${1:#:condition}) {
+    if (${1}) {
         ${2:TARGET}
     } else {
         ${0}
@@ -69,7 +69,7 @@ abbr        for (size_t i ...; ...; --i) {}
 snippet     while
 options     head
 abbr        while () {}
-    while (${1:true}) {
+    while (${1}) {
         ${0:TARGET}
     }
 
@@ -79,7 +79,7 @@ abbr        do {} while ();
 alias       do
     do {
         ${0:TARGET}
-    } while (${1:true});
+    } while (${1});
 
 snippet     switch
 options     head
@@ -304,7 +304,7 @@ abbr    realloc(old, size);
 
 snippet srand
 abbr    srand(time(NULL));
-    srand(time(NULL));
+    srand(${1:time(NULL)});
 # }}}
 
 # Built-in operators and alias {{{
@@ -330,7 +330,7 @@ options head
 snippet assert
 abbr    assert(...);
 options head
-    assert(${1:TARGET});
+    assert(${0:TARGET});
 
 snippet     va_list
 options     head
