@@ -61,6 +61,13 @@ abbr        for (:) {}
         ${0:TARGET}
     }
 
+snippet     forit
+options     head
+abbr        for (auto it ...; ...; ++i)
+    for (${1:auto} ${2:it} = ${3:#:container}.begin(); $2 != $3.end(); ++$2) {
+        ${0:TARGET}
+    }
+
 # lambda expression ( C++11 feature )
 snippet     lambda
 abbr        [](){}
@@ -129,3 +136,79 @@ abbr        std::cin >> ...;
 snippet     cout
 abbr        std::cout << ... << std::endl;
     std::cout << ${0:TARGET} << std::endl;
+
+snippet     array
+abbr        std::array<T, N>
+    std::array<${1:T}, ${2:N}>${0}
+
+snippet     vector
+abbr        std::vector<T>
+    std::array<${1:T}>${0}
+
+snippet     deque
+abbr        std::deque<T>
+    std::deque<${1:T}>${0}
+
+snippet     queue
+abbr        std::queue<T>
+    std::queue<${1:T}>${0}
+
+snippet     priority_queue
+abbr        std::priority_queue<T>
+    std::priority_queue<${1:T}>${0}
+
+snippet     stack
+abbr        std::stack<T>
+    std::stack<${1:T}>${0}
+
+snippet     forward_list
+abbr        std::forward_list<T>
+    std::forward_list<${1:T}>${0}
+
+snippet     list
+abbr        std::list<T>
+    std::list<${1:T}>${0}
+
+snippet     set
+abbr        std::set<T>
+    std::set<${1:T}>${0}
+
+snippet     multiset
+abbr        std::multiset<T>
+    std::multiset<${1:T}>${0}
+
+snippet     unordered_set
+abbr        std::unordered_set<T>
+    std::unordered_set<${1:T}>${0}
+
+snippet     unordered_multiset
+abbr        std::unordered_multiset<T>
+    std::unordered_multiset<${1:T}>${0}
+
+snippet     map
+abbr        std::map<K, V>
+    std::map<${1:K}, ${2:V}>${0}
+
+snippet     multimap
+abbr        std::multimap<K, V>
+    std::multimap<${1:K}, ${2:V}>${0}
+
+snippet     unordered_map
+abbr        std::unordered_map<K, V>
+    std::unordered_map<${1:K}, ${2:V}>${0}
+
+snippet     unordered_multimap
+abbr        std::unordered_multimap<K, V>
+    std::unordered_multimap<${1:K}, ${2:V}>${0}
+
+snippet     pair
+abbr        std::pair<F, S>
+    std::pair<${1:F}, ${2:S}>${0}
+
+snippet    shared_ptr
+abbr       std::shared_ptr<T>
+    std::shared_ptr<${1:T}>${0}
+
+snippet    unique_ptr
+abbr       std::unique_ptr<T>
+    std::unique_ptr<${1:T}>${0}
