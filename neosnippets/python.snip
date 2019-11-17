@@ -3,7 +3,26 @@ abbr        #!/usr/bin/env python3
 alias       shebang
 options     head
 	#!/usr/bin/env python3
-	${0}
+
+snippet     import
+abbr        import ...
+options     head
+	import ${1}
+
+snippet     importas
+abbr        import ... as ...
+options     head
+	import ${1} as ${2}
+
+snippet     from
+abbr        from ... import ...
+options     head
+	from ${1} import ${2}
+
+snippet     fromas
+abbr        from ... import ... as ...
+options     head
+	from ${1} import ${2} as ${3}
 
 snippet     class
 abbr        class Class(...): ...
@@ -27,78 +46,78 @@ snippet     def
 abbr        def function(...): ...
 options     head
 	def ${1:#:name}(${2}):
-		${0:pass}
+		${0:TARGET}
 
 snippet     defd
 abbr        def function(...): """..."""
 options     head
 	def ${1:#:name}(${2}):
 		"""${3:#:function documentation}"""
-		${0:pass}
+		${0:TARGET}
 
 snippet     defm
 abbr        def method(self, ...): ...
 options     head
 	def ${1:#:name}(self, ${2}):
-		${0:pass}
+		${0:TARGET}
 
 snippet     defmd
 abbr        def method(self, ...): "..."
 options     head
 	def ${1:#:name}(self, ${2}):
 		"""${3:#:method documentation}"""
-		${0:pass}
+		${0:TARGET}
 
 snippet     elif
 abbr        elif ...: ...
 options     head
 	elif ${1:#:condition}:
-		${0:pass}
+		${0:TARGET}
 
 snippet     else
 abbr        else: ...
 options     head
 	else:
-		${0:pass}
+		${0:TARGET}
 
 snippet     with_open
 alias       fileidiom
 options     head
 	with open(${1:#:file}, '${2:r}') as ${3:f}:
-		${0:pass}
+		${0:TARGET}
 
 snippet     for
 abbr        for ... in ...: ...
 options     head
 	for ${1:#:value} in ${2:#:list}:
-		${0:pass}
+		${0:TARGET}
 
 snippet     if
 abbr        if ...: ...
 options     head
 	if ${1:#:condition}:
-		${0:pass}
+		${0:TARGET}
 
 snippet     ifmain
 abbr        if __name__ == '__main__': ...
 alias       main
 options     head
 	if __name__ == '__main__':
-		${0:pass}
+		${0:TARGET}
 
 snippet     tryexcept
 abbr        try: ... except ...: ...
 options     head
 	try:
-		${1:pass}
-	except ${2:#:ExceptionClass}:
+		${1:TARGET}
+	except ${2:Exception}:
 		${3:pass}
 
 snippet     tryfinally
 abbr        try: ... finally: ...
 options     head
 	try:
-		${1:pass}
+		${1:TARGET}
 	finally:
 		${2:pass}
 
@@ -106,13 +125,13 @@ snippet     while
 abbr        while ...: ...
 options     head
 	while ${1:#:condition}:
-		${0:pass}
+		${0:TARGET}
 
 snippet     with
 abbr        with {func}({file}) as :
 options     head
 	with ${1:open}(${2:#:filename, mode}) as ${3:f}:
-		${0:pass}
+		${0:TARGET}
 
 snippet     filter
 abbr        [x for x in {list} if {condition}]
@@ -120,7 +139,7 @@ abbr        [x for x in {list} if {condition}]
 
 snippet     print
 options     word
-	print(${0:#:TARGET})
+	print(${0:TARGET})
 
 snippet     coding
 abbr        # -*- coding ...
