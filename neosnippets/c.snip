@@ -212,7 +212,7 @@ snippet     ifdef
 options     head
 alias       #ifdef
 abbr        #ifdef ... #endif
-    #ifdef ${1:#:SYMBOL}
+    #ifdef ${1:DEBUG}
     ${0:TARGET}
     #endif
 
@@ -220,7 +220,7 @@ snippet     ifndef
 options     head
 alias       #ifndef
 abbr        #ifndef ... #endif
-    #ifndef ${1:#:SYMBOL}
+    #ifndef ${1:DEBUG}
     ${0:TARGET}
     #endif
 
@@ -264,15 +264,19 @@ snippet fprintf
 abbr    fprintf(file, "...\n", ...);
     fprintf(${1:stderr}, "${2}\n"${3});
 
-snippet fopen
-abbr    fopen("...", "...");
-    fopen("${1:#:PATH}", "${2:#:MODE}");
+snippet FILE
+abbr    FILE ... = fopen(); ... fclose();
+    FILE *${1:fd} = fopen("${2:#:PATH}", "${3:rb}");
     ${0:TARGET}
-    fclose(${3:#:FD});
+    fclose(${1});
+
+snippet fopen
+abbr    fopen();
+    fopen("${1:#:PATH}", "${2:rb}");
 
 snippet fgets
 abbr    fgets(row, length, file);
-    fgets(${0:#:ROW}, ${1:#:LENGTH}, ${2:#:stdin});
+    fgets(${1:#:ROW}, ${2:#:LENGTH}, ${3:stdin});
 
 snippet fscanf
 abbr    fscanf(file, "...", ...);
@@ -304,7 +308,7 @@ abbr    realloc(old, size);
 
 snippet srand
 abbr    srand(time(NULL));
-    srand(${1:time(NULL)});
+    srand(${0:time(NULL)});
 # }}}
 
 # Built-in operators and alias {{{
@@ -325,7 +329,7 @@ abbr    (sizeof(...) / sizeof(*(...)))
 snippet static_assert
 abbr    static_assert(..., ...);
 options head
-    static_assert(${1:TARGET}, ${2:#:message});
+    static_assert(${1:TARGET}, "${2:#:message}");
 
 snippet assert
 abbr    assert(...);
@@ -361,7 +365,6 @@ options     head
      *
      * @return   ${4:#:return type}
      */
-
 # }}}
 
 # vim: fdm=marker
