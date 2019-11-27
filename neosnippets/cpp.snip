@@ -137,6 +137,10 @@ snippet     cout
 abbr        std::cout << ... << std::endl;
     std::cout << ${0:TARGET} << std::endl;
 
+snippet     ignore
+abbr        std::cin.ignore(...);
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
 snippet     array
 abbr        std::array<T, N>
     std::array<${1:T}, ${2:N}>${0}
