@@ -1,26 +1,29 @@
 snippet #!
-abbr    #!/bin/sh
 alias   shebang
+abbr    #!/bin/sh
 options head
 	#!/bin/${1:sh}
 	${0}
 
+snippet env
+abbr    #!/usr/bin/env
+options head
+	#!/usr/bin/env
+	${0}
 
 snippet if
 	if [ ${1:#:condition} ]; then
 		${0:TARGET}
 	fi
 
-
 snippet el
+abbr    else
 	else
 		${0:TARGET}
-
 
 snippet elif
 	elif [ ${1:#:condition} ]; then
 		${0:TARGET}
-
 
 snippet for
 	for ${1:i} in ${2:#:words}; do
@@ -28,30 +31,23 @@ snippet for
 	done
 
 snippet while
-alias wh
 	while ${1:#:condition} ; do
 		${0:TARGET}
 	done
-
 
 snippet until
 	until ${1:#:condition} ; do
 		${0:TARGET}
 	done
 
-
 snippet heredoc
-alias   h <<
+alias   <<
 	<< ${1:EOF}
-		${0:#:TARGET}
+		${0:TARGET}
 	$1
 
-snippet env
-	#!/usr/bin/env ${1}
-
-
 snippet tmp
-	${1:TMPFILE}=$(mktemp ${2:XXX})
+	${1:TMPFILE}=$(mktemp ${2:tmp.xxxx})
 	trap "rm -f '${$1}'" 0               # EXIT
 	trap "rm -f '${$1}'; exit 1" 2       # INT
 	trap "rm -f '${$1}'; exit 1" 1 15    # HUP TERM
@@ -64,26 +60,25 @@ alias func
 		${0:TARGET}
 	}
 
-snippet     match-regexp
+snippet     match
 abbr        =~
 options     head
-	if [[ $${1:string} =~ ${2:^regexp.*} ]]; then
-		${0}
+	if [[ $${1:#:string} =~ ${2:#:regexp} ]]; then
+		${0:TARGET}
 	fi
 
 snippet     assign
-abbr        var-assign
 options     head
-	${1:name}="${2:something}"
+	${1:#:name}="${2:#:something}"
 
 snippet     case
 options     head
-	case "$${1:{name\}}" in
-		${2:pattern*})
-			${0}
+	case "$${1:#:{name\}}" in
+		${2:#:pattern})
+			${0:TARGET}
 			;;
 		*)
-			${3:echo "$$1 Didn't match anything"}
+			${3:echo "$$1 didn't match anything"}
 	esac
 
 snippet     warn
