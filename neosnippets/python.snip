@@ -68,6 +68,12 @@ options     head
 		"""${3:#:method documentation}"""
 		${0:pass}
 
+snippet     if
+abbr        if ...: ...
+options     head
+	if ${1:#:condition}:
+		${0:pass}
+
 snippet     elif
 abbr        elif ...: ...
 options     head
@@ -90,12 +96,6 @@ snippet     for
 abbr        for ... in ...: ...
 options     head
 	for ${1:#:value} in ${2:#:list}:
-		${0:pass}
-
-snippet     if
-abbr        if ...: ...
-options     head
-	if ${1:#:condition}:
 		${0:pass}
 
 snippet     ifmain
