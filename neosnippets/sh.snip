@@ -16,8 +16,15 @@ snippet if
 		${0:TARGET}
 	fi
 
-snippet el
-abbr    else
+snippet ifel
+	if [ ${1:#:condition} ]; then
+		${2:TARGET}
+	else
+		${0}
+	fi
+
+snippet else
+abbr    el
 	else
 		${0:TARGET}
 
