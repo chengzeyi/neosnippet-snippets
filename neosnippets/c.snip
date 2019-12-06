@@ -84,20 +84,21 @@ alias       do
 snippet     switch
 options     head
 abbr        switch () {}
-	switch (${1:#:var}) {
-		case ${2:#:val}:
-			${0:TARGET}
-			break;
-		default:
-			break;
-	}
+    switch (${1:#:var}) {
+        ${0:TARGET}
+    }
 
 snippet     case
 options     head
-abbr        case ...: ... break;
-	case ${1}:
-		${0:TARGET}
-		break;
+abbr        case ...: ...
+    case ${1}:
+        ${0:TARGET}
+
+snippet     default
+options     head
+abbr        default: ...
+    default:
+        ${0:TARGET}
 
 # Ternary conditional operator
 snippet     conditional

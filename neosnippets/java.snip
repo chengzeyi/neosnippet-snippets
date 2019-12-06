@@ -1,35 +1,59 @@
 snippet class
-    class ${1} ${2:extends }{
+    ${1:public }class `expand('%:p:t:r')` ${2:extends }{
+        ${0:TARGET}
+    }
+
+snippet class_inner
+alias classi
+    ${1:public }class ${2:#:name} ${3:extends }{
         ${0:TARGET}
     }
 
 snippet interface
-    interface ${1} ${2:extends }{
+    ${1:public }interface `expand('%:p:t:r')` ${2:extends }{
         ${0:TARGET}
     }
 
-snippet method
-    ${1:void} ${2:#:name}(${3}) ${4:throws }{
+snippet interface_inner
+alias interfacei
+    ${1:public }interface ${2:#:name} ${3:extends }{
         ${0:TARGET}
     }
 
 snippet enum
-abbr enum {}
-    enum ${1:#:name} {
+    ${1:public }enum `expand('%:p:t:r')` {
+        ${0:TARGET}
+    }
+
+snippet enum_innner
+alias enumi
+    ${1:public }enum ${2:#:name} {
+        ${0:TARGET}
+    }
+
+snippet method
+    ${1:public} ${2:void} ${3:#:name}(${4}) ${5:throws }{
+        ${0:TARGET}
+    }
+
+snippet method_static
+alias methods
+    ${1:public} ${2:static} ${3:void} ${4:#:name}(${5}) ${6:throws }{
         ${0:TARGET}
     }
 
 snippet const
-    static public final ${1:#:type} ${2:#:var} = ${3};${4}
+    public static final ${1:#:type} ${2:#:var} = ${3};
 
 snippet const_string
-    static public final String ${1:var} = "${2}";${4}
+alias consts
+    public static final String ${1:var} = "${2}";
 
 snippet final
     public final ${1:#:type} ${2:#:var} = ${3};
 
 snippet assert
-    assert ${1:#:test} : ${2:#:Failure message};${3}
+    assert ${1:#:test} : "${2:#:failure message}";
 
 snippet if
     if (${1}) {
@@ -90,7 +114,6 @@ snippet switch
 snippet case
     case ${1}:
         ${2:TARGET}
-    ${0}
 
 snippet break
 alias br
@@ -103,32 +126,32 @@ alias   de
 
 snippet try
     try {
-        ${0:TARGET}
-    } catch (${1:Exception} ${2:e}) {
-        ${3:e.printStackTrace();}
+        ${1:TARGET}
+    } catch (${2:Exception} ${3:e}) {
+        ${4:e.printStackTrace();}
     }
 
 snippet try_with
 snippet tryw
     try (${1:#:resources}) {
-        ${0:TARGET}
-    } catch (${2:Exception} ${3:e}) {
-        ${4:e.printStackTrace();}
+        ${2:TARGET}
+    } catch (${3:Exception} ${4:e}) {
+        ${5:e.printStackTrace();}
     }
 
 snippet try_finally
 snippet tryf
     try {
-        ${0:TARGET}
-    } catch (${1:Exception} ${2:e}) {
-        ${3:e.printStackTrace();}
+        ${1:TARGET}
+    } catch (${2:Exception} ${3:e}) {
+        ${4:e.printStackTrace();}
     } finally {
-        ${4}
+        ${5}
     }
 
 snippet catch
     catch (${1:Exception} ${2:e}) {
-        ${0:e.printStackTrace();}
+        ${3:e.printStackTrace();}
     }
 
 snippet finally
@@ -139,7 +162,14 @@ snippet finally
 snippet throw
 snippet th
 options word
-    throw ${0}
+    throw ${0};
+
+snippet new
+    ${1:var} ${2} = new ${3};
+
+snippet conditional
+alias   cond
+    ${1:#:condition} ? ${2:#:a} : ${3:#:b}
 
 snippet testclass
 alias   tc
@@ -157,15 +187,13 @@ options head
 snippet import
 alias   imt
     import ${1};
-    ${0}
 
 snippet main
-    class `expand('%:p:t:r')` {
+    public class `expand('%:p:t:r')` {
         public static void main(String args[]) {
             ${0:TARGET}
         }
     }
-
 
 snippet println
 options word
