@@ -86,6 +86,11 @@ options     head
 	else:
 		${0:pass}
 
+snippet     condition
+alias       cond
+abbr        ... if ... else ...
+	${1:TARGET} if ${2} else ${0}
+
 snippet     withopen
 alias       fileidiom
 options     head
