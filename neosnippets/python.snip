@@ -110,6 +110,11 @@ options     head
 	if __name__ == '__main__':
 		${0:pass}
 
+snippet     raise
+abbr        raise ...
+options     head
+	raise ${1:Exception}${2:(${0\})}
+
 snippet     tryexcept
 abbr        try: ... except ...: ...
 options     head
