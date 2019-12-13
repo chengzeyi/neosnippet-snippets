@@ -92,7 +92,7 @@ options     head
     echomsg string(${1:TARGET})
 
 snippet     command
-abbr        command call function
+abbr        command! ... call ...
 options     head
     command! ${1:#:command_name} call ${2:#:func_name}
 
@@ -245,13 +245,14 @@ abbr    use option save
 snippet     debug
 abbr        debug-echomsg
 options     head
-  echomsg string([${0:TARGET}])
+    echomsg string([${0:TARGET}])
 
 snippet     version
 abbr        vim-version-check
-        v:version > ${1} || (v:version == $1 && has('patch${2}'))
+    v:version > ${1} || (v:version == $1 && has('patch${2}'))
 
 snippet     version_new
+alias       versionn
 abbr        vim-version-check-new
-        has('patch-${1}')
+    has('patch-${1}')
 
