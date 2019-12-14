@@ -91,7 +91,7 @@ options     head
 
 snippet     echomsg
 alias       log
-options     head
+options     echomsg string(...)
     echomsg string(${1:TARGET})
 
 snippet     command
@@ -246,13 +246,12 @@ abbr    use option save
     endtry
 
 snippet     debug
-abbr        debug-echomsg
+abbr        echomsg string([...])
 options     head
     echomsg string([${0:TARGET}])
 
 snippet     version
-abbr        vim-version-check
-alias       v:version > ... || (v:version == ... && has('patch-...'))
+abbr        v:version > ... || (v:version == ... && has('patch-...'))
     v:version > ${1} || (v:version == $1 && has('patch-${2}'))
 
 snippet     version_new
