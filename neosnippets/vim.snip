@@ -1,5 +1,5 @@
 snippet     if
-abbr        if endif
+abbr        if ... endif
 options     head
     if ${1:#:condition}
       ${0:TARGET}
@@ -7,18 +7,21 @@ options     head
 
 snippet     elseif
 alias       elif
+abbr        elseif ...
 options     head
     elseif ${1:#:condition}
         ${0:TARGET}
 
 snippet     else
+alias       el
+abbr        else ...
 options     head
     else
         ${0:TARGET}
 
 snippet     ifelse
-abbr        if else endif
 alias       ifel
+abbr        if ... else ... endif
 options     head
     if ${1:#:condition}
       ${2:TARGET}
@@ -27,21 +30,21 @@ options     head
     endif
 
 snippet     for
-abbr        for in endfor
+abbr        for ... in ... endfor
 options     head
     for ${1:#:var} in ${2:#:list}
       ${0:TARGET}
     endfor
 
 snippet     while
-abbr        while endwhile
+abbr        while ... endwhile
 options     head
     while ${1:#:condition}
       ${0:TARGET}
     endwhile
 
 snippet     function
-abbr        func endfunc
+abbr        func ... endfunc
 alias       func
 options     head
     function! ${1:#:func_name}(${2}) abort
@@ -159,7 +162,7 @@ options     head
     unlet s:save_cpo
 
 snippet g:loaded
-abbr    if exists('g:loaded_{plugin-name}')
+abbr    if exists('g:loaded_{plugin-name}') finish endif
 alias   loaded
 options     head
     if exists('g:loaded_${1}')
@@ -175,7 +178,7 @@ abbr    " vim: {modeline}
     " vim: ${0:foldmethod=marker}
 
 snippet undo_ftplugin
-abbr    if !exists('b:undo_ftplugin')
+abbr    if !exists('b:undo_ftplugin') ...
 alias   b:undo_ftplugin
     if !exists('b:undo_ftplugin')
       let b:undo_ftplugin = ''
@@ -249,10 +252,11 @@ options     head
 
 snippet     version
 abbr        vim-version-check
-    v:version > ${1} || (v:version == $1 && has('patch${2}'))
+alias       v:version > ... || (v:version == ... && has('patch-...'))
+    v:version > ${1} || (v:version == $1 && has('patch-${2}'))
 
 snippet     version_new
 alias       versionn
-abbr        vim-version-check-new
+abbr        has('patch-...')
     has('patch-${1}')
 
