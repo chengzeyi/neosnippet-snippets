@@ -130,33 +130,33 @@ snippet NeoBundleLazy
 alias   neobundlelazy
 abbr NeoBundleLazy ''
     NeoBundleLazy '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`', {
-      \ ${0}
+      \ ${0:TARGET}
       \ }
 
 snippet bundle_hooks
-abbr neobundle hooks
+abbr    neobundle hooks
     let s:hooks = neobundle#get_hooks('${1}')
     function! s:hooks.on_source(bundle) abort
-      ${0}
+      ${0:TARGET}
     endfunction
     unlet s:hooks
 
 snippet     autoload
-abbr        autoload func endfunc
 alias       afunction afunc
+abbr        autoload func ... endfunc
 options     head
     function! `substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:func_name}(${2:#:args}) abort
-      ${0}
+      ${0:TARGET}
     endfunction
 
 snippet  save_cpoptions
-abbr     let s:save_cpo = &cpo | set cpo&vim
 alias    s:save_cpo cpoptions
+abbr     let s:save_cpo = &cpo | set cpo&vim
 options     head
     let s:save_cpo = &cpo
     set cpo&vim
 
-    ${0}
+    ${0:TARGET}
 
     let &cpo = s:save_cpo
     unlet s:save_cpo
@@ -184,7 +184,7 @@ alias   b:undo_ftplugin
       let b:undo_ftplugin = ''
     endif
 
-    ${1}
+    ${1:TARGET}
 
     let b:undo_ftplugin .= '
     \ | setlocal ${2:#:option_name1< option_name2<...}
@@ -195,7 +195,7 @@ alias   py
 options head
 abbr    python <<EOF | EOF
     python << EOF
-    ${0}
+    ${0:TARGET}
     EOF
 
 snippet python3
@@ -203,14 +203,14 @@ alias   py3
 options head
 abbr    python3 <<EOF | EOF
     python3 << EOF
-    ${0}
+    ${0:TARGET}
     EOF
 
 snippet lua
 options head
 abbr    lua <<EOF | EOF
     lua << EOF
-    ${0}
+    ${0:TARGET}
     EOF
 
 snippet save_pos
@@ -218,7 +218,7 @@ options head
 abbr    use pos save
     let pos_save = getpos('.')
     try
-      ${0}
+      ${0:TARGET}
     finally
       call setpos('.', pos_save)
     endtry
@@ -229,7 +229,7 @@ abbr    use register save
     let save_reg_$1 = getreg('${1}')
     let save_regtype_$1 = getregtype('$1')
     try
-      ${0}
+      ${0:TARGET}
     finally
       call setreg('$1', save_reg_$1, save_regtype_$1)
     endtry
@@ -240,7 +240,7 @@ abbr    use option save
     let $1_save = &${1}
     let &$1 = ${2}
     try
-      ${0}
+      ${0:TARGET}
     finally
       let &$1 = $1_save
     endtry
