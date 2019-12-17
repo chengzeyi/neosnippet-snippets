@@ -61,8 +61,9 @@ abbr        for (:) {}
         ${0:TARGET}
     }
 
-snippet     fore
+snippet     for_each
 options     head
+alias       fore
 abbr        std::for_each();
     std::for_each(${1:#:container}.begin(), $1.end(), ${2:#:func});
 
