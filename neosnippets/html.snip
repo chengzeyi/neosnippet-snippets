@@ -22,7 +22,7 @@ snippet html5
             <title>${4}</title>
         </head>
         <body>
-            ${5}
+            ${5:TARGET}
         </body>
     </html>
 
@@ -34,7 +34,7 @@ snippet head
         ${3}
     </style>
         ${4}
-    </head>${5}
+    </head>
 
 snippet metaauthor
     <meta name="author" content="${1}">${2}
@@ -47,18 +47,18 @@ snippet metagenerator
 snippet metadescription
     <meta name="description" content="${1}">${2}
 snippet metaviewport
-    <meta name="viewport" content="${1:width=device-width, initial-scale=1}">
+    <meta name="viewport" content="${1:width=device-width, initial-scale=1}">${2}
 snippet metatheme
-    <meta name="theme-color" content="#${1}">
+    <meta name="theme-color" content="#${1}">${2}
 
 snippet scriptcharset
     <script charset="${1:UTF-8}">
-    ${2:TARGET}
-    </script>${3}
+        ${2:TARGET}
+    </script>
 snippet script
     <script>
-    ${1:TARGET}
-    </script>${2}
+        ${1:TARGET}
+    </script>
 snippet scriptsrc
 abbr    js
     <script src="${1}"${2: defer}></script>${3}
@@ -117,13 +117,12 @@ options word
     <bdo dir="${1:rtl}">${2:TARGET}</bdo>${3}
 snippet pre
     <pre>
-    ${1:TARGET}
-    </pre>${2}
+        ${1:TARGET}
+    </pre>
 snippet blockquote
     <blockquote>
-    ${1}
+        ${1:TARGET}
     </blockquote>
-    ${2}
 
 snippet link
 abbr    link stylesheet css
@@ -159,20 +158,20 @@ options word
 
 snippet framesetcols
     <frameset cols="${1}">
-    ${2:TARGET}
-    </frameset>${3}
+        ${2:TARGET}
+    </frameset>
 snippet framesetrows
     <frameset rows="${1}"
-    ${2:TARGET}
-    </frameset>${3}
+        ${2:TARGET}
+    </frameset>
 
 snippet iframe
 options word
     <iframe src="${1}"></iframe>${2}
 snippet table
     <table border="${1}">
-    ${2:TARGET}
-    </table>${3}
+        ${2:TARGET}
+    </table>
 
 snippet th
 options word
@@ -220,8 +219,8 @@ options word
 
 snippet form
     <form>
-    ${1:TARGET}
-    </form>${2}
+        ${1:TARGET}
+    </form>
 
 snippet inputtext
 options word
@@ -238,9 +237,8 @@ options word
 
 snippet textarea
     <textarea rows="${1}" cols="${2}">
-    ${3:TARGET}
+        ${3:TARGET}
     </textarea>
-    ${4}
 
 snippet button
 options word
@@ -256,8 +254,8 @@ options word
 
 snippet optgroup
     <optgroup label="${1}">
-    ${2:TARGET}
-    <optgroup>${3}
+        ${2:TARGET}
+    <optgroup>
 snippet option
 options word
     <option value="${1}">${2:TARGET}</option>${3}
@@ -313,29 +311,29 @@ options word
 snippet header
 options word
     <header>
-        ${1}
+        ${1:TARGET}
     </header>
 
 snippet nav
 options word
     <nav>
-        ${1}
+        ${1:TARGET}
     </nav>
 
 snippet main
 options word
     <main>
-        ${1}
+        ${1:TARGET}
     </main>
 
 snippet footer
 options word
     <footer>
-        ${1}
+        ${1:TARGET}
     </footer>
 
 snippet details
-    <details${2}>
-        <summary>${1}</summary>
-        ${3}
+    <details${1}>
+        <summary>${2}</summary>
+        ${3:TARGET}
     </details>
