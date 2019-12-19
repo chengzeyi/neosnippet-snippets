@@ -59,13 +59,13 @@ options     head
     endtry
 
 snippet     trycatch
-abbr        tryc
 abbr        try ... catch ... endtry
+alias       tryc
 options     head
     try
       ${1:TARGET}
-    catch${2: /${3:#:pattern\}/}
-      ${4}
+    catch ${2:#:/pattern/}
+      ${3}
     endtry
 
 snippet     tryfinally
@@ -87,7 +87,8 @@ options     head
 snippet     catch
 abbr        catch /pattern/
 options     head
-    catch ${1:/${2:#:pattern: empty, E484, Vim(cmdname):{errmsg\\}\}/}
+    catch ${1:#:/pattern/}
+      ${0:TARGET}
 
 snippet     echomsg
 alias       log
