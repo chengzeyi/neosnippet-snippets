@@ -1,67 +1,81 @@
 snippet class
+abbr    ... class Name {}
     ${1:public }class `expand('%:p:t:r')` ${2:extends }{
         ${0:TARGET}
     }
 
 snippet class_inner
-alias classi
+alias   classi
+abbr    ... class ... {}
     ${1:public }class ${2:#:name} ${3:extends }{
         ${0:TARGET}
     }
 
 snippet interface
+abbr    ... interface Name {}
     ${1:public }interface `expand('%:p:t:r')` ${2:extends }{
         ${0:TARGET}
     }
 
 snippet interface_inner
-alias interfacei
+alias   interfacei
+abbr    ... interface ... {}
     ${1:public }interface ${2:#:name} ${3:extends }{
         ${0:TARGET}
     }
 
 snippet enum
+abbr    ... enum Name {}
     ${1:public }enum `expand('%:p:t:r')` {
         ${0:TARGET}
     }
 
 snippet enum_innner
-alias enumi
+alias   enumi
+abbr    ... enum ... {}
     ${1:public }enum ${2:#:name} {
         ${0:TARGET}
     }
 
 snippet method
+abbr    ... func() ... {}
     ${1:public} ${2:void} ${3:#:name}(${4}) ${5:throws }{
         ${0:TARGET}
     }
 
 snippet method_static
-alias methods
-    ${1:public} ${2:static} ${3:void} ${4:#:name}(${5}) ${6:throws }{
+alias   methods
+abbr    ... static func() ... {}
+    ${1:public} static ${2:void} ${3:#:name}(${4}) ${5:throws }{
         ${0:TARGET}
     }
 
 snippet const
+abbr    public static final type var = ...;
     public static final ${1:#:type} ${2:#:var} = ${3};
 
 snippet const_string
-alias consts
+alias   consts
+abbr    public static final String var = "...";
     public static final String ${1:var} = "${2}";
 
 snippet final
+abbr    public final type var = ...;
     public final ${1:#:type} ${2:#:var} = ${3};
 
 snippet assert
+abbr    assert ... : "...";
     assert ${1:#:test} : "${2:#:failure message}";
 
 snippet if
+abbr    if () {}
     if (${1}) {
         ${2:TARGET}
     }
 
 snippet ifelse
-alias ifel
+alias   ifel
+abbr    if () {} else {}
     if (${1}) {
         ${2:TARGET}
     } else {
@@ -69,62 +83,74 @@ alias ifel
     }
 
 snippet else
-alias el
+alias   el
+abbr    else {}
     else {
         ${1:TARGET}
     }
 
 snippet elseif
-alias elif
+alias   elif
+abbr    else if () {}
     else if (${1}) {
         ${2:TARGET}
     }
 
 snippet while
+abbr    while () {}
     while (${1}) {
         ${2:TARGET}
     }
 
 snippet for
+abbr    for ( ; ; ) {}
     for (${1}; ${2}; ${3}) {
         ${4:TARGET}
     }
 
 snippet fori
+abbr    for ( int i = ...; i < ...; ++i) {}
     for (int ${1:i} = 0; $1 < ${2}; ++$1) {
         ${0:TARGET}
     }
 
 snippet forri
+abbr    for ( int i = ...; i >= ...; --i) {}
     for (int ${1:i} = ${2}; $1 >= 0; --$1) {
         ${0:TARGET}
     }
 
 snippet foreach
 alias   fore
+abbr    for (... : ...) {}
     for (${1} : ${2}) {
         ${3:TARGET}
     }
 
 snippet switch
+abbr    switch () {}
     switch (${1}) {
         ${2:TARGET}
     }
 
 snippet case
+abbr    case ...: ...
     case ${1}:
         ${2:TARGET}
 
 snippet break
-alias br
+alias   br
+abbr    break;
     break;
 
 snippet default
 alias   de
+abbr    default: ...
     default:
         ${0}
 
 snippet try
+abbr    try {} catch () {}
     try {
         ${1:TARGET}
     } catch (${2:Exception} ${3:e}) {
@@ -133,6 +159,7 @@ snippet try
 
 snippet try_with
 snippet tryw
+abbr    try () {} catch () {}
     try (${1:#:resources}) {
         ${2:TARGET}
     } catch (${3:Exception} ${4:e}) {
@@ -141,6 +168,7 @@ snippet tryw
 
 snippet try_finally
 snippet tryf
+abbr    try {} catch () {} finally {}
     try {
         ${1:TARGET}
     } catch (${2:Exception} ${3:e}) {
@@ -150,35 +178,42 @@ snippet tryf
     }
 
 snippet catch
+abbr    catch () {}
     catch (${1:Exception} ${2:e}) {
         ${3:e.printStackTrace();}
     }
 
 snippet finally
+abbr    finally {}
     finally {
         ${0:TARGET}
     }
 
 snippet throw
 snippet th
+abbr    throw ...;
 options word
     throw ${0};
 
 snippet new
+abbr    var ... = new ...;
     ${1:var} ${2} = new ${3};
 
 snippet conditional
 alias   cond
+abbr    ... ? ... : ...
     ${1:#:condition} ? ${2:#:a} : ${3:#:b}
 
 snippet testclass
-alias   tc
+alias   testc
+abbr    public class ... extends ... {}
 options head
     public class ${1} extends ${2:TestCase} {
         ${0:TARGET}
     }
 
 snippet test
+abbr    public void test...() throws Exception {}
 options head
     public void test${1:#:name}() throws Exception {
         ${0:TARGET}
@@ -186,9 +221,11 @@ options head
 
 snippet import
 alias   imt
+abbr    import ...;
     import ${1};
 
 snippet main
+abbr    public class Name { public static void main(String args[]) {} }
     public class `expand('%:p:t:r')` {
         public static void main(String args[]) {
             ${0:TARGET}
@@ -196,82 +233,101 @@ snippet main
     }
 
 snippet println
+abbr    System.out.println(...);
 options word
     System.out.println(${1});
 
 snippet print
+abbr    System.out.print(...);
 options word
     System.out.print(${1});
 
 snippet format
+abbr    System.out.format(...);
 options word
     System.out.format(${1});
 
 #javadoc
 snippet comment
+abbr    /* ... */
     /**
      * ${0:TARGET}
      */
 
 snippet author
+abbr    @author ...
     @author ${0:$TM_FULLNAME}
 
-snippet {code
+snippet code
+abbr    {@code ...
     {@code ${0}
 
 snippet deprecated
+abbr    @deprecated ...
     @deprecated ${0:#:description}
 
-snippet {docRoot
+snippet docRoot
+abbr    {@docRoot
     {@docRoot
 
-snippet {inheritDoc
+snippet inheritDoc
+abbr    {@inheritDoc
     {@inheritDoc
 
-snippet {link
+snippet link
+abbr    {@link ... ...
     {@link ${1:#:target} ${0:#:label}
 
-snippet {linkplain
+snippet linkplain
+abbr    {@linkplain ... ...
     {@linkplain ${1:#:target} ${0:#:label}
 
-snippet {literal
+snippet literal
+abbr    {@literal ...
     {@literal ${0}
 
 snippet param
+abbr    @param ... ...
     @param ${1:#:var} ${0:#:description}
 
 snippet return
+abbr    @return ...
     @return ${0:#:description}
 
 snippet see
+abbr    @see ...
     @see ${0:#:reference}
 
 snippet serial
+abbr    @serial ...
     @serial ${0:#:description}
 
-snippet sd
-    @serialField ${0:#:description}
-
-snippet sf
+snippet sefialField
+abbr    @sefialField ...
     @serialField ${1:#:name} ${2:#:type} ${0:#:description}
 
 snippet since
+abbr    @since ...
     @since ${0:#:version}
 
 snippet throws
+abbr    @throws ... ...
     @throws ${1:#:class} ${0:#:description}
 
-snippet {value
+snippet value
+abbr    {@value ...
     {@value ${0}
 
 snippet version
-alias ver
+alias   ver
+abbr    @version ...
     @version ${0:#:version}
 
-snippet     helloworld
-options     head
-  public class `expand('%:p:t:r')` {
-    static public void main(String args[]) {
-      System.out.println("Hello, world!");
+snippet helloworld
+abbr    public class Name { static public void main(String args[]) { ... } }
+options head
+    public class `expand('%:p:t:r')` {
+        static public void main(String args[]) {
+            System.out.println("Hello, world!");
+        }
     }
-  }
