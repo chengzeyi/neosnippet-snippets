@@ -227,7 +227,7 @@ abbr    import ...;
 snippet main
 abbr    public class Name { public static void main(String args[]) {} }
     public class `expand('%:p:t:r')` {
-        public static void main(String args[]) {
+        public static void main(String[] args) {
             ${0:TARGET}
         }
     }
@@ -327,7 +327,7 @@ snippet helloworld
 abbr    public class Name { static public void main(String args[]) { ... } }
 options head
     public class `expand('%:p:t:r')` {
-        static public void main(String args[]) {
+        static public void main(String[] args) {
             System.out.println("Hello, world!");
         }
     }
