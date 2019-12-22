@@ -5,13 +5,13 @@ options     head
     snippet     ${1:#:trigger}
     abbr        ${2:#:abbr}
     options     head
-        ${3:#:TARGET}
+        ${3:TARGET}
 
 snippet     include
 abbr        include *.snip
 alias       inc
 options     head
-    include ${0:filetype}.snip
+    include ${0:#:filetype}.snip
 
 snippet     $
 abbr        ${..}
