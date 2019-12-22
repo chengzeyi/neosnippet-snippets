@@ -204,7 +204,7 @@ alias   cond
 abbr    ... ? ... : ...
     ${1:#:condition} ? ${2:#:a} : ${3:#:b}
 
-snippet testclass
+snippet test_class
 alias   testc
 abbr    public class ... extends ... {}
 options head
@@ -212,15 +212,19 @@ options head
         ${0:TARGET}
     }
 
-snippet test
+snippet test_mechod
+snippet testm
 abbr    public void test...() throws Exception {}
 options head
     public void test${1:#:name}() throws Exception {
         ${0:TARGET}
     }
 
+snippet package
+abbr    package ...;
+    package ${1};
+
 snippet import
-alias   imt
 abbr    import ...;
     import ${1};
 
