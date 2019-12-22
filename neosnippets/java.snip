@@ -1,39 +1,39 @@
 snippet class
 abbr    ... class Name {}
-    ${1:public }class `expand('%:p:t:r')` {
+    ${1:public} class `expand('%:p:t:r')` {
         ${0:TARGET}
     }
 
 snippet class_inner
 alias   classi
 abbr    ... class ... {}
-    ${1:public }class ${2:#:name} {
+    ${1:public} class ${2:#:name} {
         ${0:TARGET}
     }
 
 snippet interface
 abbr    ... interface Name {}
-    ${1:public }interface `expand('%:p:t:r')` {
+    ${1:public} interface `expand('%:p:t:r')` {
         ${0:TARGET}
     }
 
 snippet interface_inner
 alias   interfacei
 abbr    ... interface ... {}
-    ${1:public }interface ${2:#:name} {
+    ${1:public} interface ${2:#:name} {
         ${0:TARGET}
     }
 
 snippet enum
 abbr    ... enum Name {}
-    ${1:public }enum `expand('%:p:t:r')` {
+    ${1:public} enum `expand('%:p:t:r')` {
         ${0:TARGET}
     }
 
 snippet enum_innner
 alias   enumi
 abbr    ... enum ... {}
-    ${1:public }enum ${2:#:name} {
+    ${1:public} enum ${2:#:name} {
         ${0:TARGET}
     }
 
@@ -253,6 +253,7 @@ options word
 
 #javadoc
 snippet comment
+alias   /*
 abbr    /* ... */
     /**
      * ${0:TARGET}
@@ -323,7 +324,6 @@ abbr    {@value ...
     {@value ${0}
 
 snippet version
-alias   ver
 abbr    @version ...
     @version ${0:#:version}
 
