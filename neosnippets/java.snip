@@ -1,52 +1,52 @@
 snippet class
 abbr    ... class Name {}
-    ${1:public} class `expand('%:p:t:r')` {
+    ${1:public} class `expand('%:p:t:r')` ${2}{
         ${0:TARGET}
     }
 
 snippet class_inner
 alias   classi
 abbr    ... class ... {}
-    ${1:public} class ${2:#:name} {
+    ${1:public} class ${2:#:name} ${3}{
         ${0:TARGET}
     }
 
 snippet interface
 abbr    ... interface Name {}
-    ${1:public} interface `expand('%:p:t:r')` {
+    ${1:public} interface `expand('%:p:t:r')` ${2}{
         ${0:TARGET}
     }
 
 snippet interface_inner
 alias   interfacei
 abbr    ... interface ... {}
-    ${1:public} interface ${2:#:name} {
+    ${1:public} interface ${2:#:name} ${3}{
         ${0:TARGET}
     }
 
 snippet enum
 abbr    ... enum Name {}
-    ${1:public} enum `expand('%:p:t:r')` {
+    ${1:public} enum `expand('%:p:t:r')` ${2}{
         ${0:TARGET}
     }
 
 snippet enum_innner
 alias   enumi
 abbr    ... enum ... {}
-    ${1:public} enum ${2:#:name} {
+    ${1:public} enum ${2:#:name} ${3}{
         ${0:TARGET}
     }
 
 snippet method
 abbr    ... func() {}
-    ${1:public} ${2:void} ${3:#:name}(${4}) {
+    ${1:public} ${2:void} ${3:#:name}(${4}) ${5}{
         ${0:TARGET}
     }
 
 snippet method_static
 alias   methods
 abbr    ... static func() {}
-    ${1:public} static ${2:void} ${3:#:name}(${4}) {
+    ${1:public} static ${2:void} ${3:#:name}(${4}) ${5}{
         ${0:TARGET}
     }
 
@@ -230,7 +230,7 @@ abbr    import ...;
 snippet main
 abbr    public class Name { public static void main(String args[]) {} }
     public class `expand('%:p:t:r')` {
-        public static void main(String[] args) {
+        public static void main(String[] args) ${1}{
             ${0:TARGET}
         }
     }
@@ -238,7 +238,7 @@ abbr    public class Name { public static void main(String args[]) {} }
 snippet main_method
 alias   mainm
 abbr    public static void main(String args[]) {}
-    public static void main(String[] args) {
+    public static void main(String[] args) ${1}{
         ${0:TARGET}
     }
 
