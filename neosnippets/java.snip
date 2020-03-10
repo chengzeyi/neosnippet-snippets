@@ -109,13 +109,13 @@ abbr    for ( ; ; ) {}
     }
 
 snippet fori
-abbr    for ( int i = ...; i < ...; ++i) {}
+abbr    for (int i = ...; i < ...; ++i) {}
     for (int ${1:i} = 0; $1 < ${2}; ++$1) {
         ${0:TARGET}
     }
 
 snippet forri
-abbr    for ( int i = ...; i >= ...; --i) {}
+abbr    for (int i = ...; i >= ...; --i) {}
     for (int ${1:i} = ${2}; $1 >= 0; --$1) {
         ${0:TARGET}
     }
@@ -190,9 +190,9 @@ abbr    finally {}
     }
 
 snippet throw
-abbr    throw ...;
+abbr    throw new ...;
 options word
-    throw ${0};
+    throw new ${0};
 
 snippet new
 abbr    var ... = new ...;
@@ -257,6 +257,12 @@ snippet format
 abbr    System.out.format(...);
 options word
     System.out.format(${1});
+
+snippet string_format
+alias   stringf
+abbr    String.format(...)
+options word
+    String.format("${1}", ${2})${0}
 
 #javadoc
 snippet comment
