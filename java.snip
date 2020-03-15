@@ -123,8 +123,8 @@ abbr    for (int i = ...; i >= ...; --i) {}
 snippet foreach
 alias   fore
 abbr    for (... : ...) {}
-    for (${1} : ${2}) {
-        ${3:TARGET}
+    for (${1:var} ${2} : ${3}) {
+        ${0:TARGET}
     }
 
 snippet return
