@@ -127,6 +127,10 @@ abbr    for (... : ...) {}
         ${3:TARGET}
     }
 
+snippet return
+abbr    return ...;
+    return ${0:TARGET};
+
 snippet switch
 abbr    switch () {}
     switch (${1}) {
@@ -139,7 +143,6 @@ abbr    case ...: ...
         ${2:TARGET}
 
 snippet break
-alias   br
 abbr    break;
     break;
 
@@ -264,7 +267,7 @@ abbr    String.format(...)
 options word
     String.format("${1}", ${2})${0}
 
-#javadoc
+# javadoc
 snippet comment
 alias   /*
 abbr    /* ... */
@@ -272,73 +275,73 @@ abbr    /* ... */
      * ${0:TARGET}
      */
 
-snippet author
-abbr    @author ...
-    @author ${0:$TM_FULLNAME}
+# snippet author
+# abbr    @author ...
+#     @author ${0:$TM_FULLNAME}
 
-snippet code
-abbr    {@code ...
-    {@code ${0}
+# snippet code
+# abbr    {@code ...
+#     {@code ${0}
 
-snippet deprecated
-abbr    @deprecated ...
-    @deprecated ${0:#:description}
+# snippet deprecated
+# abbr    @deprecated ...
+#     @deprecated ${0:#:description}
 
-snippet docRoot
-abbr    {@docRoot
-    {@docRoot
+# snippet docRoot
+# abbr    {@docRoot
+#     {@docRoot
 
-snippet inheritDoc
-abbr    {@inheritDoc
-    {@inheritDoc
+# snippet inheritDoc
+# abbr    {@inheritDoc
+#     {@inheritDoc
 
-snippet link
-abbr    {@link ... ...
-    {@link ${1:#:target} ${0:#:label}
+# snippet link
+# abbr    {@link ... ...
+#     {@link ${1:#:target} ${0:#:label}
 
-snippet linkplain
-abbr    {@linkplain ... ...
-    {@linkplain ${1:#:target} ${0:#:label}
+# snippet linkplain
+# abbr    {@linkplain ... ...
+#     {@linkplain ${1:#:target} ${0:#:label}
 
-snippet literal
-abbr    {@literal ...
-    {@literal ${0}
+# snippet literal
+# abbr    {@literal ...
+#     {@literal ${0}
 
-snippet param
-abbr    @param ... ...
-    @param ${1:#:var} ${0:#:description}
+# snippet param
+# abbr    @param ... ...
+#     @param ${1:#:var} ${0:#:description}
 
-snippet return
-abbr    @return ...
-    @return ${0:#:description}
+# snippet return
+# abbr    @return ...
+#     @return ${0:#:description}
 
-snippet see
-abbr    @see ...
-    @see ${0:#:reference}
+# snippet see
+# abbr    @see ...
+#     @see ${0:#:reference}
 
-snippet serial
-abbr    @serial ...
-    @serial ${0:#:description}
+# snippet serial
+# abbr    @serial ...
+#     @serial ${0:#:description}
 
-snippet sefialField
-abbr    @sefialField ...
-    @serialField ${1:#:name} ${2:#:type} ${0:#:description}
+# snippet sefialField
+# abbr    @sefialField ...
+#     @serialField ${1:#:name} ${2:#:type} ${0:#:description}
 
-snippet since
-abbr    @since ...
-    @since ${0:#:version}
+# snippet since
+# abbr    @since ...
+#     @since ${0:#:version}
 
-snippet throws
-abbr    @throws ... ...
-    @throws ${1:#:class} ${0:#:description}
+# snippet throws
+# abbr    @throws ... ...
+#     @throws ${1:#:class} ${0:#:description}
 
-snippet value
-abbr    {@value ...
-    {@value ${0}
+# snippet value
+# abbr    {@value ...
+#     {@value ${0}
 
-snippet version
-abbr    @version ...
-    @version ${0:#:version}
+# snippet version
+# abbr    @version ...
+#     @version ${0:#:version}
 
 snippet helloworld
 abbr    public class Name { static public void main(String args[]) { ... } }
