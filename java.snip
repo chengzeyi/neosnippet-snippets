@@ -195,11 +195,11 @@ abbr    finally {}
 snippet throw
 abbr    throw new ...;
 options word
-    throw new ${0};
+    throw new ${0:Exception};
 
 snippet new
 abbr    var ... = new ...;
-    ${1:var} ${2} = new ${3}{${4}};
+    ${1:var} ${2} = new ${3:Object}(${4});
 
 snippet conditional
 alias   cond
