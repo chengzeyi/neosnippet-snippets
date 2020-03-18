@@ -30,7 +30,7 @@ abbr    ... enum Name {}
         ${0:TARGET}
     }
 
-snippet enum_innner
+snippet enum_inner
 alias   enumi
 abbr    ... enum ... {}
     ${1:public} enum ${2:#:name} ${3}{
@@ -47,6 +47,20 @@ snippet method_static
 alias   methods
 abbr    ... static func() {}
     ${1:public} static ${2:void} ${3:#:name}(${4}) ${5}{
+        ${0:TARGET}
+    }
+
+snippet constructor
+alias   cons
+abbr    Name(...) {}
+    `expand('%:p:t:r')`(${1}) {
+        ${0:TARGET}
+    }
+
+snippet constructor_inner
+alias   consi
+abbr    ...(...) {}
+    ${1:#:name}(${2}) {
         ${0:TARGET}
     }
 
