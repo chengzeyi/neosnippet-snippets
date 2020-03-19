@@ -245,15 +245,7 @@ abbr    import ...;
     import ${1};
 
 snippet main
-abbr    public class Name { public static void main(String args[]) {} }
-    public class `expand('%:p:t:r')` {
-        public static void main(String[] args) ${1}{
-            ${0:TARGET}
-        }
-    }
-
-snippet main_method
-alias   mainm
+alias   main
 abbr    public static void main(String args[]) {}
     public static void main(String[] args) ${1}{
         ${0:TARGET}
