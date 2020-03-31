@@ -113,7 +113,7 @@ abbr        augroup with autocmds
 options     head
     augroup ${1:#:augroup_name}
       autocmd!
-      autocmd ${2:#:event}
+      ${0:TARGET}
     augroup END
 
 snippet     redir

@@ -167,6 +167,13 @@ abbr    default: ...
         ${0}
 
 snippet try
+abbr    try {}
+    try {
+        ${0:TARGET}
+    }
+
+snippet try_catch
+alias   tryc
 abbr    try {} catch () {}
     try {
         ${1:TARGET}
@@ -175,7 +182,7 @@ abbr    try {} catch () {}
     }
 
 snippet try_with
-snippet tryw
+alias   tryw
 abbr    try () {} catch () {}
     try (${1:#:resources}) {
         ${2:TARGET}
@@ -184,7 +191,7 @@ abbr    try () {} catch () {}
     }
 
 snippet try_finally
-snippet tryf
+alias   tryf
 abbr    try {} catch () {} finally {}
     try {
         ${1:TARGET}
