@@ -1,64 +1,63 @@
 # Global snippets
 
-snippet     date_english
+snippet     _date_english
 abbr        %d %b %Y
 options     word
     `strftime("%d %b %Y")`${0}
 
-snippet     datetime_iso8601
+snippet     _datetime_iso8601
 abbr        %Y-%m-%dT%H:%M:%S
 alias       df
 options     word
     `strftime("%Y-%m-%dT%H:%M:%S")`${0}
 
-snippet     date_iso8601
+snippet     _date_iso8601
 abbr        %Y-%m-%d
 alias       dd
 options     word
     `strftime("%Y-%m-%d")`${0}
 
-snippet     time_colon
+snippet     _time_colon
 abbr        %H:%M:%S
 alias       dt
 options     word
     `strftime("%H:%M:%S")`${0}
 
-snippet     lastmod
+snippet     _lastmod
 abbr        Last Modified: %Y-%m-%dT%H:%M:%S
 alias       lmod
     Last Modified: `strftime("%Y-%m-%dT%H:%M:%S")`${0}
 
-snippet     filename
+snippet     _filename
 abbr        file name
 alias       fname
 options     word
     `bufname('%') ==#'[Command Line]' ? expand('#') : expand('%')`${0}
 
-snippet     path
+snippet     _path
 abbr        file path
 options     word
     `substitute(bufname('%') ==#'[Command Line]' ? expand('#:p') : expand('%:p'), '//\+', '/', 'g')`${0}
 
-snippet     rpath
+snippet     _rpath
 abbr        file directory path
 options     word
     `substitute(bufname('%') ==#'[Command Line]' ? expand('#:h') : expand('%:h'), '\(//*\|/*$\)', '/', 'g')`${0}
 
-snippet     basename
+snippet     _basename
 abbr        file base name
 alias       bname
 options     word
     `bufname('%') ==#'[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r')`${0}
 
-snippet     filename_upper_camel
+snippet     _filename_upper_camel
 abbr        file name to upper camel
 alias       fnameuc
 options     word
     `substitute(bufname('%') ==#'[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r'), '\%(^\(.\)\|_\(.\)\)', '\u\1\u\2', 'g')`${0}
 
-snippet     filename_lower_camel
+snippet     _filename_lower_camel
 abbr        file name to lower camel
 alias       fnamelc
 options     word
     `substitute(bufname('%') ==#'[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r'), '\%(_\(.\)\)', '\u\1', 'g')`${0}
-
