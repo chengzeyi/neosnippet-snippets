@@ -7,7 +7,7 @@ abbr    ... class Name {}
 snippet class_inner
 alias   classi
 abbr    ... class ... {}
-    ${1:public} class ${2:#:name} ${3}{
+    ${1:public} class ${2:#:NAME} ${3}{
         ${0:TARGET}
     }
 
@@ -20,7 +20,7 @@ abbr    ... interface Name {}
 snippet interface_inner
 alias   interfacei
 abbr    ... interface ... {}
-    ${1:public} interface ${2:#:name} ${3}{
+    ${1:public} interface ${2:#:NAME} ${3}{
         ${0:TARGET}
     }
 
@@ -33,20 +33,49 @@ abbr    ... enum Name {}
 snippet enum_inner
 alias   enumi
 abbr    ... enum ... {}
-    ${1:public} enum ${2:#:name} ${3}{
+    ${1:public} enum ${2:#:NAME} ${3}{
         ${0:TARGET}
     }
 
-snippet method
-abbr    ... func() {}
-    ${1:public} ${2:void} ${3:#:name}(${4}) ${5}{
+snippet public
+alias   pub
+abbr    public ... func() {}
+    public ${1:void} ${2:#:NAME}(${3}) ${4}{
         ${0:TARGET}
     }
 
-snippet method_static
-alias   methods
-abbr    ... static func() {}
-    ${1:public} static ${2:void} ${3:#:name}(${4}) ${5}{
+snippet public_static
+alias   publics pubs
+abbr    public static ... func() {}
+    public static ${1:void} ${2:#:NAME}(${3}) ${4}{
+        ${0:TARGET}
+    }
+
+snippet private
+alias   pri
+abbr    private ... func() {}
+    private ${1:void} ${2:#:NAME}(${3}) ${4}{
+        ${0:TARGET}
+    }
+
+snippet private_static
+alias   privates pris
+abbr    private static ... func() {}
+    private static ${1:void} ${2:#:NAME}(${3}) ${4}{
+        ${0:TARGET}
+    }
+
+snippet protected
+alias   pro
+abbr    protected ... func() {}
+    protected ${1:void} ${2:#:NAME}(${3}) ${4}{
+        ${0:TARGET}
+    }
+
+snippet protected_static
+alias   protecteds pros
+abbr    protected static ... func() {}
+    protected static ${1:void} ${2:#:NAME}(${3}) ${4}{
         ${0:TARGET}
     }
 
@@ -60,13 +89,13 @@ abbr    Name(...) {}
 snippet constructor_inner
 alias   consi
 abbr    ...(...) {}
-    ${1:#:name}(${2}) {
+    ${1:#:NAME}(${2}) {
         ${0:TARGET}
     }
 
 snippet const
 abbr    public static final type var = ...;
-    public static final ${1:#:type} ${2:#:var} = ${3};
+    public static final ${1:#:TYPE} ${2:#:VAR} = ${3};
 
 snippet const_string
 alias   consts
@@ -75,11 +104,11 @@ abbr    public static final String var = "...";
 
 snippet final
 abbr    public final type var = ...;
-    public final ${1:#:type} ${2:#:var} = ${3};
+    public final ${1:#:TYPE} ${2:#:VAR} = ${3};
 
 snippet assert
 abbr    assert ... : "...";
-    assert ${1:#:test} : "${2:#:failure message}";
+    assert ${1:#:TEST} : "${2:#:FAILURE MESSAGE}";
 
 snippet if
 abbr    if () {}
@@ -184,7 +213,7 @@ abbr    try {} catch () {}
 snippet try_with
 alias   tryw
 abbr    try () {} catch () {}
-    try (${1:#:resources}) {
+    try (${1:#:RESOURCES}) {
         ${2:TARGET}
     } catch (${3:Exception} ${4:e}) {
         ${5:e.printStackTrace();}
@@ -225,21 +254,21 @@ abbr    var ... = new ...;
 snippet conditional
 alias   cond
 abbr    ... ? ... : ...
-    ${1:#:condition} ? ${2:#:a} : ${3:#:b}
+    ${1:#:CONDITION} ? ${2:#:A} : ${3:#:B}
 
 snippet test_class
 alias   testc
 abbr    public class ... extends ... {}
 options head
-    public class ${1} extends ${2:TestCase} {
+    public class `expand('%:p:t:r')` extends ${1:TestCase} {
         ${0:TARGET}
     }
 
-snippet test_mechod
+snippet test_method
 snippet testm
 abbr    public void test...() throws Exception {}
 options head
-    public void test${1:#:name}() throws Exception {
+    public void test${1:#:NAME}() throws Exception {
         ${0:TARGET}
     }
 
@@ -278,7 +307,7 @@ snippet string_format
 alias   stringf
 abbr    String.format(...)
 options word
-    String.format("${1}", ${2})${0}
+    String.format(${1:TARGET}, ${2})${0}
 
 # javadoc
 snippet comment
@@ -298,7 +327,7 @@ abbr    /* ... */
 
 # snippet deprecated
 # abbr    @deprecated ...
-#     @deprecated ${0:#:description}
+#     @deprecated ${0:#:DESCRIPTION}
 
 # snippet docRoot
 # abbr    {@docRoot
@@ -310,11 +339,11 @@ abbr    /* ... */
 
 # snippet link
 # abbr    {@link ... ...
-#     {@link ${1:#:target} ${0:#:label}
+#     {@link ${1:#:TARGET} ${0:#:LABEL}
 
 # snippet linkplain
 # abbr    {@linkplain ... ...
-#     {@linkplain ${1:#:target} ${0:#:label}
+#     {@linkplain ${1:#:TARGET} ${0:#:LABEL}
 
 # snippet literal
 # abbr    {@literal ...
@@ -322,31 +351,31 @@ abbr    /* ... */
 
 # snippet param
 # abbr    @param ... ...
-#     @param ${1:#:var} ${0:#:description}
+#     @param ${1:#:VAR} ${0:#:DESCRIPTION}
 
 # snippet return
 # abbr    @return ...
-#     @return ${0:#:description}
+#     @return ${0:#:DESCRIPTION}
 
 # snippet see
 # abbr    @see ...
-#     @see ${0:#:reference}
+#     @see ${0:#:REFERENCE}
 
 # snippet serial
 # abbr    @serial ...
-#     @serial ${0:#:description}
+#     @serial ${0:#:DESCRIPTION}
 
 # snippet sefialField
 # abbr    @sefialField ...
-#     @serialField ${1:#:name} ${2:#:type} ${0:#:description}
+#     @serialField ${1:#:NAME} ${2:#:TYPE} ${0:#:DESCRIPTION}
 
 # snippet since
 # abbr    @since ...
-#     @since ${0:#:version}
+#     @since ${0:#:VERSION}
 
 # snippet throws
 # abbr    @throws ... ...
-#     @throws ${1:#:class} ${0:#:description}
+#     @throws ${1:#:CLASS} ${0:#:DESCRIPTION}
 
 # snippet value
 # abbr    {@value ...
@@ -354,7 +383,7 @@ abbr    /* ... */
 
 # snippet version
 # abbr    @version ...
-#     @version ${0:#:version}
+#     @version ${0:#:VERSION}
 
 snippet helloworld
 abbr    public class Name { static public void main(String args[]) { ... } }

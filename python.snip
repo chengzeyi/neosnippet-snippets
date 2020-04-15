@@ -27,7 +27,7 @@ options     head
 snippet     class
 abbr        class Class(...): ...
 options     head
-	class ${1:#:name}(${2:object}):
+	class ${1:#:NAME}(${2:object}):
 
 		def __init__(self${3}):
 			${0:pass}
@@ -35,49 +35,49 @@ options     head
 snippet     classd
 abbr        class Class(...): "..."
 options     head
-	class ${1:#:name}(${2:object}):
-		"""${3:#:class documentation}"""
+	class ${1:#:NAME}(${2:object}):
+		"""${3:#:CLASS DOCUMENTATION}"""
 
 		def __init__(self${4}):
-			"""${5:#:__init__ documentation}"""
+			"""${5:#:__INIT__ DOCUMENTATION}"""
 			${0:pass}
 
 snippet     def
 abbr        def function(...): ...
 options     head
-	def ${1:#:name}(${2}):
+	def ${1:#:NAME}(${2}):
 		${0:pass}
 
 snippet     defd
 abbr        def function(...): """..."""
 options     head
-	def ${1:#:name}(${2}):
-		"""${3:#:function documentation}"""
+	def ${1:#:NAME}(${2}):
+		"""${3:#:FUNCTION DOCUMENTATION}"""
 		${0:pass}
 
 snippet     defm
 abbr        def method(self, ...): ...
 options     head
-	def ${1:#:name}(self${2}):
+	def ${1:#:NAME}(self${2}):
 		${0:pass}
 
 snippet     defmd
 abbr        def method(self, ...): "..."
 options     head
-	def ${1:#:name}(self${2}):
-		"""${3:#:method documentation}"""
+	def ${1:#:NAME}(self${2}):
+		"""${3:#:METHOD DOCUMENTATION}"""
 		${0:pass}
 
 snippet     if
 abbr        if ...: ...
 options     head
-	if ${1:#:condition}:
+	if ${1:#:CONDITION}:
 		${0:pass}
 
 snippet     elif
 abbr        elif ...: ...
 options     head
-	elif ${1:#:condition}:
+	elif ${1:#:CONDITION}:
 		${0:pass}
 
 snippet     else
@@ -94,13 +94,13 @@ abbr        ... if ... else ...
 snippet     withopen
 alias       fileidiom
 options     head
-	with open(${1:#:file}, '${2:r}') as ${3:f}:
+	with open(${1:#:FILE}, '${2:r}') as ${3:f}:
 		${0:pass}
 
 snippet     for
 abbr        for ... in ...: ...
 options     head
-	for ${1:i} in ${2:#:list}:
+	for ${1:i} in ${2:#:LIST}:
 		${0:pass}
 
 snippet     ifmain
@@ -152,18 +152,18 @@ options     head
 snippet     while
 abbr        while ...: ...
 options     head
-	while ${1:#:condition}:
+	while ${1:#:CONDITION}:
 		${0:pass}
 
 snippet     with
 abbr        with {func}({file}) as :
 options     head
-	with ${1:open}(${2:#:filename, mode}) as ${3:f}:
+	with ${1:open}(${2:#:FILENAME, MODE}) as ${3:f}:
 		${0:pass}
 
 snippet     filter
 abbr        [x for x in {list} if {condition}]
-	[$1 for ${1:x} in ${2:#:list} if ${3:#:condition}]
+	[$1 for ${1:x} in ${2:#:LIST} if ${3:#:CONDITION}]
 
 snippet     print
 options     word
@@ -176,16 +176,16 @@ abbr        # -*- coding ...
 snippet     getattr
 abbr        getattr(..., ...)
 options     word
-	getattr(${1:#:obj}, ${2:#:attr})
+	getattr(${1:#:OBJ}, ${2:#:ATTR})
 
 snippet     setattr
 abbr        setattr(..., ...)
-	setattr(${1:#:obj}, ${2:#:attr}, ${3:#:value})
+	setattr(${1:#:OBJ}, ${2:#:ATTR}, ${3:#:VALUE})
 
 snippet     hasattr
 abbr        hasattr(..., ...)
 options     word
-	hasattr(${1:#:obj}, ${2:#:attr})
+	hasattr(${1:#:OBJ}, ${2:#:ATTR})
 
 snippet     pdb
 abbr        import pdb..

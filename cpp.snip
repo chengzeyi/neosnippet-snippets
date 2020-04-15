@@ -20,7 +20,7 @@ abbr        template <T>
 snippet     class
 options     head
 abbr        class {}
-    class ${1:#:name} {
+    class ${1:#:NAME} {
         ${2}
     public:
         $1(${3});
@@ -32,7 +32,7 @@ abbr        class {}
 snippet     class_without_constructor
 options     head
 abbr        class {}
-    class ${1:#:name} {
+    class ${1:#:NAME} {
         ${2}
     };
 
@@ -40,9 +40,15 @@ snippet     function_member
 options     head
 alias       funcm
 abbr        type class::func() {}
-    ${1:void} ${2:#:class_name}::${3:#:func_name}(${4:void}) {
+    ${1:void} ${2:#:CLASS_NAME}::${3:#:FUNC_NAME}(${4:void}) {
         ${0:TARGET}
     }
+
+snippet     function_member_declare
+options     head
+alias       funcmd
+abbr        type class::func() {}
+    ${1:void} ${2:#:CLASS_NAME}::${3:#:FUNC_NAME}(${4:void});
 
 snippet     try
 options     head
@@ -57,7 +63,7 @@ abbr        try {} catch () {}
 snippet     forr
 options     head
 abbr        for (:) {}
-    for (${1:auto &&}${2:var} : ${3:#:container}) {
+    for (${1:auto &&}${2:var} : ${3:#:CONTAINER}) {
         ${0:TARGET}
     }
 
@@ -65,12 +71,12 @@ snippet     for_each
 options     head
 alias       fore
 abbr        std::for_each();
-    std::for_each(${1:#:container}.begin(), $1.end(), ${2:#:func});
+    std::for_each(${1:#:CONTAINER}.begin(), $1.end(), ${2:#:FUNC});
 
 snippet     forit
 options     head
 abbr        for (auto it ...; ...; ++i)
-    for (${1:auto} ${2:it} = ${3:#:container}.begin(); $2 != $3.end(); ++$2) {
+    for (${1:auto} ${2:it} = ${3:#:CONTAINER}.begin(); $2 != $3.end(); ++$2) {
         ${0:TARGET}
     }
 
@@ -91,7 +97,7 @@ snippet     enum_scoped
 options     head
 alias       enums
 abbr        enum struct {};
-    enum struct ${1:#:name} { ${2:TARGET} };
+    enum struct ${1:#:NAME} { ${2:TARGET} };
 
 # static assert ( C++11 feature )
 snippet     static_assert
@@ -101,7 +107,7 @@ abbr        static_assert(,"");
 snippet     namespace
 options     head
 abbr        namespace {}
-    namespace ${1:#:name} {
+    namespace ${1:#:NAME} {
         ${0:TARGET}
     } // namespace $1
 

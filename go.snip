@@ -16,14 +16,14 @@ options     head
 snippet     func
 abbr        func ...() { ... }
 options     head
-  func ${1:#:fname}(${2}) ${3:error} {
+  func ${1:#:FNAME}(${2}) ${3:error} {
     ${0:TARGET:return nil}
   }
 
 snippet     funcm
 abbr        func () ...() { ... }
 options     head
-  func (${1:p} *${2:#:sname}) ${3:#:fname}(${4}) ${5:error} {
+  func (${1:p} *${2:#:SNAME}) ${3:#:FNAME}(${4}) ${5:error} {
     ${0:TARGET:return nil}
   }
 
@@ -78,13 +78,13 @@ options     head
 snippet     forr
 abbr        for ...:= range ... {}
 options     head
-  for ${1:v} := range ${2:#:iterator} {
+  for ${1:v} := range ${2:#:ITERATOR} {
     ${0:TARGET}
   }
 
 snippet     if
 abbr        if ... {}
-  if ${1:#:condition} {
+  if ${1:#:CONDITION} {
     ${0:TARGET}
   }
 
@@ -98,7 +98,7 @@ alias       ife
 snippet     ifelse
 abbr        if ... {} else {}
 alias       ifel
-  if ${1:#:condition} {
+  if ${1:#:CONDITION} {
     ${2:TARGET}
   } else {
     ${0}
@@ -114,15 +114,15 @@ alias       el
 snippet     elseif
 abbr        else if ... {}
 alias       elif
-  else if ${1:#:condition} {
+  else if ${1:#:CONDITION} {
     ${0:TARGET}
   }
 
 snippet     switch
 abbr        switch {}
 options     head
-  switch ${1:#:v} {
-  case ${2:#:condition}:
+  switch ${1:#:V} {
+  case ${2:#:CONDITION}:
     ${0:TARGET}
   }
 
@@ -130,14 +130,14 @@ snippet     select
 abbr        select {}
 options     head
   select {
-  case ${1:#:condition}:
+  case ${1:#:CONDITION}:
     ${0:TARGET}
   }
 
 snippet     case
 abbr        case ...: ...
 options     head
-  case ${1:#:condition}:
+  case ${1:#:CONDITION}:
     ${0:TARGET}
 
 snippet     funct
@@ -171,7 +171,7 @@ options     head
   for _, tt := range tests {
       tt := tt
       t.Run(tt.name, func(t *testing.T){
-          actual := ${1:#:fname}(tt.given)
+          actual := ${1:#:FNAME}(tt.given)
           if actual != tt.expected {
               t.Errorf("given(%s): expected %s, actual %s", tt.given, tt.expected, actual)
           }

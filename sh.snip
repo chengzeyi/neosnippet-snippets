@@ -12,12 +12,12 @@ options head
 	${0}
 
 snippet if
-	if [ ${1:#:condition} ]; then
+	if [ ${1:#:CONDITION} ]; then
 		${0:TARGET}
 	fi
 
 snippet ifel
-	if [ ${1:#:condition} ]; then
+	if [ ${1:#:CONDITION} ]; then
 		${2:TARGET}
 	else
 		${0}
@@ -29,21 +29,21 @@ abbr    el
 		${0:TARGET}
 
 snippet elif
-	elif [ ${1:#:condition} ]; then
+	elif [ ${1:#:CONDITION} ]; then
 		${0:TARGET}
 
 snippet for
-	for ${1:i} in ${2:#:words}; do
+	for ${1:i} in ${2:#:WORDS}; do
 		${0:TARGET}
 	done
 
 snippet while
-	while ${1:#:condition} ; do
+	while ${1:#:CONDITION} ; do
 		${0:TARGET}
 	done
 
 snippet until
-	until ${1:#:condition} ; do
+	until ${1:#:CONDITION} ; do
 		${0:TARGET}
 	done
 
@@ -62,7 +62,7 @@ snippet tmp
 
 snippet function
 alias func
-	${1:#:name}()
+	${1:#:NAME}()
 	{
 		${0:TARGET}
 	}
@@ -70,18 +70,18 @@ alias func
 snippet     match
 abbr        =~
 options     head
-	if [[ $${1:#:string} =~ ${2:#:regexp} ]]; then
+	if [[ $${1:#:STRING} =~ ${2:#:REGEXP} ]]; then
 		${0:TARGET}
 	fi
 
 snippet     assign
 options     head
-	${1:#:name}="${2:#:something}"
+	${1:#:NAME}="${2:#:SOMETHING}"
 
 snippet     case
 options     head
-	case "$${1:#:{name\}}" in
-		${2:#:pattern})
+	case "$${1:#:{NAME\}}" in
+		${2:#:PATTERN})
 			${0:TARGET}
 			;;
 		*)
