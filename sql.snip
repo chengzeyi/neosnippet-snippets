@@ -1,12 +1,12 @@
 snippet     CREATE_TABLE
-abbr        CREATE TABLE { ... }
+abbr        CREATE TABLE {...}
 options     head
   CREATE TABLE ${1:cities} (
     ${0:name varchar(80), country_name text}
   );
 
 snippet     CREATE_INDEX
-abbr        CREATE INDEX ... ON ... ( ... )
+abbr        CREATE INDEX ... ON ... (...)
 options     head
   CREATE INDEX ${1:_name} ON ${2:cities} (${3:name});
 
@@ -24,7 +24,7 @@ abbr        TRUNCATE TABLE ...
   TRUNCATE TABLE ${1:table};
 
 snippet     INSERT_DATA
-abbr        INSERT INTO ... VALUES ( ... )
+abbr        INSERT INTO ... VALUES (...)
 options     head
   INSERT INTO ${1:cities}
   VALUES (${0:'Vancouver', 'Canada'});

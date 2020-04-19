@@ -386,7 +386,7 @@ abbr    /* ... */
 #     @version ${0:#:VERSION}
 
 snippet helloworld
-abbr    public class Name { static public void main(String args[]) { ... } }
+abbr    public class Name { static public void main(String args[]) {...} }
 options head
     public class `expand('%:p:t:r')` {
         static public void main(String[] args) {
