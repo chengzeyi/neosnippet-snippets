@@ -2,8 +2,8 @@ snippet     snippet
 abbr        snippet abbr options <snippet code>
 alias       snip
 options     head
-    snippet     ${1:#:trigger}
-    abbr        ${2:#:abbr}
+    snippet     ${1:#:TRIGGER}
+    abbr        ${2:#:ABBR}
     options     head
         ${3:TARGET}
 
@@ -11,7 +11,7 @@ snippet     include
 abbr        include *.snip
 alias       inc
 options     head
-    include ${0:#:filetype}.snip
+    include ${0:#:FILETYPE}.snip
 
 snippet     $
 abbr        ${..}

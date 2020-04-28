@@ -1,6 +1,6 @@
 snippet function
 abbr public function () {}
-	${1:public }function ${2:#:FunctionName}(${3})
+	${1:public }function ${2:#:FUNCTIONNAME}(${3})
 	{
 		${4:TARGET}
 	}
@@ -24,19 +24,19 @@ snippet echoh
 	<?php echo htmlentities(${1}, ENT_QUOTES, 'utf-8') ?>${0}
 
 snippet pforeach
-	<?$php foreach ($${1:#:variable} as $${2:#:key}${3: =>}): ?>
+	<?$php foreach ($${1:#:VARIABLE} as $${2:#:KEY}${3: =>}): ?>
 	${0:TARGET}
 	<?php endforeach; ?>
 
 snippet pifelse
-	<?php if (${1:#:condition}): ?>
+	<?php if (${1:#:CONDITION}): ?>
 	${2:TARGET}
 	<?php else: ?>
 	${0}
 	<?php endif; ?>
 
 snippet pif
-	<?php if (${1:#:condition}): ?>
+	<?php if (${1:#:CONDITION}): ?>
 	${0:TARGET}
 	<?php endif; ?>
 
@@ -51,21 +51,21 @@ snippet pethis
 
 snippet doc_class_var
 	/**
-	 * ${3:#:undocumented class variable}
+	 * ${3:#:UNDOCUMENTED CLASS VARIABLE}
 	 *
-	 * @var ${4:#:string}
+	 * @var ${4:#:STRING}
 	 **/
-	${1:#:var} $${2};${0}
+	${1:#:VAR} $${2};${0}
 
 snippet doc_constant
 	/**
-	 * ${3:#:undocumented constant}
+	 * ${3:#:UNDOCUMENTED CONSTANT}
 	 **/
 	define(${1} ${2});${0}
 
 snippet doc_interface_function
 	/**
-	 * ${4:#:undocumented function}
+	 * ${4:#:UNDOCUMENTED FUNCTION}
 	 *
 	 * @return ${5:void}
 	 * @author ${6}
@@ -74,7 +74,7 @@ snippet doc_interface_function
 
 snippet doc_function
 	/**
-	 * ${4:#:undocumented function}
+	 * ${4:#:UNDOCUMENTED FUNCTION}
 	 *
 	 * @return ${5:void}
 	 * @author ${6}
@@ -101,7 +101,7 @@ snippet doch
 
 snippet doci
 	/**
-	 * ${2:#:undocumented class}
+	 * ${2:#:UNDOCUMENTED CLASS}
 	 *
 	 * @package ${3:default}
 	 * @author ${4}
@@ -120,10 +120,10 @@ snippet class_with_constructor
 	/**
 	 * ${1}
 	 */
-	class ${2:#:ClassName}${3:#:extends}
+	class ${2:#:CLASSNAME}${3:#:EXTENDS}
 	{
 		$5
-		function ${4:__construct}(${5:#:argument})
+		function ${4:__construct}(${5:#:ARGUMENT})
 		{
 			${0:# code...}
 		}
@@ -131,7 +131,7 @@ snippet class_with_constructor
 
 snippet class
 options head
-	class ${2:#:ClassName} {
+	class ${2:#:CLASSNAME} {
 		${0:TARGET}
 	}
 
@@ -143,24 +143,24 @@ snippet dowhile
 options head
 	do {
 		${0:TARGET}
-	} while (${1:#:condition});
+	} while (${1:#:CONDITION});
 
 snippet if?
 options head
-	$${1:#:retVal} = (${2:#:condition}) ? ${3:#:a} : ${4:#:b};
+	$${1:#:RETVAL} = (${2:#:CONDITION}) ? ${3:#:A} : ${4:#:B};
 
 snippet ifelse
 options head
-	if (${1:#:condition}) {
+	if (${1:#:CONDITION}) {
 		${2:TARGET}
 	} else {
-		${3:#:code...}
+		${3:#:CODE...}
 	}
 	${0}
 
 snippet if
 options head
-	if (${1:#:condition}) {
+	if (${1:#:CONDITION}) {
 		${0:TARGET}
 	}
 
@@ -174,11 +174,11 @@ options head
 
 snippet echo
 options head
-	echo "${1:#:string}";
+	echo "${1:#:STRING}";
 
 snippet println
 options head
-	printf("${1:#:string}\n"${2:, });
+	printf("${1:#:STRING}\n"${2:, });
 
 snippet else
 	else {
@@ -186,7 +186,7 @@ snippet else
 	}
 
 snippet elseif
-	elseif (${1:#:condition}) {
+	elseif (${1:#:CONDITION}) {
 		${0:TARGET}
 	}
 
@@ -197,14 +197,14 @@ options head
 	}
 
 snippet foreach-hashmap
-	foreach ($${1:#:variable} as $${2:#:key}${3: =>} $${4:#:value}) {
+	foreach ($${1:#:VARIABLE} as $${2:#:KEY}${3: =>} $${4:#:VALUE}) {
 		${0:TARGET}
 	}
 
 snippet foreach-list
 alias foreach
 options head
-	foreach ($${1:#:variable} as $${2:#:x}) {
+	foreach ($${1:#:VARIABLE} as $${2:#:X}) {
 		${0:TARGET}
 	}
 
@@ -217,27 +217,27 @@ options head
 
 snippet here
 	<<<${1:HTML}
-	${2:TARGET:#:content here}
+	${2:TARGET:#:CONTENT HERE}
 	$1;
 
 snippet inc
 options head
-	include '${1:#:file}';${0}
+	include '${1:#:FILE}';${0}
 
 snippet inco
 options head
-	include_once '${1:#:file}';${0}
+	include_once '${1:#:FILE}';${0}
 
 snippet array
-	$${1:#:arrayName} = array('${2}' => ${3} ${0});
+	$${1:#:ARRAYNAME} = array('${2}' => ${3} ${0});
 
 snippet req
 options head
-	require '${1:#:file}';${0}
+	require '${1:#:FILE}';${0}
 
 snippet reqo
 options head
-	require_once '${1:#:file}';${0}
+	require_once '${1:#:FILE}';${0}
 
 snippet ret
 options head
@@ -253,20 +253,20 @@ options head
 
 snippet case
 options head
-	case '${1:#:variable}':
-		${0:#:code...}
+	case '${1:#:VARIABLE}':
+		${0:#:CODE...}
 		break;
 
 snippet switch
 abbr sw
 options head
-	switch (${1:#:variable}) {
-	case '${2:#:value}':
-		${3:#:code...}
+	switch (${1:#:VARIABLE}) {
+	case '${2:#:VALUE}':
+		${3:#:CODE...}
 		break;
 	${0}
 	default:
-		${4:#:code...}
+		${4:#:CODE...}
 		break;
 	}
 
@@ -274,23 +274,23 @@ snippet try
 options head
 	try {
 		${1:TARGET}
-	} catch (${2:#:Exception} $e) {
-		${3:#:code}
+	} catch (${2:#:EXCEPTION} $e) {
+		${3:#:CODE}
 	}
 
 snippet tryf
 options head
 	try {
 		${1:TARGET}
-	} catch (${2:#:Exception} $e) {
-		${3:#:code}
+	} catch (${2:#:EXCEPTION} $e) {
+		${3:#:CODE}
 	} finally {
-		${4:#:code}
+		${4:#:CODE}
 	}
 
 snippet throw
 options head
-	throw new ${1}Exception(${2:"${3:#:Error Processing Request}"}${4:});
+	throw new ${1}Exception(${2:"${3:#:ERROR PROCESSING REQUEST}"}${4:});
 	${0}
 
 snippet while
@@ -301,31 +301,31 @@ options head
 	}
 
 snippet gloabals
-	\$GLOBALS['${1:#:variable}']${2: = }${3:#:something}${4:;}${0}
+	\$GLOBALS['${1:#:VARIABLE}']${2: = }${3:#:SOMETHING}${4:;}${0}
 
 snippet cookie
-	\$_COOKIE['${1:#:variable}']
+	\$_COOKIE['${1:#:VARIABLE}']
 
 snippet env
-	\$_ENV['${1:#:variable}']
+	\$_ENV['${1:#:VARIABLE}']
 
 snippet files
-	\$_FILES['${1:#:variable}']
+	\$_FILES['${1:#:VARIABLE}']
 
 snippet get
-	\$_GET['${1:#:variable}']
+	\$_GET['${1:#:VARIABLE}']
 
 snippet post
-	\$_POST['${1:#:variable}']
+	\$_POST['${1:#:VARIABLE}']
 
 snippet request
-	\$_REQUEST['${1:#:variable}']
+	\$_REQUEST['${1:#:VARIABLE}']
 
 snippet server
-	\$_SERVER['${1:#:variable}']
+	\$_SERVER['${1:#:VARIABLE}']
 
 snippet session
-	\$_SESSION['${1:#:variable}']
+	\$_SESSION['${1:#:VARIABLE}']
 
 snippet var_export
 alias inspect

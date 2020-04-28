@@ -1,44 +1,44 @@
 # 2 space
 snippet  proc
 options  head
-  proc ${1:#:name}(${2}) =
+  proc ${1:#:NAME}(${2}) =
     ${0:pass}
 
 snippet  procd
 options  head
-  proc ${1:#:name}(${2}):
-  discard """${3:#:function documentation}"""
+  proc ${1:#:NAME}(${2}):
+  discard """${3:#:FUNCTION DOCUMENTATION}"""
     ${0:pass}
 
 snippet  proct
 options  head
-  proc ${1:#:name}(${2}):${3:#:type} =
+  proc ${1:#:NAME}(${2}):${3:#:TYPE} =
     ${0:pass}
 
 snippet  procg
 options  head
-  proc ${1:#:name}(${2}) =
+  proc ${1:#:NAME}(${2}) =
     ${0:pass}
 
 snippet  procgt
 options  head
-  proc ${1:#:name}(${2}):${3:#:type} =
+  proc ${1:#:NAME}(${2}):${3:#:TYPE} =
     ${0:pass}
 
 snippet  template
 options  head
-  template ${1:#:name}(${2}):${3:type} =
+  template ${1:#:NAME}(${2}):${3:type} =
     ${0:pass}
 
 snippet  macro
 options  head
-  macro ${1:#:name}(${2}):${3:type} =
+  macro ${1:#:NAME}(${2}):${3:type} =
     ${0:pass}
 
 snippet  elif
 abbr     elif ...: ...
 options  head
-  elif ${1:#:condition}:
+  elif ${1:#:CONDITION}:
     ${0:pass}
 
 snippet  else
@@ -50,19 +50,19 @@ options  head
 snippet  for
 abbr     for ... in ...: ...
 options  head
-  for ${1:#:value} in ${2:#:list}:
+  for ${1:#:VALUE} in ${2:#:LIST}:
     ${0:pass}
 
 snippet  if
 abbr     if ...: ...
 options  head
-  if ${1:#:condition}:
+  if ${1:#:CONDITION}:
     ${0:pass}
 
 snippet  when
 abbr     when ...: ...
 options  head
-  when ${1:#:condition}:
+  when ${1:#:CONDITION}:
     ${0:pass}
 
 snippet  ifmain
@@ -77,7 +77,7 @@ abbr     try: ... except ...: ...
 options  head
   try:
     ${1:pass}
-  except ${2:#:ExceptionClass}:
+  except ${2:#:EXCEPTIONCLASS}:
     ${3:pass}
 
 snippet  tryfinally
@@ -95,7 +95,7 @@ options  head
 
 snippet  while
 options  head
-  while ${1:#:condition}:
+  while ${1:#:CONDITION}:
     ${0:pass}
 
 snippet  echo

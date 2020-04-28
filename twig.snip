@@ -1,7 +1,7 @@
 snippet     autoescape
 abbr        {% autoescape ... %} ... {% endautoescape %}
 options     head
-	{% autoescape ${1:#:strategy} %}
+	{% autoescape ${1:#:STRATEGY} %}
 		${0:TARGET}
 	{% autoescape %}
 
@@ -9,7 +9,7 @@ snippet     block
 abbr        {% block ... %} ... {% endblock %}
 alias       bl
 options     head
-	{% block ${1:#:name} %}
+	{% block ${1:#:NAME} %}
 		${0:TARGET}
 	{% endblock %}
 
@@ -33,7 +33,7 @@ snippet     extends
 abbr        {% extends ... %}
 alias       ext
 options     head
-	{% extends '${1:#:template}' %}
+	{% extends '${1:#:TEMPLATE}' %}
 
 snippet     filter
 abbr        {% filter ... %} ... {% endfilter %}
@@ -50,14 +50,14 @@ options     head
 snippet     for
 abbr        {% for ... in ... %} ... {% endfor %}
 options     head
-	{% for ${1:#:value} in ${2:#:list} %}
+	{% for ${1:#:VALUE} in ${2:#:LIST} %}
 		${0:TARGET}
 	{% endfor %}
 
 snippet     from
 abbr        {% from '...' import ... %}
 options     head
-	{% from '${1:#:module}' import ${2:#:macro} %}
+	{% from '${1:#:MODULE}' import ${2:#:MACRO} %}
 
 snippet     if
 abbr        {% if ... %} ... {% endif %}
@@ -82,22 +82,22 @@ options     head
 snippet     import
 abbr        {% import '...' as ... %}
 options     head
-	{% import '${1:#:module}' as ${2:#:namespace} %}
+	{% import '${1:#:MODULE}' as ${2:#:NAMESPACE} %}
 
 snippet     include
 abbr        {% include '...' %}
 options     head
-	{% include '${1:#:template}' %}
+	{% include '${1:#:TEMPLATE}' %}
 
 snippet     includewith
 abbr        {% include '...' %}
 options     head
-	{% include '${1:#:template}' with {${2:#:'key'}: ${2:#:'value'}} %}
+	{% include '${1:#:TEMPLATE}' with {${2:#:'KEY'}: ${2:#:'VALUE'}} %}
 
 snippet     macro
 abbr        {% macro ...(...) %} ... {% endmacro %}
 options     head
-	{% macro ${1:#:name}(${2:#:args}) %}
+	{% macro ${1:#:NAME}(${2:#:ARGS}) %}
 		${0:TARGET}
 	{% endmacro %}
 
@@ -111,12 +111,12 @@ options     head
 snippet     set
 abbr        {% set ... = ... %}
 options     head
-	{% set ${1:#:var} = ${2:#:value} %}
+	{% set ${1:#:VAR} = ${2:#:VALUE} %}
 
 snippet     setblock
 abbr        {% set ... %} ... {% endset %}
 options     head
-	{% set ${1:#:var} %}
+	{% set ${1:#:VAR} %}
 		${0:TARGET}
 	{% endset %}
 
@@ -130,7 +130,7 @@ options     head
 snippet     use
 abbr        {% use '...' %}
 options     head
-	{% use '${1:#:template}' %}
+	{% use '${1:#:TEMPLATE}' %}
 
 snippet     verbatim
 abbr        {% verbatim %} ... {% endverbatim %}
@@ -149,11 +149,11 @@ snippet     tag
 abbr        {% ... %}
 alias       %
 options     head
-	{% ${1:#:tag} %}
+	{% ${1:#:TAG} %}
 
 snippet     tagblock
 abbr        {% ... %} ... {% end... %}
 options     head
-	{% ${1:#:tag} ${2:#:name} %}
+	{% ${1:#:TAG} ${2:#:NAME} %}
 		${0:TARGET}
 	{% end$1 %}

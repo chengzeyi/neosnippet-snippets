@@ -2,19 +2,19 @@
 snippet func
 abbr    function name(args)...end
 options word
-	function ${1:#:function_name}(${2:#:argument})
+	function ${1:#:FUNCTION_NAME}(${2:#:ARGUMENT})
 		${0:TARGET}
 	end
 
 snippet if
 options head
-  if ${1:#:condition} then
+  if ${1:#:CONDITION} then
     ${0:TARGET}
   end
 
 snippet for
 options head
-  for ${2:i} = 0, ${1:#:Things} do
+  for ${2:i} = 0, ${1:#:THINGS} do
     ${0:TARGET}
   end
 
@@ -45,14 +45,14 @@ options     head
 snippet describe
 options head
 abbr    describe(message, func)
-  describe(${1:#:message}, function()
+  describe(${1:#:MESSAGE}, function()
     ${0:TARGET}
   end)
 
 snippet it
 options head
 abbr    it(message, func)
-  it(${1:#:message}, function()
+  it(${1:#:MESSAGE}, function()
     ${0:TARGET}
   end)
 

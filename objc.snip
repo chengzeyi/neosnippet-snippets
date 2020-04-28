@@ -1,5 +1,5 @@
 snippet sel
-    @selector(${1:#:method}:)
+    @selector(${1:#:METHOD}:)
 
 
 snippet imp
@@ -68,19 +68,19 @@ abbr CategoryInterface
 	@end
 
 snippet array
-    NSMutableArray *${1:#:array} = [NSMutableArray array];
+    NSMutableArray *${1:#:ARRAY} = [NSMutableArray array];
 
 
 snippet dict
-    NSMutableDictionary *${1:#:dict} = [NSMutableDictionary dictionary];
+    NSMutableDictionary *${1:#:DICT} = [NSMutableDictionary dictionary];
 
 
 snippet bez
-    NSBezierPath *${1:#:path} = [NSBezierPath bezierPath];
+    NSBezierPath *${1:#:PATH} = [NSBezierPath bezierPath];
 
 snippet m
 abbr Method
-	- (${1:#:id})${2:#:method}${3:(#:id)}${4:#:anArgument}
+	- (${1:#:ID})${2:#:METHOD}${3:(#:id)}${4:#:ANARGUMENT}
 	{
 	${0}
 		return nil;
@@ -88,12 +88,12 @@ abbr Method
 
 snippet M
 abbr Method
-    - (${1:#:id})${2:#:method}${3:(#:id)}${4:#:anArgument};
+    - (${1:#:ID})${2:#:METHOD}${3:(#:id)}${4:#:ANARGUMENT};
 
 
 snippet cm
 abbr ClassMethod
-	+ (${1:#:id})${2:#:method}${3:(#:id)}${4:#:anArgument}
+	+ (${1:#:ID})${2:#:METHOD}${3:(#:id)}${4:#:ANARGUMENT}
 	{
 	${0}
 		return nil;
@@ -102,14 +102,14 @@ abbr ClassMethod
 
 snippet icm
 abbr InterfaceClassMethod
-    + (${1:#:id})${0:#:method};
+    + (${1:#:ID})${0:#:METHOD};
 
 
 snippet sm
 abbr SubMethod
-	- (${1:#:id})${2:#:method}${3:(#:id)}${4:#:anArgument}
+	- (${1:#:ID})${2:#:METHOD}${3:(#:id)}${4:#:ANARGUMENT}
 	{
-		${1} res = [super ${2:#:method}]
+		${1} res = [super ${2:#:METHOD}]
 		return res;
 	}
 
@@ -124,7 +124,7 @@ abbr MethodInitialize
 	}
 
 snippet obj
-	- (${1:#:id})${2:#:thing}
+	- (${1:#:ID})${2:#:THING}
 	{
 		return ${2};
 	}
@@ -138,11 +138,11 @@ snippet obj
 
 
 snippet iobj
-	- (${1:#:id})${2:#:thing};
+	- (${1:#:ID})${2:#:THING};
 	- (void)set${2}:(${1})aValue;
 
 snippet str
-	- (NSString${$1: *)})${1:#:thing}
+	- (NSString${$1: *)})${1:#:THING}
 	{
 		return ${2};
 	}
@@ -155,12 +155,12 @@ snippet str
 	}
 
 snippet istr
-	- (NSString${1: *)}${1:#:thing};
+	- (NSString${1: *)}${1:#:THING};
 	- (void)set${1}:(NSString${2: *})${2};
 
 snippet cd
 abbr CoreData
-	- (${1:#:id})${2:#:attribute}
+	- (${1:#:ID})${2:#:ATTRIBUTE}
 	{
 		[self willAccessValueForKey:@"$2"];
 		$1 value = [self primitiveValueForKey:@"$2"];
@@ -177,7 +177,7 @@ abbr CoreData
 
 snippet karray
 abbr KVCArry
-	- (void)addObjectTo${1:#:Things}:(${2:#:id})anObject
+	- (void)addObjectTo${1:#:THINGS}:(${2:#:ID})anObject
 	{
 		[${3}} addObject:anObject];
 	}
@@ -220,7 +220,7 @@ abbr KVCArry
 
 snippet iarray
 abbr InterfaceAccessorsForKVCArray
-	- (void)addObjectTo${1:#:Things}:(${2:#:id})anObject;
+	- (void)addObjectTo${1:#:THINGS}:(${2:#:ID})anObject;
 	- (void)insertObject:(${2})anObject in${1}AtIndex:(unsigned int)i;
 	- (${2})objectIn${1}AtIndex:(unsigned int)i;
 	- (unsigned int)indexOfObjectIn${1}:(${2})anObject;
@@ -232,7 +232,7 @@ abbr InterfaceAccessorsForKVCArray
 
 snippet acc
 abbr PrimitiveType
-	- (${1:unsigned int})${2:#:thing}
+	- (${1:unsigned int})${2:#:THING}
 	{
 		return ${3};
 	}
@@ -264,11 +264,11 @@ abbr IBOutlet
 
 
 snippet syn
-    @synthesize ${1:#:property};
+    @synthesize ${1:#:PROPERTY};
 
 
 snippet bind
-    bind:@"${2:#:binding}" toObject:${3:observableController} withKeyPath:@"${4:keyPath}" options:${5:nil}
+    bind:@"${2:#:BINDING}" toObject:${3:observableController} withKeyPath:@"${4:keyPath}" options:${5:nil}
 
 
 snippet reg
@@ -323,7 +323,7 @@ snippet save
 
 
 snippet thread
-    [NSThread detachNewThreadSelector:@selector(${1:#:method}:) toTarget:${2:#:aTarget} withObject:${3:#:anArgument}]
+    [NSThread detachNewThreadSelector:@selector(${1:#:METHOD}:) toTarget:${2:#:ATARGET} withObject:${3:#:ANARGUMENT}]
 
 
 snippet pool

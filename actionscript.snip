@@ -11,12 +11,12 @@ snippet br
 
 
 snippet ca
-    call(${1:#:frame});
+    call(${1:#:FRAME});
 
 
 snippet case
 abbr ce
-	case ${1:#:expression} :
+	case ${1:#:EXPRESSION} :
 		${1:TARGET}
 
 
@@ -27,7 +27,7 @@ abbr ch
 	}
 
 snippet class
-	class ${1:#:ClassName} {
+	class ${1:#:CLASSNAME} {
 		var _${2};
 		function ${1}(${2}){
 			_${2} = ${2};${0}
@@ -50,11 +50,11 @@ snippet de
 snippet do
 	do {
 		${1:TARGET}
-	} while (${2:#:condition});
+	} while (${2:#:CONDITION});
 
 
 snippet dm
-    duplicateMovieClip(${1:#:target}, ${2:#:newName}, ${3:#:depth});
+    duplicateMovieClip(${1:#:TARGET}, ${2:#:NEWNAME}, ${3:#:DEPTH});
 
 
 snippet ei
@@ -78,7 +78,7 @@ abbr fr
 
 
 snippet fs
-    fscommand(${1:#:command}, ${2:#:paramaters});
+    fscommand(${1:#:COMMAND}, ${2:#:PARAMATERS});
 
 
 snippet fn
@@ -169,19 +169,19 @@ snippet ps
 
 
 snippet pr
-    print(${1:#:target}, ${2:#:type});
+    print(${1:#:TARGET}, ${2:#:TYPE});
 
 
 snippet bn
-    printAsBitmapNum(${1:#:level}, ${2:#:type});
+    printAsBitmapNum(${1:#:LEVEL}, ${2:#:TYPE});
 
 
 snippet pn
-    printNum(${1:#:level}, ${2:#:type});
+    printNum(${1:#:LEVEL}, ${2:#:TYPE});
 
 
 snippet rm
-    removeMovieClip(${1:#:target});
+    removeMovieClip(${1:#:TARGET});
 
 
 snippet rt
@@ -189,15 +189,15 @@ snippet rt
 
 
 snippet sp
-    setProperty(${1:#:target}, ${2:#:property}, ${3:#:value});
+    setProperty(${1:#:TARGET}, ${2:#:PROPERTY}, ${3:#:VALUE});
 
 
 snippet sv
-    set(${1:#:name}, ${2:#:value});
+    set(${1:#:NAME}, ${2:#:VALUE});
 
 
 snippet dr
-    startDrag(${1:#:target}, ${2:#:lockcenter}, ${3:#:l}, ${4:#:t}, ${5:#:r}, ${6:#:b} );
+    startDrag(${1:#:TARGET}, ${2:#:LOCKCENTER}, ${3:#:L}, ${4:#:T}, ${5:#:R}, ${6:#:B} );
 
 
 snippet st
@@ -213,13 +213,13 @@ snippet sd
 
 
 snippet sw
-	switch ( ${1:#:condition} ) {
+	switch ( ${1:#:CONDITION} ) {
 		${0:TARGET}
 	}
 
 
 snippet tt
-	tellTarget( ${1:#:target} ) {
+	tellTarget( ${1:#:TARGET} ) {
 		${0:TARGET}
 	}
 
@@ -241,11 +241,11 @@ snippet ty
 	};
 
 snippet um
-    unloadMovie(${1:#:target});
+    unloadMovie(${1:#:TARGET});
 
 
 snippet un
-    unloadMovieNum(${1:#:level});
+    unloadMovieNum(${1:#:LEVEL});
 
 
 snippet vr
@@ -253,13 +253,13 @@ snippet vr
 
 
 snippet wh
-	while (${1:#:condition}) {
+	while (${1:#:CONDITION}) {
 		${0:TARGET}
 	};
 
 
 snippet wt
-	with (${1:#:target});
+	with (${1:#:TARGET});
 		${0:TARGET}
 	};
 

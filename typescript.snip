@@ -9,7 +9,7 @@ snippet     class
 abbr        class NAME {...}
 options     word
   class ${1:#:NAME} {
-    constructor(${2:#:Args}) {
+    constructor(${2:#:ARGS}) {
       ${3:#:TARGET}
     }
 
@@ -18,7 +18,7 @@ options     word
 
 snippet     method
 options     head
-  ${1:#:NAME}(${2:#:Args}): ${3:#:TYPE} {
+  ${1:#:NAME}(${2:#:ARGS}): ${3:#:TYPE} {
     ${0:#:TARGET}
   }
 
@@ -35,7 +35,7 @@ options     head
 snippet     static
 abbr        static f(){}
 options     head
-  static ${1:#:NAME}(${2:#:Args}) {
+  static ${1:#:NAME}(${2:#:ARGS}) {
     ${0:#:TARGET}
   }
 
@@ -76,4 +76,4 @@ snippet     function-arrow
 alias       arrow-function
 abbr        () => {}
 options     word
-  (${1:#:Args}) => { ${0:#:TARGET} }
+  (${1:#:ARGS}) => { ${0:#:TARGET} }

@@ -8,39 +8,39 @@ abbr    \documentclass[]{article} ...
 snippet \newcommand
 alias   newcommand
 abbr    \newcommand{}[]{}
-	\newcommand{${1:#:cmd}}[${2:0}]{${3:#:def}}${0}
+	\newcommand{${1:#:CMD}}[${2:0}]{${3:#:DEF}}${0}
 
 snippet \renewcommand
 alias   renewcommand
 abbr    \renewcommand{}[]{}
-	\renewcommand{${1:#:cmd}}[${2:0}]{${3:#:def}}${0}
+	\renewcommand{${1:#:CMD}}[${2:0}]{${3:#:DEF}}${0}
 
 snippet \documentclass
 alias   documentclass
 abbr    \documentclass[]{}
-	\documentclass[${1:#:options}]{${2:article}}${0}
+	\documentclass[${1:#:OPTIONS}]{${2:article}}${0}
 
 snippet mathexpression
 alias   $
 abbr	$expression$
-	$${1:#:expression}$${2}
+	$${1:#:EXPRESSION}$${2}
 
 snippet mathenva
 alias   $$
 abbr    $$expression$$
-	$$${1:#:expression}$$${2}
+	$$${1:#:EXPRESSION}$$${2}
 
 snippet mathenvb
 alias   \[
 abbr    \[expression\]
-	\[${1:#:expression}\]${2}
+	\[${1:#:EXPRESSION}\]${2}
 
 # ========== ENVIRONMENT ==========
 
 snippet begin
 alias   \begin
 abbr    \begin{} ... \end{}
-	\begin{${1:#:type}}
+	\begin{${1:#:TYPE}}
 		${2:TARGET}
 	\end{$1}
 
@@ -462,7 +462,7 @@ abbr    \frac{}{}
 snippet \left
 alias   left
 abbr	\left ... \right
-	\left${1:(} ${3:#:body} \right${2:)}${0}
+	\left${1:(} ${3:#:BODY} \right${2:)}${0}
 
 # ========== FONT ==========
 
@@ -578,28 +578,28 @@ abbr    \textit{}
 snippet frame
 alias   \begin{frame} \frame
 abbr    \begin{frame}{} ... \end{frame}
-	\begin{frame}{${1:#:frametitle}}
+	\begin{frame}{${1:#:FRAMETITLE}}
 		${2:TARGET}
 	\end{frame}
 
 snippet block
 alias   \begin{block}
 abbr    \begin{block}{} ... \end{block}
-	\begin{block}{${1:#:title}}
+	\begin{block}{${1:#:TITLE}}
 		${2:TARGET}
 	\end{block}
 
 snippet exampleblock
 alias   \begin{exampleblock}
 abbr    \begin{exampleblock}{} ... \end{exampleblock}
-	\begin{exampleblock}{${1:#:title}}
+	\begin{exampleblock}{${1:#:TITLE}}
 		${2:TARGET}
 	\end{exampleblock}
 
 snippet alertblock
 alias   \begin{alertblock}
 abbr    \begin{alertblock}{} ... \end{alertblock}
-	\begin{alertblock}{${1:#:title}}
+	\begin{alertblock}{${1:#:TITLE}}
 		${2:TARGET}
 	\end{alertblock}
 
@@ -607,16 +607,16 @@ snippet columns
 alias   \begin{columns} \columns
 abbr    \begin{columns} ... \end{columns}
 	\begin{columns}
-		\begin{column}{${1:#:width}${2:\\\textwidth}}
-			${0:#:body}
+		\begin{column}{${1:#:WIDTH}${2:\\\textwidth}}
+			${0:#:BODY}
 		\end{column}
 	\end{columns}
 
 snippet column
 alias   \begin{column} \column
 abbr    \begin{column} ... \end{column}
-	\begin{column}{${1:#:width}${2:\\\textwidth}}
-		${0:#:body}
+	\begin{column}{${1:#:WIDTH}${2:\\\textwidth}}
+		${0:#:BODY}
 	\end{column}
 
 # ========== TikZ ==========

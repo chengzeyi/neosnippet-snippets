@@ -1,6 +1,6 @@
 snippet     comment
 options     word
-    {% comment %}${1:#:comment}{% endcomment %}
+    {% comment %}${1:#:COMMENT}{% endcomment %}
 
 snippet     raw
 options     word
@@ -9,17 +9,17 @@ options     word
 snippet     if
 abbr        if endif
 options     word
-    {% if ${1:#:condition} %}
+    {% if ${1:#:CONDITION} %}
       ${0:TARGET}
     {% endif %}
 
 snippet     elseif
-    {% elseif ${1:#:condition} %}
+    {% elseif ${1:#:CONDITION} %}
       ${0:TARGET}
 
 snippet     ifelse
 abbr        if else endif
-    {% if ${1:#:condition} %}
+    {% if ${1:#:CONDITION} %}
       ${2:TARGET}
     {% else %}
       ${3}
@@ -34,7 +34,7 @@ options     word
 
 snippet     case
 abbr        case when endcase
-    {% case ${1:#:condition} %}
+    {% case ${1:#:CONDITION} %}
     {% when ${2:#:TARGET} %}
       ${3}
     {% endcase%}
@@ -54,24 +54,24 @@ options     word
 snippet     for
 abbr        for in endfor
 options     word
-    {% for ${1:#:var} in ${2:#:list} %}
+    {% for ${1:#:VAR} in ${2:#:LIST} %}
       ${0:TARGET}
     {% endfor%}
 
 snippet     tablerow
 abbr        tablerow in endtablerow
 options     word
-    {% tablerow ${1:#:var} in ${2:#:list} %}
+    {% tablerow ${1:#:VAR} in ${2:#:LIST} %}
       ${0:TARGET}
     {% endtablerow %}
 
 snippet     assign
 options     word
-    {% assign ${1:#:var} = ${2:#:value} %}
+    {% assign ${1:#:VAR} = ${2:#:VALUE} %}
 
 snippet     capture
 options     word
-    {% capture ${1:#:var} %}${2:#:TARGET}{% endcapture %}
+    {% capture ${1:#:VAR} %}${2:#:TARGET}{% endcapture %}
 
 snippet     include
 options     word
@@ -87,7 +87,7 @@ snippet     filter
 abbr        {{ | }}
 alias       {{
 options     word
-    {{ ${1:#:TARGET} | ${2:#:filter} }}
+    {{ ${1:#:TARGET} | ${2:#:FILTER} }}
 
 
 # Jekyll enhancements

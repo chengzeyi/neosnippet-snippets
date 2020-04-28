@@ -1,72 +1,72 @@
 snippet req
-  ${1:#:object} = require('$1')
+  ${1:#:OBJECT} = require('$1')
 
 snippet log
   console.log ${0}
 
 snippet unl
-  ${1:#:action} unless ${2:#:condition}
+  ${1:#:ACTION} unless ${2:#:CONDITION}
 
 snippet try
   try
     ${1:TARGET}
-  catch ${2:#:error}
+  catch ${2:#:ERROR}
     ${3}
 
 snippet if
-  if ${1:#:condition}
+  if ${1:#:CONDITION}
     ${0:TARGET}
 
 snippet elif
-  else if ${1:#:condition}
+  else if ${1:#:CONDITION}
     ${0:TARGET}
 
 snippet ifte
-  if ${1:#:condition} then ${2:#:value} else ${3:#:other}
+  if ${1:#:CONDITION} then ${2:#:VALUE} else ${3:#:OTHER}
 
 snippet ife
-  if ${1:#:condition}
+  if ${1:#:CONDITION}
     ${2:TARGET}
   else
-    ${3:#:body...}
+    ${3:#:BODY...}
 
 snippet swi
-  switch ${1:#:object}
-    when ${2:#:value}
+  switch ${1:#:OBJECT}
+    when ${2:#:VALUE}
       ${0:TARGET}
 
 snippet ^j
   \`${1:javascript}\`
 
 snippet forr
-  for ${1:#:name} in [${2:#:start}..${3:#:finish}]${4: by ${5:#:step\}}
+  for ${1:#:NAME} in [${2:#:START}..${3:#:FINISH}]${4: by ${5:#:STEP\}}
     ${0:TARGET}
 
 snippet forrex
-  for ${1:#:name} in [${2:#:start}...${3:#:finish}]${4: by ${5:#:step\}}
+  for ${1:#:NAME} in [${2:#:START}...${3:#:FINISH}]${4: by ${5:#:STEP\}}
     ${0:TARGET}
 
 snippet foro
-  for ${1:#:key}, ${2:#:value} of ${3:#:object}
+  for ${1:#:KEY}, ${2:#:VALUE} of ${3:#:OBJECT}
     ${0:TARGET}
 
 snippet fora
-  for ${1:#:name} in ${2:#:array}
+  for ${1:#:NAME} in ${2:#:ARRAY}
     ${0:TARGET}
 
 snippet fun
-  ${1:#:name} = (${2:#:args}) ->
+  ${1:#:NAME} = (${2:#:ARGS}) ->
     ${0:TARGET}
 
 snippet bfun
-  (${1:#:args}) =>
+  (${1:#:ARGS}) =>
     ${0:TARGET}
 
 snippet     cla
 abbr        cla
 options     head
-  class ${1:#:ClassName}${2: extends ${3:#:Ancestor\}}
+  class ${1:#:CLASSNAME}${2: extends ${3:#:ANCESTOR\}}
 
-  constructor: (${4:#:args}) ->
+  constructor: (${4:#:ARGS}) ->
             ${5:TARGET}
 

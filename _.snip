@@ -7,30 +7,30 @@ options     word
 
 snippet     _datetime_iso8601
 abbr        %Y-%m-%dT%H:%M:%S
-alias       df
+alias       _df
 options     word
     `strftime("%Y-%m-%dT%H:%M:%S")`${0}
 
 snippet     _date_iso8601
 abbr        %Y-%m-%d
-alias       dd
+alias       _dd
 options     word
     `strftime("%Y-%m-%d")`${0}
 
 snippet     _time_colon
 abbr        %H:%M:%S
-alias       dt
+alias       _dt
 options     word
     `strftime("%H:%M:%S")`${0}
 
 snippet     _lastmod
 abbr        Last Modified: %Y-%m-%dT%H:%M:%S
-alias       lmod
+alias       _lmod
     Last Modified: `strftime("%Y-%m-%dT%H:%M:%S")`${0}
 
 snippet     _filename
 abbr        file name
-alias       fname
+alias       _fname
 options     word
     `bufname('%') ==#'[Command Line]' ? expand('#') : expand('%')`${0}
 
@@ -46,18 +46,18 @@ options     word
 
 snippet     _basename
 abbr        file base name
-alias       bname
+alias       _bname
 options     word
     `bufname('%') ==#'[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r')`${0}
 
 snippet     _filename_upper_camel
 abbr        file name to upper camel
-alias       fnameuc
+alias       _fnameuc
 options     word
     `substitute(bufname('%') ==#'[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r'), '\%(^\(.\)\|_\(.\)\)', '\u\1\u\2', 'g')`${0}
 
 snippet     _filename_lower_camel
 abbr        file name to lower camel
-alias       fnamelc
+alias       _fnamelc
 options     word
     `substitute(bufname('%') ==#'[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r'), '\%(_\(.\)\)', '\u\1', 'g')`${0}

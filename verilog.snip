@@ -23,19 +23,19 @@ abbr module () ... endmodule
 
 snippet rw
 abbr reg [] _r, _w;
-    reg${1:#: nbit} ${2:reg}_r, $2_w;${3:TARGET}
+    reg${1:#: NBIT} ${2:reg}_r, $2_w;${3:TARGET}
 
 snippet I
 abbr input [] i_,
-    input${1:#: nbit} i_${2:name},
+    input${1:#: NBIT} i_${2:name},
 
 snippet O
 abbr output [] o_,
-    output${1:#: nbit} o_${2:name},
+    output${1:#: NBIT} o_${2:name},
 
 snippet IO
 abbr inout [] io_,
-    inout${1:#: nbit} io_${2:name},
+    inout${1:#: NBIT} io_${2:name},
 
 snippet regmemory
 alias regm
@@ -53,21 +53,21 @@ abbr _w = _r
 snippet assign
 alias as
 abbr assign ... = ...
-    assign ${1:#:name} = ${2:#:val};${3:TARGET}
+    assign ${1:#:NAME} = ${2:#:VAL};${3:TARGET}
 
 snippet parameter
 alias pa
 abbr parameter ... = ...
-    parameter ${1:#:name} = ${2:#:val};${3:TARGET}
+    parameter ${1:#:NAME} = ${2:#:VAL};${3:TARGET}
 
 snippet localparam
 alias lpa
 abbr localparam ... = ...
-    localparam ${1:#:name} = ${2:#:val};${3:TARGET}
+    localparam ${1:#:NAME} = ${2:#:VAL};${3:TARGET}
 
 snippet if
 abbr if()
-    if (${1:#:condition})${0:TARGET}
+    if (${1:#:CONDITION})${0:TARGET}
 
 snippet else
 alias el
@@ -76,7 +76,7 @@ abbr else
 
 snippet elseif
 abbr else if ()
-    else if (${1:#:condition})${0:TARGET}
+    else if (${1:#:CONDITION})${0:TARGET}
 
 snippet initial
 alias init
@@ -91,7 +91,7 @@ abbr for () begin ... end
 
 snippet while
 abbr while () begin ... end
-    while (${1:#:condition})${0:TARGET}
+    while (${1:#:CONDITION})${0:TARGET}
 
 snippet case
 abbr case () ... endcase
@@ -136,7 +136,7 @@ abbr `timescale 1ns/100ps
 snippet ternary
 alias ter
 abbr () ? a : b
-    (${1:#:condition}) ? ${2:#:a} : ${3:#:b}
+    (${1:#:CONDITION}) ? ${2:#:A} : ${3:#:B}
 
 snippet dumpfile
 alias df

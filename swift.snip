@@ -42,12 +42,12 @@ snippet     extension
 snippet     func
 abbr        func name(...) -> Type {...}
 options     word
-    func ${1:name}(${2:#:arguments}) -> ${3:Int}${0}
+    func ${1:name}(${2:#:ARGUMENTS}) -> ${3:Int}${0}
 
 snippet     void
 abbr        func name(...) {...}
 options     word
-    func ${1:name}(${2:#:arguments})${0}
+    func ${1:name}(${2:#:ARGUMENTS})${0}
 
 snippet     for
 options     head
@@ -120,7 +120,7 @@ options     head
 
 snippet     catch
 options     word
-    catch${1:#:pattern} {
+    catch${1:#:PATTERN} {
         ${0:TARGET}
     }${9}
 
@@ -143,7 +143,7 @@ options     word
 
 snippet     init
 options     word
-    init${1:#:?}(${2:#:arguments}) {
+    init${1:#:?}(${2:#:ARGUMENTS}) {
         ${0:TARGET}
     }
     ${9}
@@ -157,7 +157,7 @@ options     head
 snippet     closure
 options     word
 abbr        { (...) -> Type in ... }
-    { ${1:#capture}(${2:#:arguments}) -> ${3:Void} in
+    { ${1:#capture}(${2:#:ARGUMENTS}) -> ${3:Void} in
         ${0:TARGET}
     }
     ${9}

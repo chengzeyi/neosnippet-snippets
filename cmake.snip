@@ -11,14 +11,14 @@ options		head
 snippet		if
 abbr		if() endif()
 options		head
-	if(${1:#:condition})
+	if(${1:#:CONDITION})
 		${0}
 	endif()
 
 snippet		if_else
 abbr		if() else() endif()
 options		head
-	if(${1:#:condition})
+	if(${1:#:CONDITION})
 		${2}
 	else()
 		${3}
@@ -78,12 +78,12 @@ options		head
 snippet		while
 abbr		while() endwhile()
 options		head
-	while(${1:#:condition})
+	while(${1:#:CONDITION})
 		${2}
 	endwhile()
 
 snippet		file_GLOBE_RECURSE
 abbr		file(GLOB_RECURSE ...)
 options		head
-	file(GLOB_RECURSE ${1:#:var} ${2:#:glob_paths})
+	file(GLOB_RECURSE ${1:#:VAR} ${2:#:GLOB_PATHS})
 

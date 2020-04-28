@@ -1,12 +1,12 @@
 snippet     open
 abbr        open account
 options     head
-	${1:YYYY}-${2:MM}-${3:DD} open ${4:Account} ${8:#:Commodity}
+	${1:YYYY}-${2:MM}-${3:DD} open ${4:Account} ${8:#:COMMODITY}
 
 snippet     close
 abbr        close account
 options     head
-	${1:YYYY}-${2:MM}-${3:DD} close ${4:#:Account}
+	${1:YYYY}-${2:MM}-${3:DD} close ${4:#:ACCOUNT}
 
 snippet     commodity
 alias       currency
@@ -19,12 +19,12 @@ abbr        transaction
 options     head
 	${1:YYYY}-${2:MM}-${3:DD} * "${5:Payee}" "${6:Narration}"
 		${9:Account} ${10:Amount} ${11:Commodity}
-		${14:Account} ${15:#:Amount} ${16:#:Commodity}
+		${14:Account} ${15:#:AMOUNT} ${16:#:COMMODITY}
 
 snippet     balance
 abbr        balance
 options     head
-	${1:YYYY}-${2:MM}-${3:DD} balance ${4:Account} ${5:Amount} ${6:#:Commodity}
+	${1:YYYY}-${2:MM}-${3:DD} balance ${4:Account} ${5:Amount} ${6:#:COMMODITY}
 
 snippet     pad
 abbr        pad

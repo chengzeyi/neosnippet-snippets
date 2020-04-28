@@ -85,7 +85,7 @@ options head
 snippet ind
 abbr integer dimension
 options head
-	integer, dimension(${1::})${2:#:, allocatable} :: ${3}
+	integer, dimension(${1::})${2:#:, ALLOCATABLE} :: ${3}
 
 snippet indi
 abbr integer dimension intent(in)
@@ -100,7 +100,7 @@ options head
 snippet red
 abbr real dimension
 options head
-	real, dimension(${1::})${2:#:, allocatable} :: ${3}
+	real, dimension(${1::})${2:#:, ALLOCATABLE} :: ${3}
 
 snippet redi
 abbr real dimension intent(in)
@@ -152,7 +152,7 @@ options head
 snippet op
 abbr open
 options head
-	open(${1:11},file=${2},status=${3:#:old}${4:#:,position='append'})
+	open(${1:11},file=${2},status=${3:#:OLD}${4:#:,POSITION='APPEND'})
 	${5}
 	close($1)
 

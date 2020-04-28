@@ -86,14 +86,14 @@ options head
 
 snippet case
 abbr    case ... of
-	case ${1:#:expression} of
-		${2:#:value} ->
+	case ${1:#:EXPRESSION} of
+		${2:#:VALUE} ->
 			${3:TARGET}
 
 
 snippet if
 abbr    if ... then ... else ...
-	if ${1:#:condition} then
+	if ${1:#:CONDITION} then
 		${2}
 	else
 		${3}

@@ -1,13 +1,13 @@
 snippet :f
 options head
-  ${1:#:method_name}: function(${2:#:attribute}) {
+  ${1:#:METHOD_NAME}: function(${2:#:ATTRIBUTE}) {
     ${0:TARGET}
   }
 
 snippet function
 abbr    func
 options word
-  function ${1:#:function_name}(${2:#:argument}) {
+  function ${1:#:FUNCTION_NAME}(${2:#:ARGUMENT}) {
     ${0:TARGET}
   }
 
@@ -20,7 +20,7 @@ options head
 
 snippet proto
 options head
-  ${1:#:class_name}.prototype.${2:#:method_name} = function(${3:#:first_argument}) {
+  ${1:#:CLASS_NAME}.prototype.${2:#:METHOD_NAME} = function(${3:#:FIRST_ARGUMENT}) {
     ${0:TARGET}
   };
 
@@ -38,7 +38,7 @@ options head
 snippet if-else
 abbr ife
 options head
-  if (${1:#:condition}) {
+  if (${1:#:CONDITION}) {
     ${2:TARGET}
   } else {
     ${3}
@@ -46,13 +46,13 @@ options head
 
 snippet for
 options head
-  for (let ${1:i} = 0; $1 < ${2:#:Things}.length; ++$1) {
+  for (let ${1:i} = 0; $1 < ${2:#:THINGS}.length; ++$1) {
     ${0:TARGET}
   }
 
 snippet forin
 options head
-  for (let ${1:i} in ${2:#:Things}) {
+  for (let ${1:i} in ${2:#:THINGS}) {
     ${0:TARGET}
   }
 
@@ -64,8 +64,8 @@ options head
 
 snippet switch
 options head
-  switch (${1:#:let}) {
-    case ${2:#:val}:
+  switch (${1:#:LET}) {
+    case ${2:#:VAL}:
       ${0:TARGET}
       break;
   }
@@ -92,11 +92,11 @@ options head
 snippet key-value
 abbr :,
 options word
-  ${1:#:value_name}: ${0:#:value},
+  ${1:#:VALUE_NAME}: ${0:#:VALUE},
 
 #snippet key
 #options word
-#  ${1:#:key}: "${2:#:value}"}${3:, }
+#  ${1:#:KEY}: "${2:#:VALUE}"}${3:, }
 
 snippet setTimeout-function
 options head
@@ -159,7 +159,7 @@ options     head
 snippet     class-extends
 abbr        class extends {...}
 options     head
-  class ${1:#:NAME} extends ${2:#:SuperClass} {
+  class ${1:#:NAME} extends ${2:#:SUPERCLASS} {
     constructor(${3:#:ARGS}) {
       ${0:TARGET}
     }

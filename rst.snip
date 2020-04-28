@@ -1,7 +1,7 @@
 snippet quickstart
 options head
   ===========================
-  ${1:#:content_name}
+  ${1:#:CONTENT_NAME}
   ===========================
 
   .. contents:: contents_name
@@ -45,40 +45,40 @@ options head
 
 snippet contnents
 options head
-  .. contents:: ${1:#:contents_name}
+  .. contents:: ${1:#:CONTENTS_NAME}
 
 snippet title
 options head
-  ${1:#:title}
+  ${1:#:TITLE}
   ====================================
 
 snippet subtitle
 options head
-  ${1:#:subtitle}
+  ${1:#:SUBTITLE}
   -----------------------------------
 
 snippet code_block
 abbr code
 options head
-  .. code-block:: ${1:#:filetype}
+  .. code-block:: ${1:#:FILETYPE}
 
-		${2:#:content}
+		${2:#:CONTENT}
 
 snippet link_raw
 abbr link_as_raw
 options head
-  \`${1:#:link}\`_
+  \`${1:#:LINK}\`_
 
 snippet link_label
 abbr link_and_label
 options head
-  \`${1:#:title} <${2:#:link}>\`_
+  \`${1:#:TITLE} <${2:#:LINK}>\`_
 
 snippet table_grid
 abbr grid_table
 options head
   +------------------+------------+-----------------------+------------+
-  |${1:#:cel} | | | |
+  |${1:#:CEL} | | | |
   +==================+============+=======================+============+
   | | | | |
   +------------------+------------+-----------------------+------------+
@@ -88,7 +88,7 @@ options head
 snippet table_simple
 abbr simple_table
 options head
-  :${1:#:text}:
+  :${1:#:TEXT}:
   : :
   : :
   : :
@@ -103,7 +103,7 @@ options head
 snippet nested_list
 options head
 
-  - ${1:#:text}
+  - ${1:#:TEXT}
   -
   -
   -
@@ -114,11 +114,11 @@ options head
 
 snippet image
 options head
-  .. image:: ${1:#:path}
+  .. image:: ${1:#:PATH}
 
 snippet strong
 options head
-  **${1:#:text}**
+  **${1:#:TEXT}**
 
 
 snippet     toctree
@@ -133,7 +133,7 @@ options     head
 snippet     link_doc
 abbr        link_to_doc
 options     head
-	:doc:\`${1:#:PageName}\` ${0:#:CURSOR}
+	:doc:\`${1:#:PAGENAME}\` ${0:#:CURSOR}
 
 
 snippet     syntax
@@ -185,9 +185,9 @@ snippet     csvtable
 abbr        directive_csvtable
 options     head
 	.. csv-table:: ${1:#:TITLE}
-		:header: "${2:#:Header1}", "${3:#:Header2}"${4:#:Headers}
+		:header: "${2:#:HEADER1}", "${3:#:HEADER2}"${4:#:HEADERS}
 
-		"${5:#:Column1}", "${6:#:Column2}"${0:#:CURSOR}
+		"${5:#:COLUMN1}", "${6:#:COLUMN2}"${0:#:CURSOR}
 
 
 snippet     directive

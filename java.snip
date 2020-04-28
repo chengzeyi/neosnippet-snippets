@@ -79,17 +79,31 @@ abbr    protected static ... func() {}
         ${0:TARGET}
     }
 
-snippet constructor
-alias   cons
+snippet public_constructor
+alias   pubc
 abbr    Name(...) {}
-    `expand('%:p:t:r')`(${1}) {
+    public `expand('%:p:t:r')`(${1}) ${2}{
         ${0:TARGET}
     }
 
-snippet constructor_inner
-alias   consi
-abbr    ...(...) {}
-    ${1:#:NAME}(${2}) {
+snippet protected_constructor
+alias   proc
+abbr    Name(...) {}
+    protected `expand('%:p:t:r')`(${1}) ${2}{
+        ${0:TARGET}
+    }
+
+snippet private_constructor
+alias   pric
+abbr    Name(...) {}
+    private `expand('%:p:t:r')`(${1}) ${2}{
+        ${0:TARGET}
+    }
+
+snippet constructor
+alias   cons
+abbr    Name(...) {}
+    `expand('%:p:t:r')`(${1}) ${2}{
         ${0:TARGET}
     }
 
@@ -243,9 +257,10 @@ abbr    finally {}
     }
 
 snippet throw
+alias   thr
 abbr    throw new ...;
 options word
-    throw new ${0:Exception};
+    throw new ${1:Exception}(${2});
 
 snippet new
 abbr    var ... = new ...;
@@ -293,6 +308,16 @@ abbr    System.out.println(...);
 options word
     System.out.println(${1});
 
+snippet serr
+abbr    System.err.println(...);
+options word
+    System.err.println(${1});
+
+snippet printf
+abbr    System.out.printf(...);
+options word
+    System.out.printf(${1});
+
 snippet print
 abbr    System.out.print(...);
 options word
@@ -304,7 +329,7 @@ options word
     System.out.format(${1});
 
 snippet string_format
-alias   stringf
+alias   stringf sf
 abbr    String.format(...)
 options word
     String.format(${1:TARGET}, ${2})${0}

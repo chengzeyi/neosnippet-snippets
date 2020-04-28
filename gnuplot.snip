@@ -1,7 +1,7 @@
 snippet     range
 abbr        set x/y range.
 options     head
-        set ${1:#:axis}range [${2:*}:${3:*}]
+        set ${1:#:AXIS}range [${2:*}:${3:*}]
 
 snippet     xrange
 abbr        set xrange [X1:X2]
@@ -16,42 +16,42 @@ options     head
 snippet     title
 abbr        set title '...'
 options     head
-        set title ${1:#:title}
+        set title ${1:#:TITLE}
 
 snippet     labelaxis
 abbr        set title '...'
 options     head
-        set ${1:#:axis}label ${2:#:label}
+        set ${1:#:AXIS}label ${2:#:LABEL}
 
 snippet     tics
 abbr        set x/y tics start, incr, end
 options     head
-        set ${1:#:axis}tics ${2:#:start}, ${3:#:incr}, ${4:#:end}
+        set ${1:#:AXIS}tics ${2:#:START}, ${3:#:INCR}, ${4:#:END}
 
 snippet     xtics
 abbr        set xtics start, incr, end
 options     head
-        set xtics ${1:#:start}, ${2:#:incr}, ${3:#:end}
+        set xtics ${1:#:START}, ${2:#:INCR}, ${3:#:END}
 
 snippet     ytics
 abbr        set ytics start, incr, end
 options     head
-        set ytics ${1:#:start}, ${2:#:incr}, ${3:#:end}
+        set ytics ${1:#:START}, ${2:#:INCR}, ${3:#:END}
 
 snippet     datasep
 abbr        set datafile separator 'separator'
 options     head
-        set datafile separator '${1:#:separator}'
+        set datafile separator '${1:#:SEPARATOR}'
 
 snippet     term
 abbr        set terminal
 options     head
-        set terminal ${1:#:terminal}
+        set terminal ${1:#:TERMINAL}
 
 snippet     out
 abbr        set output 'filename'
 options     head
-        set output '${1:#:filename}'
+        set output '${1:#:FILENAME}'
 
 snippet     key
 abbr        set key
@@ -81,69 +81,69 @@ options     head
 snippet     print
 abbr        print
 options     head
-        print(${1:#:string}}
+        print(${1:#:STRING}}
 
 snippet     sprintf
 abbr        sprintf
 options     head
-        sprintf('${1:#:format}', ${2:#:vars})
+        sprintf('${1:#:FORMAT}', ${2:#:VARS})
 
 snippet     multiplot
 abbr        set multiplot ... unset multiplot
 options     head
         set multiplot
-        ${1:#:plot code}
+        ${1:#:PLOT CODE}
         unset multiplot
 
 snippet     if
 abbr        if (...) {...}
 options     head
-        if (${1:#:condition}) {
-            ${2:#:commands}
+        if (${1:#:CONDITION}) {
+            ${2:#:COMMANDS}
         }
 
 snippet     else
 abbr        else {...}
 options     head
         else {
-            ${1:#:commands}
+            ${1:#:COMMANDS}
         }
 
 snippet     ifelse
 abbr        if (...) {...} else {...}
 options     head
-        if (${1:#:condition}) {
-            ${2:#:commands}
+        if (${1:#:CONDITION}) {
+            ${2:#:COMMANDS}
         } else {
-            ${3:#:commands}
+            ${3:#:COMMANDS}
         }
 
 snippet     while
 abbr        while (...) {...}
 options     head
-        while (${1:#:expression}) {
-            ${2:#:commands}
+        while (${1:#:EXPRESSION}) {
+            ${2:#:COMMANDS}
         }
 
 snippet     do
 abbr        do for <iter> {...}
 options     head
-        do for ${1:#:iter} {
-            ${2:#:commands}
+        do for ${1:#:ITER} {
+            ${2:#:COMMANDS}
         }
 
 snippet     fors
 abbr        for [string in "A B C..."]
 options     head
-        for [${1:str} in '${2:#:string list}']
+        for [${1:str} in '${2:#:STRING LIST}']
 
 snippet     fori
 abbr        for [intvar = start, end, incr]
 options     head
-        for [${1:i} = ${2:#:start}, ${3:#:end}, ${4:1}
+        for [${1:i} = ${2:#:START}, ${3:#:END}, ${4:1}
 
 snippet     logscale
 abbr        set logscale <axis>
 options     head
-        set logscale ${1:#:axis}
+        set logscale ${1:#:AXIS}
 

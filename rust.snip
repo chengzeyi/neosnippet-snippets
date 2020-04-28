@@ -3,35 +3,35 @@
 snippet     fn
 abbr        fn () {}
 options     head
-    fn ${1:#:func_name}(${2:#:args}) {
+    fn ${1:#:FUNC_NAME}(${2:#:ARGS}) {
         ${0:TARGET}
     }
 
 snippet     fn-
 abbr        fn () {}
 options     head
-    fn ${1:#:func_name}(${2:#:args}) -> ${3:#:()} {
+    fn ${1:#:FUNC_NAME}(${2:#:ARGS}) -> ${3:#:()} {
         ${0:TARGET}
     }
 
 snippet     pubfn
 abbr        pubfn () {}
 options     head
-    pub fn ${1:#:func_name}(${2:#:args}) -> ${3:#:()} {
+    pub fn ${1:#:FUNC_NAME}(${2:#:ARGS}) -> ${3:#:()} {
         ${0:TARGET}
     }
 
 snippet     test
 options     head
     #[test]
-    fn ${1:#:test_function_name}() {
+    fn ${1:#:TEST_FUNCTION_NAME}() {
         ${0:TARGET}
     }
 
 snippet     pubnew
 abbr        pub fn new() {}
 options     head
-    pub fn new(${1}) -> ${2:#:Name} {
+    pub fn new(${1}) -> ${2:#:NAME} {
         ${0:TARGET}
     }
 
@@ -56,7 +56,7 @@ options     head
 # macros
 
 snippet     macro
-    ${1:#:macro_name}!(${2})${3}
+    ${1:#:MACRO_NAME}!(${2})${3}
 
 snippet     bfl
 abbr        bitflags!
@@ -87,7 +87,7 @@ options     head
 
 snippet     crate
 options     head
-    #![crate_name=${1:#:crate_name}]
+    #![crate_name=${1:#:CRATE_NAME}]
 
 snippet     derive
 options     head
@@ -97,7 +97,7 @@ options     head
 
 snippet     mod
 options     head
-    mod ${1:#:mod_name} {
+    mod ${1:#:MOD_NAME} {
         ${0:TARGET}
     }
 
@@ -106,7 +106,7 @@ snippet     let
 
 snippet     if
 abbr        if {}
-    if ${1:#:condition} {
+    if ${1:#:CONDITION} {
         ${0:TARGET}
     }
 
@@ -116,13 +116,13 @@ snippet else
     }
 
 snippet elseif
-    } else if (${1:#:condition}) {
+    } else if (${1:#:CONDITION}) {
         ${0:TARGET}
     }
 
 snippet     ifelse
 abbr        if () {} else {}
-    if ${1:#:condition} {
+    if ${1:#:CONDITION} {
         ${2:TARGET}
     } else {
         ${3}
@@ -136,7 +136,7 @@ abbr        forin  {}
 
 snippet     match
     match ${1:TARGET} {
-        ${2:#:pattern} => ${3:#expr},${4}
+        ${2:#:PATTERN} => ${3:#expr},${4}
     }
 
 snippet     mcase
@@ -170,4 +170,4 @@ abbr        Option<A>
 
 snippet     res
 abbr        Result<A, B>
-    Result<${1:#:~str}, ${2:#:()}>${3}
+    Result<${1:#:~STR}, ${2:#:()}>${3}
