@@ -1,4 +1,5 @@
 snippet class
+options head
 abbr    ... class Name {}
     ${1:public} class `expand('%:p:t:r')` ${2}{
         ${0:TARGET}
@@ -6,12 +7,14 @@ abbr    ... class Name {}
 
 snippet class_inner
 alias   classi
+options head
 abbr    ... class ... {}
     ${1:public} class ${2:#:NAME} ${3}{
         ${0:TARGET}
     }
 
 snippet interface
+options head
 abbr    ... interface Name {}
     ${1:public} interface `expand('%:p:t:r')` ${2}{
         ${0:TARGET}
@@ -19,12 +22,14 @@ abbr    ... interface Name {}
 
 snippet interface_inner
 alias   interfacei
+options head
 abbr    ... interface ... {}
     ${1:public} interface ${2:#:NAME} ${3}{
         ${0:TARGET}
     }
 
 snippet enum
+options head
 abbr    ... enum Name {}
     ${1:public} enum `expand('%:p:t:r')` ${2}{
         ${0:TARGET}
@@ -32,6 +37,7 @@ abbr    ... enum Name {}
 
 snippet enum_inner
 alias   enumi
+options head
 abbr    ... enum ... {}
     ${1:public} enum ${2:#:NAME} ${3}{
         ${0:TARGET}
@@ -39,6 +45,7 @@ abbr    ... enum ... {}
 
 snippet public
 alias   pub
+options head
 abbr    public ... func() {}
     public ${1:void} ${2:#:NAME}(${3}) ${4}{
         ${0:TARGET}
@@ -46,6 +53,7 @@ abbr    public ... func() {}
 
 snippet public_static
 alias   publics pubs
+options head
 abbr    public static ... func() {}
     public static ${1:void} ${2:#:NAME}(${3}) ${4}{
         ${0:TARGET}
@@ -53,6 +61,7 @@ abbr    public static ... func() {}
 
 snippet private
 alias   pri
+options head
 abbr    private ... func() {}
     private ${1:void} ${2:#:NAME}(${3}) ${4}{
         ${0:TARGET}
@@ -60,6 +69,7 @@ abbr    private ... func() {}
 
 snippet private_static
 alias   privates pris
+options head
 abbr    private static ... func() {}
     private static ${1:void} ${2:#:NAME}(${3}) ${4}{
         ${0:TARGET}
@@ -67,6 +77,7 @@ abbr    private static ... func() {}
 
 snippet protected
 alias   pro
+options head
 abbr    protected ... func() {}
     protected ${1:void} ${2:#:NAME}(${3}) ${4}{
         ${0:TARGET}
@@ -74,6 +85,7 @@ abbr    protected ... func() {}
 
 snippet protected_static
 alias   protecteds pros
+options head
 abbr    protected static ... func() {}
     protected static ${1:void} ${2:#:NAME}(${3}) ${4}{
         ${0:TARGET}
@@ -81,6 +93,7 @@ abbr    protected static ... func() {}
 
 snippet public_constructor
 alias   pubc
+options head
 abbr    Name(...) {}
     public `expand('%:p:t:r')`(${1}) ${2}{
         ${0:TARGET}
@@ -88,6 +101,7 @@ abbr    Name(...) {}
 
 snippet protected_constructor
 alias   proc
+options head
 abbr    Name(...) {}
     protected `expand('%:p:t:r')`(${1}) ${2}{
         ${0:TARGET}
@@ -95,6 +109,7 @@ abbr    Name(...) {}
 
 snippet private_constructor
 alias   pric
+options head
 abbr    Name(...) {}
     private `expand('%:p:t:r')`(${1}) ${2}{
         ${0:TARGET}
@@ -102,31 +117,50 @@ abbr    Name(...) {}
 
 snippet constructor
 alias   cons
+options head
 abbr    Name(...) {}
     `expand('%:p:t:r')`(${1}) ${2}{
         ${0:TARGET}
     }
 
 snippet const
+options head
 abbr    public static final type var = ...;
     public static final ${1:#:TYPE} ${2:#:VAR} = ${3};
 
 snippet const_string
 alias   consts
+options head
 abbr    public static final String var = "...";
     public static final String ${1:var} = "${2}";
 
 snippet final
+options head
 abbr    public final type var = ...;
     public final ${1:#:TYPE} ${2:#:VAR} = ${3};
 
 snippet assert
+options head
 abbr    assert ... : "...";
     assert ${1:#:TEST} : "${2:#:FAILURE MESSAGE}";
 
 snippet if
 abbr    if () {}
     if (${1}) {
+        ${2:TARGET}
+    }
+
+snippet ifnull
+alias   ifn
+abbr    if (... == null) {}
+    if (${1} == null) {
+        ${2:TARGET}
+    }
+
+snippet ifnotnull
+alias   ifnn
+abbr    if (... != null) {}
+    if (${1} != null) {
         ${2:TARGET}
     }
 
@@ -154,24 +188,28 @@ abbr    else if () {}
     }
 
 snippet while
+options head
 abbr    while () {}
     while (${1}) {
         ${2:TARGET}
     }
 
 snippet for
+options head
 abbr    for ( ; ; ) {}
     for (${1}; ${2}; ${3}) {
         ${4:TARGET}
     }
 
 snippet fori
+options head
 abbr    for (int i = ...; i < ...; ++i) {}
     for (int ${1:i} = 0; $1 < ${2}; ++$1) {
         ${0:TARGET}
     }
 
 snippet forri
+options head
 abbr    for (int i = ...; i >= ...; --i) {}
     for (int ${1:i} = ${2}; $1 >= 0; --$1) {
         ${0:TARGET}
@@ -179,44 +217,52 @@ abbr    for (int i = ...; i >= ...; --i) {}
 
 snippet foreach
 alias   fore
+options head
 abbr    for (... : ...) {}
     for (${1:var} ${2} : ${3}) {
         ${0:TARGET}
     }
 
 snippet return
+options head
 abbr    return ...;
     return ${0:TARGET};
 
 snippet switch
+options head
 abbr    switch () {}
     switch (${1}) {
         ${2:TARGET}
     }
 
 snippet case
+options head
 abbr    case ...: ...
     case ${1}:
         ${2:TARGET}
 
 snippet break
+options head
 abbr    break;
     break;
 
 snippet default
 alias   de
+options head
 abbr    default: ...
     default:
         ${0}
 
 snippet try
 abbr    try {}
+options head
     try {
         ${0:TARGET}
     }
 
 snippet try_catch
 alias   tryc
+options head
 abbr    try {} catch () {}
     try {
         ${1:TARGET}
@@ -226,6 +272,7 @@ abbr    try {} catch () {}
 
 snippet try_with
 alias   tryw
+options head
 abbr    try () {} catch () {}
     try (${1:#:RESOURCES}) {
         ${2:TARGET}
@@ -235,6 +282,7 @@ abbr    try () {} catch () {}
 
 snippet try_finally
 alias   tryf
+options head
 abbr    try {} catch () {} finally {}
     try {
         ${1:TARGET}
@@ -259,10 +307,11 @@ abbr    finally {}
 snippet throw
 alias   thr
 abbr    throw new ...;
-options word
+options head
     throw new ${1:Exception}(${2});
 
 snippet new
+options head
 abbr    var ... = new ...;
     ${1:var} ${2} = new ${3:Object}(${4});
 
@@ -288,15 +337,18 @@ options head
     }
 
 snippet package
+options head
 abbr    package ...;
     package ${1};
 
 snippet import
+options head
 abbr    import ...;
     import ${1};
 
 snippet main
 alias   main
+options head
 abbr    public static void main(String args[]) {}
     public static void main(String[] args) {
         ${0:TARGET}
@@ -305,27 +357,27 @@ abbr    public static void main(String args[]) {}
 snippet println
 alias   sout
 abbr    System.out.println(...);
-options word
+options head
     System.out.println(${1});
 
 snippet serr
 abbr    System.err.println(...);
-options word
+options head
     System.err.println(${1});
 
 snippet printf
 abbr    System.out.printf(...);
-options word
+options head
     System.out.printf(${1});
 
 snippet print
 abbr    System.out.print(...);
-options word
+options head
     System.out.print(${1});
 
 snippet format
 abbr    System.out.format(...);
-options word
+options head
     System.out.format(${1});
 
 snippet string_format
@@ -337,6 +389,7 @@ options word
 # javadoc
 snippet comment
 alias   /*
+options head
 abbr    /* ... */
     /**
      * ${0:TARGET}

@@ -125,17 +125,20 @@ options     head
 
 snippet NeoBundle
 alias   neobundle
+options     head
 abbr NeoBundle ''
     NeoBundle '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`'${0}
 
 snippet NeoBundleLazy
 alias   neobundlelazy
+options     head
 abbr NeoBundleLazy ''
     NeoBundleLazy '`getreg('+')=='' ? '<\`0\`>' : getreg('+')`', {
       \ ${0:TARGET}
       \ }
 
 snippet bundle_hooks
+options     head
 abbr    neobundle hooks
     let s:hooks = neobundle#get_hooks('${1}')
     function! s:hooks.on_source(bundle) abort
@@ -145,16 +148,16 @@ abbr    neobundle hooks
 
 snippet     autoload
 alias       afunction afunc
-abbr        autoload func ... endfunc
 options     head
+abbr        autoload func ... endfunc
     function! `substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:FUNC_NAME}(${2:#:ARGS}) abort
       ${0:TARGET}
     endfunction
 
 snippet  save_cpoptions
 alias    s:save_cpo cpoptions
-abbr     let s:save_cpo = &cpo | set cpo&vim
 options     head
+abbr     let s:save_cpo = &cpo | set cpo&vim
     let s:save_cpo = &cpo
     set cpo&vim
 
@@ -164,9 +167,9 @@ options     head
     unlet s:save_cpo
 
 snippet g:loaded
-abbr    if exists('g:loaded_{plugin-name}') finish endif
 alias   loaded
-options     head
+options head
+abbr    if exists('g:loaded_{plugin-name}') finish endif
     if exists('g:loaded_${1}')
       finish
     endif
@@ -176,12 +179,14 @@ options     head
     let g:loaded_$1 = 1
 
 snippet modeline
+options head
 abbr    " vim: {modeline}
     " vim: ${0:foldmethod=marker}
 
 snippet undo_ftplugin
-abbr    if !exists('b:undo_ftplugin') ...
 alias   b:undo_ftplugin
+options head
+abbr    if !exists('b:undo_ftplugin') ...
     if !exists('b:undo_ftplugin')
       let b:undo_ftplugin = ''
     endif
@@ -247,17 +252,19 @@ abbr    use option save
       let &$1 = $1_save
     endtry
 
-snippet     debug
-abbr        echomsg string([...])
-options     head
+snippet debug
+abbr    echomsg string([...])
+options head
     echomsg string([${0:TARGET}])
 
-snippet     version
-abbr        v:version > ... || (v:version == ... && has('patch-...'))
+snippet version
+options word
+abbr    v:version > ... || (v:version == ... && has('patch-...'))
     v:version > ${1} || (v:version == $1 && has('patch-${2}'))
 
-snippet     version_new
-alias       versionn
-abbr        has('patch-...')
+snippet version_new
+alias   versionn patch
+options word
+abbr    has('patch-...')
     has('patch-${1}')
 

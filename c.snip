@@ -177,72 +177,72 @@ options     head
 
 # Preprocessing directives {{{
 # #INCLUDE <...>
-SNIPPET     INC
-OPTIONS     HEAD
-ALIAS       INCLUDE, #INC, #INCLUDE
-ABBR        #INCLUDE <...>
-    #INCLUDE <${1:STDIO}.H>${0}
+snippet     inc
+options     head
+alias       include, #inc, #include
+abbr        #include <...>
+    #include <${1:stdio}.h>${0}
 
-# #INCLUDE "..."
-SNIPPET     INC2
-OPTIONS     HEAD
-ALIAS       INCLUDE2, #INC2, #INCLUDE2
-ABBR        #INCLUDE "..."
-    #INCLUDE "${1}.H"${0}
+# #include "..."
+snippet     incq
+options     head
+alias       includeq, #incq, #includeq
+abbr        #include "..."
+    #include "${1}.h"${0}
 
-SNIPPET     #IF
-OPTIONS     HEAD
-ABBR        #IF ... #ENDIF
-    #IF ${1}
+snippet     #if
+options     head
+abbr        #if ... #endif
+    #if ${1}
     ${0:TARGET}
-    #ENDIF
+    #endif
 
-SNIPPET     #ELSE
-OPTIONS     HEAD
-ABBR        #ELSE ...
-    #ELSE
-    ${0:TARGET}
-
-SNIPPET     #ELIF
-OPTIONS     HEAD
-ABBR        #ELIF ...
-    #ELIF ${1}
+snippet     #else
+options     head
+abbr        #else ...
+    #else
     ${0:TARGET}
 
-SNIPPET     IFDEF
-OPTIONS     HEAD
-ALIAS       #IFDEF
-ABBR        #IFDEF ... #ENDIF
-    #IFDEF ${1:DEBUG}
+snippet     #elif
+options     head
+abbr        #elif ...
+    #elif ${1}
     ${0:TARGET}
-    #ENDIF
 
-SNIPPET     IFNDEF
-OPTIONS     HEAD
-ALIAS       #IFNDEF
-ABBR        #IFNDEF ... #ENDIF
-    #IFNDEF ${1:DEBUG}
+snippet     ifdef
+options     head
+alias       #ifdef
+abbr        #ifdef ... #endif
+    #ifdef ${1:DEBUG}
     ${0:TARGET}
-    #ENDIF
+    #endif
 
-# THIS SNIPPET USED THE PLACEHOLDER INSTEAD OF A TRAILING SPACE
-SNIPPET     DEF
-OPTIONS     HEAD
-ALIAS       DEFINE, #DEF, #DEFINE
-ABBR        #DEFINE ...
-    #DEFINE ${0}
+snippet     ifndef
+options     head
+alias       #ifndef
+abbr        #ifndef ... #endif
+    #ifndef ${1:DEBUG}
+    ${0:TARGET}
+    #endif
 
-SNIPPET     UND
-OPTIONS     HEAD
-ALIAS       UNDEF, #UND, #UNDEF
-ABBR        #UNDEF ...
-    #UNDEF ${0}
+# this snippet used the placeholder instead of a trailing space
+snippet     def
+options     head
+alias       define, #def, #define
+abbr        #define ...
+    #define ${0}
 
-# INCLUDE-GUARD
-SNIPPET     INCLUDE_GUARD
-OPTIONS     HEAD
-ALIAS       GUARD, ONCE
-ABBR        #IFNDEF ... #DEFINE ... #ENDIF
+snippet     und
+options     head
+alias       undef, #und, #undef
+abbr        #undef ...
+    #undef ${0}
+
+# include-guard
+snippet     include_guard
+options     head
+alias       guard, once, incg
+abbr        #ifndef ... #define ... #endif
     #IFNDEF ${1:#:SYMBOL}
     #DEFINE $1
 
@@ -266,6 +266,7 @@ abbr    fprintf(file, "...\n", ...);
     fprintf(${1:stderr}, "${2}\n"${3});
 
 snippet FILE
+options head
 abbr    FILE ... = fopen(); ... fclose();
     FILE *${1:fd} = fopen("${2:#:PATH}", "${3:rb}");
     ${0:TARGET}
@@ -308,22 +309,26 @@ abbr    realloc(old, size);
     ($3 *)realloc(${1:#:OLD}, ${2:#:N_MEMBERS} * sizeof(${3:char}));
 
 snippet srand
+options head
 abbr    srand(time(NULL));
     srand(${0:time(NULL)});
 # }}}
 
 # Built-in operators and alias {{{
 snippet typedef
+options head
 abbr    typedef ... ...;
     typedef ${1:#:BASE_TYPE} ${2:#:CUSTOM_TYPE};
 
 snippet sizeof
 alias   size
+options word
 abbr    sizeof(...)
     sizeof(${1:TARGET})${0}
 
 snippet sizeof_array
 alias   sizeofa
+options word
 abbr    (sizeof(...) / sizeof(*(...)))
     (sizeof(${1:TARGET}) / sizeof(*($1)))${0}
 
@@ -337,10 +342,10 @@ abbr    assert(...);
 options head
     assert(${0:TARGET});
 
-snippet     va_list
-options     head
-abbr        va_start(va_list, last_arg); ... ; va_end()
-alias       va
+snippet va_list
+options head
+abbr    va_start(va_list, last_arg); ... ; va_end()
+alias   va
     va_list ${1:ap};
     va_start($1, ${2:#:LAST_ARG});
     ${0:TARGET}
@@ -348,9 +353,9 @@ alias       va
 # }}}
 
 # Comments {{{
-snippet     comment
-abbr        /* ... */
-alias       /*
+snippet comment
+abbr    /* ... */
+alias   /*
     /* ${0:TARGET} */
 
 snippet     doxy
