@@ -243,12 +243,12 @@ snippet     include_guard
 options     head
 alias       guard, once, incg
 abbr        #ifndef ... #define ... #endif
-    #IFNDEF ${1:#:SYMBOL}
-    #DEFINE $1
+    #ifndef ${1:#:SYMBOL}
+    #define $1
 
     ${0:TARGET}
 
-    #ENDIF /* END OF INCLUDE GUARD */
+    #endif /* END OF INCLUDE GUARD */
 
 # }}}
 

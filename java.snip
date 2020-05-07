@@ -123,21 +123,41 @@ abbr    Name(...) {}
         ${0:TARGET}
     }
 
-snippet const
+snippet public_static_final
+alias   pubsf
 options head
-abbr    public static final type var = ...;
-    public static final ${1:#:TYPE} ${2:#:VAR} = ${3};
+abbr    public static final var ... = ...;
+    public static final ${1:var} ${2:#:VAR} = ${3};
 
-snippet const_string
-alias   consts
+snippet protected_static_final
+alias   prosf
 options head
-abbr    public static final String var = "...";
-    public static final String ${1:var} = "${2}";
+abbr    protected static final var ... = ...;
+    protected static final ${1:var} ${2:#:VAR} = ${3};
 
-snippet final
+snippet private_static_final
+alias   prisf
 options head
-abbr    public final type var = ...;
-    public final ${1:#:TYPE} ${2:#:VAR} = ${3};
+abbr    private static final var ... = ...;
+    private static final ${1:var} ${2:#:VAR} = ${3};
+
+snippet public_final
+alias   pubf
+options head
+abbr    public final var ... = ...;
+    public final ${1:var} ${2:#:VAR} = ${3};
+
+snippet protected_final
+alias   prof
+options head
+abbr    protected final var ... = ...;
+    protected final ${1:var} ${2:#:VAR} = ${3};
+
+snippet private_final
+alias   prif
+options head
+abbr    private final var ... = ...;
+    private final ${1:var} ${2:#:VAR} = ${3};
 
 snippet assert
 options head
@@ -368,17 +388,17 @@ options head
 snippet printf
 abbr    System.out.printf(...);
 options head
-    System.out.printf(${1});
+    System.out.printf(${1:TARGET}, ${2});
 
 snippet print
 abbr    System.out.print(...);
 options head
-    System.out.print(${1});
+    System.out.print(${1:TARGET});
 
 snippet format
 abbr    System.out.format(...);
 options head
-    System.out.format(${1});
+    System.out.format(${1:TARGET}, ${2});
 
 snippet string_format
 alias   stringf sf

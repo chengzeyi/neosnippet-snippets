@@ -1,4 +1,11 @@
-source go.vim
+# source go.vim
+
+snippet     main
+abbr        func main() {...}
+options     head
+  func main() {
+    ${0:TARGET}
+  }
 
 snippet     helloworld
 abbr        package main import ("fmt") ...
@@ -20,10 +27,17 @@ options     head
     ${0:TARGET:return nil}
   }
 
-snippet     funcm
+snippet     funcp
 abbr        func () ...() {...}
 options     head
   func (${1:p} *${2:#:SNAME}) ${3:#:FNAME}(${4}) ${5:error} {
+    ${0:TARGET:return nil}
+  }
+
+snippet     funcs
+abbr        func () ...() {...}
+options     head
+  func (${1:s} ${2:#:SNAME}) ${3:#:FNAME}(${4}) ${5:error} {
     ${0:TARGET:return nil}
   }
 
@@ -31,9 +45,15 @@ snippet     import
 abbr        import (...)
 options     head
   import (
-    "${1:fmt}"
+    ${0:TARGET}
   )
-  ${0:TARGET}
+
+snippet     const
+abbr        const (...)
+options     head
+  const (
+    ${0:TARGET}
+  )
 
 snippet     package
 abbr        package ...
@@ -42,15 +62,21 @@ options     head
   package ${1:main}
   ${0:TARGET}
 
+snippet     sprintf
+abbr        fmt.Sprintf(...)
+alias       Springf
+options     head
+  fmt.Sprintf(${1:TARGET}, ${2})
+
 snippet     printf
-abbr        fmt.Printf("...\n")
+abbr        fmt.Printf(...)
 alias       Pringf
 options     head
-  fmt.Printf("${1}\n"${2:})
+  fmt.Printf(${1:TARGET}, ${2})
 
 snippet     println
 abbr        fmt.Println(...)
-snippet     Println
+alias       Println
 options     head
   fmt.Println(${0:TARGET})
 
@@ -84,7 +110,7 @@ options     head
 
 snippet     if
 abbr        if ... {}
-  if ${1:#:CONDITION} {
+  if ${1} {
     ${0:TARGET}
   }
 
@@ -98,7 +124,7 @@ alias       ife
 snippet     ifelse
 abbr        if ... {} else {}
 alias       ifel
-  if ${1:#:CONDITION} {
+  if ${1} {
     ${2:TARGET}
   } else {
     ${0}
@@ -114,15 +140,15 @@ alias       el
 snippet     elseif
 abbr        else if ... {}
 alias       elif
-  else if ${1:#:CONDITION} {
+  else if ${1} {
     ${0:TARGET}
   }
 
 snippet     switch
 abbr        switch {}
 options     head
-  switch ${1:#:V} {
-  case ${2:#:CONDITION}:
+  switch ${1} {
+  case ${2}:
     ${0:TARGET}
   }
 
@@ -130,14 +156,14 @@ snippet     select
 abbr        select {}
 options     head
   select {
-  case ${1:#:CONDITION}:
+  case ${1}:
     ${0:TARGET}
   }
 
 snippet     case
 abbr        case ...: ...
 options     head
-  case ${1:#:CONDITION}:
+  case ${1}:
     ${0:TARGET}
 
 snippet     funct
@@ -160,6 +186,7 @@ options     head
 
 snippet     testtable
 abbr        var test = {...}{...} for {t.Run(){...}}
+alias       testt
 options     head
   var tests = []struct {
       name string
