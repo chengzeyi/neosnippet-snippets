@@ -154,28 +154,34 @@ abbr        autoload func ... endfunc
       ${0:TARGET}
     endfunction
 
-snippet  save_cpoptions
-alias    s:save_cpo cpoptions
+snippet  cpo_save
+alias    cpoptions_save
 options     head
-abbr     let s:save_cpo = &cpo | set cpo&vim
-    let s:save_cpo = &cpo
+abbr     let s:cpo_save = &cpo | set cpo&vim ...
+    let s:cpo_save = &cpo
     set cpo&vim
 
     ${0:TARGET}
 
-    let &cpo = s:save_cpo
+    let &cpo = s:cpo_save
     unlet s:save_cpo
 
-snippet g:loaded
-alias   loaded
+snippet s:loaded
+alias   sloaded
 options head
-abbr    if exists('g:loaded_{plugin-name}') finish endif
+abbr    if exists('s:loaded_{plugin-name}') | finish | endif ...
+    if exists('s:loaded_${1}')
+      finish
+    endif
+    let s:loaded_$1 = 1
+
+snippet g:loaded
+alias   gloaded
+options head
+abbr    if exists('g:loaded_{plugin-name}') | finish | endif ...
     if exists('g:loaded_${1}')
       finish
     endif
-
-    ${0}
-
     let g:loaded_$1 = 1
 
 snippet modeline
@@ -220,9 +226,9 @@ abbr    lua <<EOF | EOF
     ${0:TARGET}
     EOF
 
-snippet save_pos
+snippet pos_save
 options head
-abbr    use pos save
+abbr    let pos_save = getpos('.') ...
     let pos_save = getpos('.')
     try
       ${0:TARGET}
@@ -230,15 +236,16 @@ abbr    use pos save
       call setpos('.', pos_save)
     endtry
 
-snippet save_register
+snippet reg_save
+alias   register_save
 options head
 abbr    use register save
-    let save_reg_$1 = getreg('${1}')
-    let save_regtype_$1 = getregtype('$1')
+    let reg_save_$1 = getreg('${1}')
+    let regtype_save_$1 = getregtype('$1')
     try
       ${0:TARGET}
     finally
-      call setreg('$1', save_reg_$1, save_regtype_$1)
+      call setreg('$1', reg_save_$1, regtype_save_$1)
     endtry
 
 snippet save_option
@@ -263,8 +270,14 @@ abbr    v:version > ... || (v:version == ... && has('patch-...'))
     v:version > ${1} || (v:version == $1 && has('patch-${2}'))
 
 snippet version_new
-alias   versionn patch
+alias   haspatch has_patch versionn
 options word
 abbr    has('patch-...')
     has('patch-${1}')
+
+snippet has_nvim
+alias   hasn
+options word
+abbr    has('nvim-...')
+    has('nvim-${1}')
 

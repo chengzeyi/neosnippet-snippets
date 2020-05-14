@@ -3,13 +3,11 @@ alias   shebang
 abbr    #!/bin/sh
 options head
 	#!/bin/${1:sh}
-	${0}
 
 snippet env
 abbr    #!/usr/bin/env
 options head
 	#!/usr/bin/env
-	${0}
 
 snippet if
 	if [ ${1:#:CONDITION} ]; then
@@ -62,12 +60,12 @@ snippet tmp
 
 snippet function
 alias func
-	${1:#:NAME}()
-	{
+	${1:#:NAME}() {
 		${0:TARGET}
 	}
 
 snippet     match
+alias       =~
 abbr        =~
 options     head
 	if [[ $${1:#:STRING} =~ ${2:#:REGEXP} ]]; then
@@ -75,6 +73,8 @@ options     head
 	fi
 
 snippet     assign
+alias       =
+abbr        =
 options     head
 	${1:#:NAME}="${2:#:SOMETHING}"
 

@@ -108,7 +108,21 @@ options     head
 snippet     forr
 abbr        for ...:= range ... {}
 options     head
-  for ${1:v} := range ${2:#:ITERATOR} {
+  for ${1:i} := range ${2:#:ITERATOR} {
+    ${0:TARGET}
+  }
+
+snippet     fork
+abbr        for ...:= range ... {}
+options     head
+  for ${1:k} := range ${2:#:ITERATOR} {
+    ${0:TARGET}
+  }
+
+snippet     forkv
+abbr        for ...:= range ... {}
+options     head
+  for ${1:k}, ${2:v} := range ${3:#:MAP} {
     ${0:TARGET}
   }
 
