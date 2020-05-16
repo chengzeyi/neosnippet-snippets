@@ -9,7 +9,8 @@ abbr        import ...
 options     head
 	import ${1}
 
-snippet     importas
+snippet     import_as
+alias       import_as
 abbr        import ... as ...
 options     head
 	import ${1} as ${2}
@@ -19,7 +20,8 @@ abbr        from ... import ...
 options     head
 	from ${1} import ${2}
 
-snippet     fromas
+snippet     from_as
+alias       fromas
 abbr        from ... import ... as ...
 options     head
 	from ${1} import ${2} as ${3}
@@ -32,7 +34,8 @@ options     head
 		def __init__(self${3}):
 			${0:pass}
 
-snippet     classd
+alias       class_doc
+alias       classd
 abbr        class Class(...): "..."
 options     head
 	class ${1:#:NAME}(${2:object}):
@@ -48,20 +51,23 @@ options     head
 	def ${1:#:NAME}(${2}):
 		${0:pass}
 
-snippet     defd
+snippet     def_doc
+alias       dofd
 abbr        def function(...): """..."""
 options     head
 	def ${1:#:NAME}(${2}):
 		"""${3:#:FUNCTION DOCUMENTATION}"""
 		${0:pass}
 
-snippet     defm
+snippet     def_met
+alias       defm
 abbr        def method(self, ...): ...
 options     head
 	def ${1:#:NAME}(self${2}):
 		${0:pass}
 
-snippet     defmd
+snippet     def_met_doc
+alias       defmd
 abbr        def method(self, ...): "..."
 options     head
 	def ${1:#:NAME}(self${2}):
@@ -91,8 +97,8 @@ alias       cond
 abbr        ... if ... else ...
 	${1:TARGET} if ${2} else ${0}
 
-snippet     withopen
-alias       fileidiom
+snippet     with_open
+alias       fileidiom withopen
 options     head
 	with open(${1:#:FILE}, '${2:r}') as ${3:f}:
 		${0:pass}
@@ -103,9 +109,9 @@ options     head
 	for ${1:i} in ${2:#:LIST}:
 		${0:pass}
 
-snippet     ifmain
+snippet     if_main
+alias       ifmain main
 abbr        if __name__ == '__main__': ...
-alias       main
 options     head
 	if __name__ == '__main__':
 		${0:pass}
@@ -115,7 +121,8 @@ abbr        raise ...
 options     head
 	raise ${1:Exception}${2:(${0\})}
 
-snippet     tryexcept
+snippet     try_except
+alias       trye
 abbr        try: ... except ...: ...
 options     head
 	try:
@@ -123,7 +130,8 @@ options     head
 	except ${2:Exception}:
 		${3:pass}
 
-snippet     tryfinally
+snippet     try_finally
+alias       tryf
 abbr        try: ... finally: ...
 options     head
 	try:
