@@ -11,19 +11,11 @@ options word
     ${0:TARGET}
   }
 
-snippet function2
-abbr    func2
-options head
-  function ${1:function_name}(${2:argument}) {
-    ${0:TARGET}
-  }
-
 snippet proto
 options head
   ${1:#:CLASS_NAME}.prototype.${2:#:METHOD_NAME} = function(${3:#:FIRST_ARGUMENT}) {
     ${0:TARGET}
   };
-
 
 snippet f
 options word
@@ -35,13 +27,26 @@ options head
     ${0:TARGET}
   }
 
-snippet if-else
-abbr ife
+snippet ifelse
+abbr ifel
 options head
-  if (${1:#:CONDITION}) {
+  if (${1:true}) {
     ${2:TARGET}
   } else {
     ${3}
+  }
+
+snippet else
+options head
+  else {
+    ${0:TARGET}
+  }
+
+snippet elssif
+abbr elif
+options head
+  else if (${1:true}) {
+    ${0:TARGET}
   }
 
 snippet for

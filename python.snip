@@ -36,7 +36,7 @@ options     head
 
 alias       class_doc
 alias       classd
-abbr        class Class(...): "..."
+abbr        class Class(...): """..."""
 options     head
 	class ${1:#:NAME}(${2:object}):
 		"""${3:#:CLASS DOCUMENTATION}"""
@@ -68,7 +68,7 @@ options     head
 
 snippet     def_met_doc
 alias       defmd
-abbr        def method(self, ...): "..."
+abbr        def method(self, ...): """..."""
 options     head
 	def ${1:#:NAME}(self${2}):
 		"""${3:#:METHOD DOCUMENTATION}"""
@@ -98,7 +98,7 @@ abbr        ... if ... else ...
 	${1:TARGET} if ${2} else ${0}
 
 snippet     with_open
-alias       fileidiom withopen
+alias       fileidiom withopen witho
 options     head
 	with open(${1:#:FILE}, '${2:r}') as ${3:f}:
 		${0:pass}
@@ -170,10 +170,12 @@ options     head
 		${0:pass}
 
 snippet     filter
+alias       forif
 abbr        [x for x in {list} if {condition}]
 	[$1 for ${1:x} in ${2:#:LIST} if ${3:#:CONDITION}]
 
 snippet     print
+abbr        print(...)
 options     word
 	print(${0:TARGET})
 
@@ -196,13 +198,13 @@ options     word
 	hasattr(${1:#:OBJ}, ${2:#:ATTR})
 
 snippet     pdb
-abbr        import pdb..
+abbr        import pdb; ...
 	import pdb; pdb.set_trace()
 
 snippet     ipdb
-abbr        import ipdb..
+abbr        import ipdb; ...
 	import ipdb; ipdb.set_trace()
 
 snippet     ipy
-abbr        import ipython..
+abbr        import ipython; ...
 	from IPython import embed; embed()
