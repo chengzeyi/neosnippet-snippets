@@ -1,6 +1,6 @@
 include javascript.snip
 
-snippet     var-with-type
+snippet     var
 abbr        var NAME: TYPE = expr;
 options     head
   var ${1:#:NAME}: ${2:#:TYPE} = ${0:#:TARGET};
@@ -72,8 +72,8 @@ abbr        /// <reference path="..." />
 options     head
   /// <reference path="${0:#:TARGET}" />
 
-snippet     function-arrow
-alias       arrow-function
+snippet     function_arrow
+alias       funca
 abbr        () => {}
 options     word
   (${1:#:ARGS}) => { ${0:#:TARGET} }

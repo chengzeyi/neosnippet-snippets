@@ -6,3 +6,9 @@ snippet     clean:
 options     head
   clean:
     rm -f ${0}
+
+snippet     else
+options     head
+  ${1:TARGET}
+  else${2}
+  endif

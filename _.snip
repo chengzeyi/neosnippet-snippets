@@ -61,3 +61,8 @@ abbr        file name to lower camel
 alias       _fnamelc
 options     word
     `substitute(bufname('%') ==#'[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r'), '\%(_\(.\)\)', '\u\1', 'g')`${0}
+
+snippet    TODO
+abbr       TODO: ...
+options    word
+    TODO: ${0:unimplemented}

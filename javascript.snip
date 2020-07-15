@@ -1,11 +1,12 @@
-snippet :f
+snippet :function
+alias   :func
 options head
   ${1:#:METHOD_NAME}: function(${2:#:ATTRIBUTE}) {
     ${0:TARGET}
   }
 
 snippet function
-abbr    func
+alias   func
 options word
   function ${1:#:FUNCTION_NAME}(${2:#:ARGUMENT}) {
     ${0:TARGET}
@@ -17,7 +18,8 @@ options head
     ${0:TARGET}
   };
 
-snippet f
+snippet function;
+alias   func;
 options word
   function(${1}) { ${0:TARGET} };
 
@@ -78,12 +80,32 @@ options head
 snippet try
 options head
   try {
+    ${0:TARGET}
+  }
+
+snippet catch
+options word
+  catch (${1:e}) {
+    ${0:TARGET}
+  }
+
+snippet finally
+options word
+  finally {
+    ${0:TARGET}
+  }
+
+snippet try_catch
+snippet tryc
+options head
+  try {
     ${1:TARGET}
   } catch (${2:e}) {
     ${3}
   }
 
-snippet try_finally
+snippet try_catch_finally
+snippet trycf
 options head
   try {
     ${1:TARGET}
@@ -94,8 +116,8 @@ options head
   }
 
 
-snippet key-value
-abbr :,
+snippet key_value
+abbr    kv
 options word
   ${1:#:VALUE_NAME}: ${0:#:VALUE},
 
@@ -103,7 +125,7 @@ options word
 #options word
 #  ${1:#:KEY}: "${2:#:VALUE}"}${3:, }
 
-snippet setTimeout-function
+snippet setTimeout
 options head
   setTimeout(function() { ${0} }, ${1:10});
 
@@ -112,27 +134,27 @@ alias db
 options head
   debugger;
 
-snippet console-log
+snippet console.log
 alias cl
 options head
   console.log(${0:TARGET});
 
-snippet console-trace
+snippet console.trace
 alias ct
 options head
   console.trace();
 
-snippet console-error
+snippet console.error
 alias ce
 options head
   console.error(${0:TARGET});
 
-snippet console-warn
+snippet console.warn
 alias cw
 options head
   console.warn(${0:TARGET});
 
-snippet console-info
+snippet console.info
 alias ci
 options head
   console.info(${0:TARGET});
@@ -161,7 +183,8 @@ options     head
     }
   }
 
-snippet     class-extends
+snippet     class_extends
+alias       classe
 abbr        class extends {...}
 options     head
   class ${1:#:NAME} extends ${2:#:SUPERCLASS} {
@@ -193,17 +216,20 @@ abbr        import { member, ... } from "module-name";
 options     head
   import { ${1:MEMBERS} } from "${0:TARGET}";
 
-snippet     import-default
+snippet     import_default
+alias       importd
 abbr        import defaultMember from "module-name";
 options     head
   import ${1:defaultMember} from "${0:TARGET}";
 
-snippet     import-all
+snippet     import_all
+alias       importa
 abbr        import * as NAME from "...";
 options     head
   import * as ${1:NAME} from "${0:TARGET}";
 
-snippet     import-default-member
+snippet     import_default_member
+alias       importdm
 abbr        import defaultMember, { member, ... } from "module-name";
 options     head
   import ${1:defaultMember}, { ${2:MEMBERS} } from "${0:TARGET}";
