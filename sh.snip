@@ -36,12 +36,12 @@ snippet for
 	done
 
 snippet while
-	while ${1:#:CONDITION} ; do
+	while [ ${1:#:CONDITION} ]; do
 		${0:TARGET}
 	done
 
 snippet until
-	until ${1:#:CONDITION} ; do
+	until [ ${1:#:CONDITION} ]; do
 		${0:TARGET}
 	done
 
