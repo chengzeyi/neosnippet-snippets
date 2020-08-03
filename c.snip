@@ -260,6 +260,10 @@ abbr        #ifndef ... #define ... #endif
 
     #endif /* END OF INCLUDE GUARD */
 
+snippet     defined
+abbr        defined(...)
+    defined(${0:TARGET})
+
 # }}}
 
 # Built-in function calls {{{
@@ -373,13 +377,13 @@ abbr        /** @brief ...
 alias       /**
 options     head
     /**
-     * @brief    ${1:#:FUNCTION DESCRIPTION}
+     * @brief ${1:#:FUNCTION DESCRIPTION}
      *
-     * @details  ${2:#:DETAILED DESCRIPTION}
+     * @details ${2:#:DETAILED DESCRIPTION}
      *
-     * @param    ${3:#:PARAM}
+     * @param ${3:#:PARAM}
      *
-     * @return   ${4:#:RETURN TYPE}
+     * @return ${4:#:RETURN TYPE}
      */
 # }}}
 
