@@ -8,6 +8,11 @@ alias       ret0
 abbr        return 0;
     return 0;
 
+snippet     returnn
+alias       retn
+abbr        return NULL;
+    return NULL;
+
 # Control structures {{{
 snippet     if
 abbr        if () {}
@@ -189,14 +194,14 @@ options     head
 # #INCLUDE <...>
 snippet     inc
 options     head
-alias       include, #inc, #include
+alias       include #inc #include
 abbr        #include <...>
     #include <${1:stdio}.h>${0}
 
 # #include "..."
 snippet     incq
 options     head
-alias       includeq, #incq, #includeq
+alias       includeq include_quote #incq #includeq #include_quote
 abbr        #include "..."
     #include "${1}.h"${0}
 
@@ -238,20 +243,20 @@ abbr        #ifndef ... #endif
 # this snippet used the placeholder instead of a trailing space
 snippet     def
 options     head
-alias       define, #def, #define
+alias       define #def #define
 abbr        #define ...
     #define ${0}
 
 snippet     und
 options     head
-alias       undef, #und, #undef
+alias       undef #und #undef
 abbr        #undef ...
     #undef ${0}
 
 # include-guard
 snippet     include_guard
 options     head
-alias       guard, once, incg
+alias       guard once incg
 abbr        #ifndef ... #define ... #endif
     #ifndef ${1:#:SYMBOL}
     #define $1
@@ -278,6 +283,10 @@ abbr    scanf("...", ...);
 snippet fprintf
 abbr    fprintf(file, "...\n", ...);
     fprintf(${1:stderr}, "${2}\n"${3});
+
+snippet debug
+abbr    fprintf(stderr, "%s:%d\n", __FILE__, __LINE__);
+    fprintf(stderr, "%s:%d\n", __FILE__, __LINE__);
 
 snippet FILE
 options head
@@ -344,7 +353,7 @@ snippet sizeof_array
 alias   sizeofa
 options word
 abbr    (sizeof(...) / sizeof(*(...)))
-    (sizeof(${1:TARGET}) / sizeof(*($1)))${0}
+    sizeof(${1:TARGET}) / sizeof(*($1))${0}
 
 snippet static_assert
 abbr    static_assert(..., ...);

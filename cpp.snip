@@ -1,15 +1,21 @@
 include c.snip
 
+snippet     returnn
+alias       retn
+abbr        return nullptr;
+    return nullptr;
+
 # #include <...>
 snippet     inc
 options     head
 alias       include #inc #include
 abbr        #include <...>
     #include <${1:iostream}>${0}
+
 # #include "..."
 snippet     incq
 options     head
-alias       includeq #incq #includeq
+alias       includeq include_quote #incq #includeq #include_quote
 abbr        #include "..."
     #include "${1}"${0}
 
@@ -50,6 +56,20 @@ abbr        class {}
     class ${1:#:NAME} {
         ${0:TARGET}
     };
+
+snippet     delete_copy
+alias       deletec
+options     head
+abbr        (const &) = delete; operator=(const &) = delete;
+    ${1:#:NAME}(const $1 &) = delete;
+    ${1:#:NAME} &operator=(const $1 &) = delete;
+
+snippet     delete_move
+alias       deletem
+options     head
+abbr        (const &) = delete; operator=(const &) = delete;
+    ${1:#:NAME}($1 &&) = delete;
+    ${1:#:NAME} &operator=($1 &&) = delete;
 
 snippet     function_member
 options     head
@@ -197,6 +217,14 @@ abbr        std::cin >> ...;
 snippet     cout
 abbr        std::cout << ... << std::endl;
     std::cout << ${0:TARGET} << std::endl;
+
+snippet     cerr
+abbr        std::cerr << ... << std::endl;
+    std::cerr << ${0:TARGET} << std::endl;
+
+snippet     debug
+abbr        std::cerr << __FILE__ << ":" << __LINE__ << std::endl;
+    std::cerr << __FILE__ << ":" << __LINE__ << std::endl;
 
 snippet     ignore
 abbr        std::cin.ignore(...);
