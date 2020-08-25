@@ -263,7 +263,7 @@ abbr        #ifndef ... #define ... #endif
 
     ${0:TARGET}
 
-    #endif /* END OF INCLUDE GUARD */
+    #endif  // $1
 
 snippet     defined
 abbr        defined(...)
@@ -273,18 +273,22 @@ abbr        defined(...)
 
 # Built-in function calls {{{
 snippet printf
+options head
 abbr    printf("...\n", ...);
     printf("${1}\n"${2});
 
 snippet scanf
+options head
 abbr    scanf("...", ...);
     scanf("${1}", ${2});
 
 snippet fprintf
+options head
 abbr    fprintf(file, "...\n", ...);
     fprintf(${1:stderr}, "${2}\n"${3});
 
 snippet debug
+options head
 abbr    fprintf(stderr, "%s:%d\n", __FILE__, __LINE__);
     fprintf(stderr, "%s:%d\n", __FILE__, __LINE__);
 

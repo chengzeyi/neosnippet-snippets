@@ -62,14 +62,14 @@ alias       deletec
 options     head
 abbr        (const &) = delete; operator=(const &) = delete;
     ${1:#:NAME}(const $1 &) = delete;
-    ${1:#:NAME} &operator=(const $1 &) = delete;
+    $1 &operator=(const $1 &) = delete;
 
 snippet     delete_move
 alias       deletem
 options     head
 abbr        (const &) = delete; operator=(const &) = delete;
     ${1:#:NAME}($1 &&) = delete;
-    ${1:#:NAME} &operator=($1 &&) = delete;
+    $1 &operator=($1 &&) = delete;
 
 snippet     function_member
 options     head
@@ -178,7 +178,7 @@ options     head
 abbr        namespace {}
 	namespace ${1:#:NAME} {
 	${0:TARGET}
-	} // namespace $1
+	}  // namespace $1
 
 snippet     static_cast
 abbr        static_cast<>()
@@ -211,24 +211,38 @@ abbr        #include<iostream> int main...
     }
 
 snippet     cin
+options     head
 abbr        std::cin >> ...;
     std::cin >> ${0:TARGET};
 
 snippet     cout
+options     head
 abbr        std::cout << ... << std::endl;
     std::cout << ${0:TARGET} << std::endl;
 
 snippet     cerr
+options     head
 abbr        std::cerr << ... << std::endl;
     std::cerr << ${0:TARGET} << std::endl;
 
 snippet     debug
+options     head
 abbr        std::cerr << __FILE__ << ":" << __LINE__ << std::endl;
     std::cerr << __FILE__ << ":" << __LINE__ << std::endl;
 
 snippet     ignore
+options     head
 abbr        std::cin.ignore(...);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+snippet     now
+options     head
+abbr        t = std::chrono::high_resolution_clock::now();
+    auto ${1:TARGET:t} = std::chrono::high_resolution_clock::now();
+
+snippet     duration
+abbr        std::chrono::duration<double>(...).count()
+    std::chrono::duration<double>(${1:TARGET:t_end - t_start}).count()
 
 snippet     array
 abbr        std::array<T, N>
