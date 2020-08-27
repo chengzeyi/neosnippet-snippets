@@ -290,7 +290,7 @@ abbr    fprintf(file, "...\n", ...);
 snippet debug
 options head
 abbr    fprintf(stderr, "%s:%d\n", __FILE__, __LINE__);
-    fprintf(stderr, "%s:%d\n", __FILE__, __LINE__);
+    fprintf(stderr, "%s:%d:${1:%s}\n", __FILE__, __LINE__, ${2:"@DEBUG@"});
 
 snippet FILE
 options head
