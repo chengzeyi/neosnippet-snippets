@@ -11,7 +11,7 @@ options word
 snippet linkurl
 abbr [link](url)
 options word
-    [${1:#:LINK}](http://${2:#:URL})${3}
+    [${1:#:LINK}](${2:#:URL})${3}
 
 snippet linkemail
 abbr [link](email)
@@ -26,7 +26,7 @@ options word
 snippet idurl
 abbr [id]: url "title"
 options word
-    [${1:#:ID}]: http://${2:#:URL} "${3:#:TITLE}"
+    [${1:#:ID}]: ${2:#:URL} "${3:#:TITLE}"
 
 snippet idemail
 abbr [id]: email "title"
