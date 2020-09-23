@@ -243,6 +243,21 @@ snippet     duration
 abbr        std::chrono::duration<double>(...).count()
     std::chrono::duration<double>(${1:TARGET:t_end - t_start}).count()
 
+snippet     duration_block
+alias       durationb
+options     head
+abbr        { t_start; ... t_end; dur_s; }
+	{
+		auto ${1:TARGET:t_start} = std::chrono::high_resolution_clock::now();
+		${0:TARGET}
+		auto ${2:TARGET:t_end} = std::chrono::high_resolution_clock::now();
+		auto ${3:dur_s} = std::chrono::duration<double>($2 - $1).count();
+	}
+
+snippet     duration
+abbr        std::chrono::duration<double>(...).count()
+    std::chrono::duration<double>(${1:TARGET:t_end - t_start}).count()
+
 snippet     array
 abbr        std::array<T, N>
     std::array<${1:T}, ${2:N}>${0}
