@@ -248,9 +248,9 @@ alias       durationb
 options     head
 abbr        { t_start; ... t_end; dur_s; }
 	{
-		auto ${1:TARGET:t1} = std::chrono::high_resolution_clock::now();
+		auto ${1:t1} = std::chrono::high_resolution_clock::now();
 		${0:TARGET}
-		auto ${2:TARGET:t2} = std::chrono::high_resolution_clock::now();
+		auto ${2:t2} = std::chrono::high_resolution_clock::now();
 		auto ${3:span} = std::chrono::duration<double>($2 - $1);
 	}
 
