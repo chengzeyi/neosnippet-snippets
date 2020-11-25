@@ -2,7 +2,12 @@ snippet     #!
 abbr        #!/usr/bin/env python3
 alias       shebang
 options     head
-	#!/usr/bin/env python3
+	#!/usr/bin/env ${1:python3}
+
+snippet     coding
+abbr        # -*- coding: utf-8 -*-
+options     head
+	# -*- coding: ${1:utf-8} -*-
 
 snippet     import
 abbr        import ...
@@ -178,10 +183,6 @@ snippet     print
 abbr        print(...)
 options     word
 	print(${0:TARGET})
-
-snippet     coding
-abbr        # -*- coding ...
-	# -*- coding: utf-8 -*-
 
 snippet     getattr
 abbr        getattr(..., ...)
