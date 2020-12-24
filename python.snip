@@ -37,7 +37,7 @@ options     head
 	class ${1:#:NAME}(${2:object}):
 
 		def __init__(self${3}):
-			${0:pass}
+			${0:TARGET:pass}
 
 snippet     class_doc
 alias       classd
@@ -48,13 +48,13 @@ options     head
 
 		def __init__(self${4}):
 			"""${5:#:__INIT__ DOCUMENTATION}"""
-			${0:pass}
+			${0:TARGET:pass}
 
 snippet     def
 abbr        def function(...): ...
 options     head
 	def ${1:#:NAME}(${2}):
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     def_doc
 alias       dofd
@@ -62,14 +62,14 @@ abbr        def function(...): """..."""
 options     head
 	def ${1:#:NAME}(${2}):
 		"""${3:#:FUNCTION DOCUMENTATION}"""
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     def_met
 alias       defm
 abbr        def method(self, ...): ...
 options     head
 	def ${1:#:NAME}(self${2}):
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     def_met_doc
 alias       defmd
@@ -77,25 +77,25 @@ abbr        def method(self, ...): """..."""
 options     head
 	def ${1:#:NAME}(self${2}):
 		"""${3:#:METHOD DOCUMENTATION}"""
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     if
 abbr        if ...: ...
 options     head
 	if ${1:#:CONDITION}:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     elif
 abbr        elif ...: ...
 options     head
 	elif ${1:#:CONDITION}:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     else
 abbr        else: ...
 options     head
 	else:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     condition
 alias       cond
@@ -106,20 +106,20 @@ snippet     with_open
 alias       fileidiom withopen witho
 options     head
 	with open(${1:#:FILE}, '${2:r}') as ${3:f}:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     for
 abbr        for ... in ...: ...
 options     head
 	for ${1:i} in ${2:#:LIST}:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     if_main
 alias       ifmain main
 abbr        if __name__ == '__main__': ...
 options     head
 	if __name__ == '__main__':
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     raise
 abbr        raise ...
@@ -131,7 +131,7 @@ alias       trye
 abbr        try: ... except ...: ...
 options     head
 	try:
-		${1:pass}
+		${1:TARGET:pass}
 	except ${2:Exception}:
 		${3:pass}
 
@@ -140,7 +140,7 @@ alias       tryf
 abbr        try: ... finally: ...
 options     head
 	try:
-		${1:pass}
+		${1:TARGET:pass}
 	finally:
 		${2:pass}
 
@@ -148,31 +148,31 @@ snippet     try
 abbr        try: ...
 options     head
 	try:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     except
 abbr        except ...: ...
 options     head
 	except ${1:Exception}:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     finally
 abbr        finally: ...
 options     head
 	finally:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     while
 abbr        while ...: ...
 options     head
 	while ${1:#:CONDITION}:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     with
 abbr        with {func}({file}) as :
 options     head
 	with ${1:open}(${2:#:FILENAME, MODE}) as ${3:f}:
-		${0:pass}
+		${0:TARGET:pass}
 
 snippet     filter
 alias       forif
