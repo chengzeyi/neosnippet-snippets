@@ -237,26 +237,13 @@ abbr        std::cin.ignore(...);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 snippet     now
-options     head
 abbr        t = std::chrono::high_resolution_clock::now();
-    auto &&${1:TARGET:t} = std::chrono::high_resolution_clock::now();
+    std::chrono::high_resolution_clock::now()
 
 snippet     duration
-abbr        std::chrono::duration<double>(...).count()
-    std::chrono::duration<double>(${1:TARGET:t2 - t1})
-
-snippet     time_span
-alias       times
-options     head
-abbr        { t1; ... t2; span; }
-    auto &&${1:t1} = std::chrono::high_resolution_clock::now();
-    ${0:TARGET}
-    auto &&${2:t2} = std::chrono::high_resolution_clock::now();
-    auto &&${3:span} = std::chrono::duration<double>($2 - $1);
-
-snippet     duration
-abbr        std::chrono::duration<double>(...).count()
-    std::chrono::duration<double>(${1:TARGET:t_end - t_start}).count()
+alias       dur
+abbr        std::chrono::duration<double>(t2 - t1)
+    std::chrono::duration<${1:double}>(${2:TARGET:t2 - t1})
 
 snippet     stdarray
 abbr        std::array<T, N>
