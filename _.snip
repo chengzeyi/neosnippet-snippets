@@ -66,3 +66,7 @@ snippet    TODO
 abbr       TODO: ...
 options    word
     TODO: ${0:unimplemented}
+
+snippet    modeline
+abbr       vim: ...
+    vim: set `&l:expandtab ? printf('et sw=%i ts=%i', &l:sw, &l:ts) : printf('noet sts=%i sw=%i ts=%i', &l:sts, &l:sw, &l:ts)``&l:tw ? printf(' tw=%i', &l:tw) : ''`:

@@ -185,10 +185,10 @@ abbr    if exists('g:loaded_{plugin-name}') | finish | endif ...
     endif
     let g:loaded_$1 = 1
 
-snippet modeline
-options head
-abbr    " vim: {modeline}
-    " vim: ${0:foldmethod=marker}
+# snippet modeline
+# options head
+# abbr    " vim: {modeline}
+#     " vim: ${0:foldmethod=marker}
 
 snippet undo_ftplugin
 alias   b:undo_ftplugin
@@ -281,4 +281,3 @@ alias   hasn
 options word
 abbr    has('nvim-...')
     has('nvim-${1}')
-
