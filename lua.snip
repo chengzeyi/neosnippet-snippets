@@ -1,5 +1,6 @@
 # lua's indent plugin doesn't work well partly with markers. Use hard-tab for some of this snippet.
 snippet func
+alias   function
 abbr    function name(args)...end
 options word
 	function ${1:#:FUNCTION_NAME}(${2:#:ARGUMENT})
@@ -25,6 +26,7 @@ options head
   end
 
 snippet print_table
+alias   printt
 options head
 abbr    for k, v in ipairs(table) do
   for k, v in ipairs(${1:table}) do
@@ -32,7 +34,6 @@ abbr    for k, v in ipairs(table) do
   end
 
 snippet     print
-alias       p
 options     head
   print(${0:TARGET})
 
@@ -90,4 +91,3 @@ abbr    finally(func)
   finally(function()
     ${0:TARGET}
   end)
-
